@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  get 'welcome/index'
+
   resources :expenses
 
   resources :customers do
@@ -11,7 +13,13 @@ Rails.application.routes.draw do
   	end
   end
 
-  resources :welcomes
+  #resources :appointments
+
+  #resources :orders
+
+  #resources :garments
+
+  #resources :costs
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
