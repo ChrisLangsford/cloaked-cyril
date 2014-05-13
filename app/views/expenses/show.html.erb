@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Period end date:</strong>
+  <%= @expense.period_end_date %>
+</p>
+
+<p>
+  <strong>Habby:</strong>
+  <%= @expense.habby %>
+</p>
+
+<p>
+  <strong>Bank charge:</strong>
+  <%= @expense.bank_charge %>
+</p>
+
+<p>
+  <strong>Equipment:</strong>
+  <%= @expense.equipment %>
+</p>
+
+<p>
+  <strong>Stationery:</strong>
+  <%= @expense.stationery %>
+</p>
+
+<p>
+  <strong>Computer:</strong>
+  <%= @expense.computer %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @expense.telephone %>
+</p>
+
+<p>
+  <strong>Misc expense:</strong>
+  <%= @expense.misc_expense %>
+</p>
+
+<%= link_to 'Edit', edit_expense_path(@expense) %> |
+<%= link_to 'Back', expenses_path %>

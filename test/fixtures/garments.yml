@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  garment_type: MyString
+  garment_description: MyText
+  order_id: 
+  bust: 9.99
+  under_bust: 9.99
+  waist: 9.99
+  hip_upper: 9.99
+  hip_lower: 9.99
+  bust_point: 9.99
+  front_length: 9.99
+  shoulder_to_under_bust: 9.99
+  back_length: 9.99
+  across_back: 9.99
+  shoulderlength: 9.99
+  skirt_length: 9.99
+  sleeve_length: 9.99
+  sleeve_width_upper: 9.99
+  sleeve_width_elbow: 9.99
+  sleeve_width_wrist: 9.99
+  pants_length: 9.99
+  jacket_length: 9.99
+
+two:
+  garment_type: MyString
+  garment_description: MyText
+  order_id: 
+  bust: 9.99
+  under_bust: 9.99
+  waist: 9.99
+  hip_upper: 9.99
+  hip_lower: 9.99
+  bust_point: 9.99
+  front_length: 9.99
+  shoulder_to_under_bust: 9.99
+  back_length: 9.99
+  across_back: 9.99
+  shoulderlength: 9.99
+  skirt_length: 9.99
+  sleeve_length: 9.99
+  sleeve_width_upper: 9.99
+  sleeve_width_elbow: 9.99
+  sleeve_width_wrist: 9.99
+  pants_length: 9.99
+  jacket_length: 9.99

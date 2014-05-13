@@ -1,0 +1,45 @@
+<%= form_for(@costing) do |f| %>
+  <% if @costing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@costing.errors.count, "error") %> prohibited this costing from being saved:</h2>
+
+      <ul>
+      <% @costing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cost_date %><br>
+    <%= f.date_select :cost_date %>
+  </div>
+  <div class="field">
+    <%= f.label :cost_status %><br>
+    <%= f.text_field :cost_status %>
+  </div>
+  <div class="field">
+    <%= f.label :labour_cost %><br>
+    <%= f.text_field :labour_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :fabric_cost %><br>
+    <%= f.text_field :fabric_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :acc_cost %><br>
+    <%= f.text_field :acc_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :misc_cost %><br>
+    <%= f.text_field :misc_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :garment_id %><br>
+    <%= f.text_field :garment_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

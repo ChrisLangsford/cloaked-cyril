@@ -1,0 +1,101 @@
+<%= form_for(@garment) do |f| %>
+  <% if @garment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@garment.errors.count, "error") %> prohibited this garment from being saved:</h2>
+
+      <ul>
+      <% @garment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :garment_type %><br>
+    <%= f.text_field :garment_type %>
+  </div>
+  <div class="field">
+    <%= f.label :garment_description %><br>
+    <%= f.text_area :garment_description %>
+  </div>
+  <div class="field">
+    <%= f.label :order_id %><br>
+    <%= f.text_field :order_id %>
+  </div>
+  <div class="field">
+    <%= f.label :bust %><br>
+    <%= f.text_field :bust %>
+  </div>
+  <div class="field">
+    <%= f.label :under_bust %><br>
+    <%= f.text_field :under_bust %>
+  </div>
+  <div class="field">
+    <%= f.label :waist %><br>
+    <%= f.text_field :waist %>
+  </div>
+  <div class="field">
+    <%= f.label :hip_upper %><br>
+    <%= f.text_field :hip_upper %>
+  </div>
+  <div class="field">
+    <%= f.label :hip_lower %><br>
+    <%= f.text_field :hip_lower %>
+  </div>
+  <div class="field">
+    <%= f.label :bust_point %><br>
+    <%= f.text_field :bust_point %>
+  </div>
+  <div class="field">
+    <%= f.label :front_length %><br>
+    <%= f.text_field :front_length %>
+  </div>
+  <div class="field">
+    <%= f.label :shoulder_to_under_bust %><br>
+    <%= f.text_field :shoulder_to_under_bust %>
+  </div>
+  <div class="field">
+    <%= f.label :back_length %><br>
+    <%= f.text_field :back_length %>
+  </div>
+  <div class="field">
+    <%= f.label :across_back %><br>
+    <%= f.text_field :across_back %>
+  </div>
+  <div class="field">
+    <%= f.label :shoulderlength %><br>
+    <%= f.text_field :shoulderlength %>
+  </div>
+  <div class="field">
+    <%= f.label :skirt_length %><br>
+    <%= f.text_field :skirt_length %>
+  </div>
+  <div class="field">
+    <%= f.label :sleeve_length %><br>
+    <%= f.text_field :sleeve_length %>
+  </div>
+  <div class="field">
+    <%= f.label :sleeve_width_upper %><br>
+    <%= f.text_field :sleeve_width_upper %>
+  </div>
+  <div class="field">
+    <%= f.label :sleeve_width_elbow %><br>
+    <%= f.text_field :sleeve_width_elbow %>
+  </div>
+  <div class="field">
+    <%= f.label :sleeve_width_wrist %><br>
+    <%= f.text_field :sleeve_width_wrist %>
+  </div>
+  <div class="field">
+    <%= f.label :pants_length %><br>
+    <%= f.text_field :pants_length %>
+  </div>
+  <div class="field">
+    <%= f.label :jacket_length %><br>
+    <%= f.text_field :jacket_length %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

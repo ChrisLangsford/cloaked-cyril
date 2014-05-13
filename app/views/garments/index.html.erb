@@ -1,0 +1,65 @@
+<h1>Listing garments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Garment type</th>
+      <th>Garment description</th>
+      <th>Order</th>
+      <th>Bust</th>
+      <th>Under bust</th>
+      <th>Waist</th>
+      <th>Hip upper</th>
+      <th>Hip lower</th>
+      <th>Bust point</th>
+      <th>Front length</th>
+      <th>Shoulder to under bust</th>
+      <th>Back length</th>
+      <th>Across back</th>
+      <th>Shoulderlength</th>
+      <th>Skirt length</th>
+      <th>Sleeve length</th>
+      <th>Sleeve width upper</th>
+      <th>Sleeve width elbow</th>
+      <th>Sleeve width wrist</th>
+      <th>Pants length</th>
+      <th>Jacket length</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @garments.each do |garment| %>
+      <tr>
+        <td><%= garment.garment_type %></td>
+        <td><%= garment.garment_description %></td>
+        <td><%= garment.order %></td>
+        <td><%= garment.bust %></td>
+        <td><%= garment.under_bust %></td>
+        <td><%= garment.waist %></td>
+        <td><%= garment.hip_upper %></td>
+        <td><%= garment.hip_lower %></td>
+        <td><%= garment.bust_point %></td>
+        <td><%= garment.front_length %></td>
+        <td><%= garment.shoulder_to_under_bust %></td>
+        <td><%= garment.back_length %></td>
+        <td><%= garment.across_back %></td>
+        <td><%= garment.shoulderlength %></td>
+        <td><%= garment.skirt_length %></td>
+        <td><%= garment.sleeve_length %></td>
+        <td><%= garment.sleeve_width_upper %></td>
+        <td><%= garment.sleeve_width_elbow %></td>
+        <td><%= garment.sleeve_width_wrist %></td>
+        <td><%= garment.pants_length %></td>
+        <td><%= garment.jacket_length %></td>
+        <td><%= link_to 'Show', garment %></td>
+        <td><%= link_to 'Edit', edit_garment_path(garment) %></td>
+        <td><%= link_to 'Destroy', garment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Garment', new_garment_path %>

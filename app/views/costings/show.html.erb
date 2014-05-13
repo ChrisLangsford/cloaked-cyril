@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cost date:</strong>
+  <%= @costing.cost_date %>
+</p>
+
+<p>
+  <strong>Cost status:</strong>
+  <%= @costing.cost_status %>
+</p>
+
+<p>
+  <strong>Labour cost:</strong>
+  <%= @costing.labour_cost %>
+</p>
+
+<p>
+  <strong>Fabric cost:</strong>
+  <%= @costing.fabric_cost %>
+</p>
+
+<p>
+  <strong>Acc cost:</strong>
+  <%= @costing.acc_cost %>
+</p>
+
+<p>
+  <strong>Misc cost:</strong>
+  <%= @costing.misc_cost %>
+</p>
+
+<p>
+  <strong>Garment:</strong>
+  <%= @costing.garment %>
+</p>
+
+<%= link_to 'Edit', edit_costing_path(@costing) %> |
+<%= link_to 'Back', costings_path %>

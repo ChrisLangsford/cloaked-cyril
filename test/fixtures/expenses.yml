@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  period_end_date: 2014-05-13
+  habby: 9.99
+  bank_charge: 9.99
+  equipment: 9.99
+  stationery: 9.99
+  computer: 9.99
+  telephone: 9.99
+  misc_expense: 9.99
+
+two:
+  period_end_date: 2014-05-13
+  habby: 9.99
+  bank_charge: 9.99
+  equipment: 9.99
+  stationery: 9.99
+  computer: 9.99
+  telephone: 9.99
+  misc_expense: 9.99
