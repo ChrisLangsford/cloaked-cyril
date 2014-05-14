@@ -3,15 +3,12 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   resources :expenses
-
-  resources :customers do
-  	resources :appointments
-  	resources :orders do
-  		resources :garments do
-  			resources :costs
-  		end
-  	end
-  end
+  resources :customers 
+  resources :appointments
+  resources :orders 
+  resources :garments 
+	resources :costs
+  	
 
   #resources :appointments
 

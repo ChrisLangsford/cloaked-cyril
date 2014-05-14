@@ -1,0 +1,87 @@
+﻿@{
+    Page.Title = "Add Expense";
+    Layout = "~/_FormLayout.cshtml";
+}
+
+<div class="page-header">
+    <h1>Add expense</h1>
+</div>
+
+<div class="col-lg-6 well bs-component">
+    <form class="form-horizontal">
+        <fieldset>
+            <legend>Add Expense</legend>
+
+            <div class="form-group"><!--date-->
+                <label for="inputDate" class="col-lg-3 control-label">Period End</label>
+                <div class="col-lg-9 input-group">
+                    <span class="input-group-addon">R</span>
+                    <input type="date" id="inputDate" class="form-control"/>
+                </div> 
+            </div><!--date-->
+            
+            <div class="form-group">@*habby*@
+                <label for="inputhabby" class="col-lg-3 control-label">Habby</label>
+                <div class="col-lg-9 input-group">
+                    <span class="input-group-addon">R</span>
+                    <input type="number" id="inputhabby" class="form-control"/>
+                </div>
+            </div> @*habby*@
+
+            <div class="form-group">@*Bank*@
+                <label for="inputBank" class="col-lg-3 control-label">Bank</label>
+                <div class="col-lg-9 input-group">
+                    <span class="input-group-addon">R</span>                    
+                    <input type="number" id="inputBank" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group">@*Equipment*@
+                <label for="inputEquip" class="col-lg-3 control-label">Equipment</label>
+                <div class="col-lg-9 input-group">
+                    <span class="input-group-addon">R</span>                    
+                    <input type="number" id="inputEquip" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group">@*stat*@
+                <label for="inputStat" class="col-lg-3 control-label">Stationery</label>
+                <div class="col-lg-9 input-group">
+                    <span class="input-group-addon">R</span>                    
+                    <input type="number" id="inputStat" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group">@*comp*@
+                <label for="inputComp" class="col-lg-3 control-label">Computer</label>
+                <div class="col-lg-9 input-group">
+                    <span class="input-group-addon">R</span>                    
+                    <input type="number" id="inputComp" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group">@*Tel*@
+                <label for="inputTel" class="col-lg-3 control-label">Telephone</label>
+                <div class="col-lg-9 input-group">
+                    <span class="input-group-addon">R</span>                    
+                    <input type="number" id="inputTel" class="form-control"/>
+                </div>
+            </div>@*Tel*@
+
+            <div class="form-group">@*Misc*@
+                <label for="inputMisc" class="col-lg-3 control-label">Misc Expense</label>
+                <div class="col-lg-9 input-group">
+                    <span class="input-group-addon">R</span>                    
+                    <input type="number" id="inputMisc" class="form-control"/>
+                </div>
+            </div>@*Misc*@
+
+            <div class="form-group">
+                <div class="col-lg-10">
+                    <a href="~/ExpenseIndex" class="btn btn-primary">Save</a>
+                    <a href="~/ExpenseIndex" class="btn btn-default">Cancel</a>
+                </div>
+            </div>
+        </fieldset>
+    </form>    
+</div>

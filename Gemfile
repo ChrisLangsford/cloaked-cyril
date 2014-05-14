@@ -7,6 +7,8 @@ gem 'rails', '4.1.1'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+
+gem 'less', '~> 2.2.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -29,6 +31,8 @@ gem 'spring',        group: :development
 gem 'railroady'
 
 gem 'bootstrap-sass', '~> 3.1.1.1'
+gem 'bootswatch-rails'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

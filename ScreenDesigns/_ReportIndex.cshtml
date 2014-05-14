@@ -1,0 +1,21 @@
+﻿@{
+    Page.Title = "Reports";
+    Layout = "~/_SiteLayout.cshtml";
+}
+<script src="~/Scripts/ReportNavScript.js"></script>
+<div class="page-header">
+    <h1>Reports</h1>
+</div>
+<div class="col-md-12">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">Daily Schedule</a></li>
+      <li><a href="#">Weekly Deadlines</a</li>
+      <li><a href="#">Invoices Unpaid</a></li>
+      <li><a href="#">Expense vs Income</a></li>
+      <li><a href="#">Income per Garment Category</a></li>
+      <li><a href="#">BlackList</a></li>
+    </ul>
+</div>
+<div class="col-md-12">
+    @RenderBody();
+</div>

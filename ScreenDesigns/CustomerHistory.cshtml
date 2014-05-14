@@ -1,0 +1,31 @@
+﻿@{
+    Page.Title = "Customer History";
+    Layout = "~/_SiteLayout.cshtml";
+}
+
+<div class="page-header">
+    <h1>Customer History: Customer Name</h1>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>                
+                <th>Order Description</th>
+                <th class="col-md-2">DueDate</th>
+                <th class="col-md-2">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <p>
+                        <a href="~/OrderShow.cshtml" class="btn btn-xs btn-primary">Show Order</a> <!--create garment button on show order page disabled for closed orders-->
+                    </p>
+                </td>                
+            </tr>  
+        </tbody>
+    </table>
+</div>

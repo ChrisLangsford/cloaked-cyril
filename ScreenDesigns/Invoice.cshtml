@@ -1,0 +1,27 @@
+﻿@{
+    Page.Title = "Invoice";
+    Layout = "~/_SiteLayout.cshtml";
+}
+
+<div class="page-header">
+    <h1>Invoice</h1><h4>28/04/2014</h4>
+</div>
+<div class="col-md-12">
+    <div class="col-md-3">
+        <p><strong>Description:</strong>"Some text"</p>
+        <p><strong>Due Date:</strong> ##/##/####</p>
+        <p><strong>Customer:</strong> "Some Text"</p>
+    </div>
+</div> 
+<div class="col-md-4" style="margin-bottom:15px;">
+        <a href="#" class="btn btn-primary">Email to Customer</a>
+        <a href="~/OrderShow" class="btn btn-link">Back to Order</a>
+</div> 
+
+<div class="col-md-12">
+    <object class="media-object" data="" type="application/pdf" width="100%" height="600px"> 
+      <p>It appears you don't have a PDF plugin for this browser.
+      No biggie... you can <a href="#">click here to
+      download the PDF file.</a></p>  
+    </object>
+</div>
