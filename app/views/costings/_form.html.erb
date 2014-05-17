@@ -1,7 +1,7 @@
-<%= form_for(@costing) do |f| %>
+<%= form_for @costing, :html => {:class => 'form-horizontal'}  do |f| %>
   <% if @costing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@costing.errors.count, "error") %> prohibited this costing from being saved:</h2>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@costing.errors.count, "error") %> prohibited this costing from being saved:</h2>
 
       <ul>
       <% @costing.errors.full_messages.each do |message| %>
@@ -11,35 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :cost_date %><br>
-    <%= f.date_select :cost_date %>
+    
+  <div class="form-group">
+    <%= f.label :labour_cost, :class => "col-lg-3 control-label" %>
+    <div class = "col-lg-9 input-group">
+    <span class="input-group-addon">R</span>
+      <%= f.text_field :labour_cost, :class =>"form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :cost_status %><br>
-    <%= f.text_field :cost_status %>
+  <div class="form-group">
+    <%= f.label :fabric_cost, :class => "col-lg-3 control-label" %>
+    <div class = "col-lg-9 input-group">
+    <span class="input-group-addon">R</span>
+      <%= f.text_field :fabric_cost, :class =>"form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :labour_cost %><br>
-    <%= f.text_field :labour_cost %>
+  <div class="form-group">
+    <%= f.label :acc_cost, :class => "col-lg-3 control-label" %>
+    <div class = "col-lg-9 input-group">
+    <span class="input-group-addon">R</span>
+      <%= f.text_field :acc_cost, :class =>"form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :fabric_cost %><br>
-    <%= f.text_field :fabric_cost %>
-  </div>
-  <div class="field">
-    <%= f.label :acc_cost %><br>
-    <%= f.text_field :acc_cost %>
-  </div>
-  <div class="field">
-    <%= f.label :misc_cost %><br>
-    <%= f.text_field :misc_cost %>
-  </div>
-  <div class="field">
-    <%= f.label :garment_id %><br>
-    <%= f.text_field :garment_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :misc_cost, :class => "col-lg-3 control-label" %>
+    <div class = "col-lg-9 input-group">
+    <span class="input-group-addon">R</span>
+      <%= f.text_field :misc_cost, :class =>"form-control" %>
+    </div>
+  </div>  
+  <div class="form-group">
+    <div class = "col-lg-10 col-lg-offset-3">
+      <%= f.submit 'Save', :class => "btn btn-primary"%>
+      <%= link_to 'Cancel', garments_path, :class => "btn btn-default" %>
+    </div>
   </div>
 <% end %>

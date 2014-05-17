@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   resources :expenses
   resources :customers 
   resources :appointments
-  resources :orders 
+  resources :orders  
   resources :garments 
-	resources :costs
+	resources :costings
+	
+
   	
 
   #resources :appointments

@@ -1,7 +1,7 @@
-<%= form_for(@garment) do |f| %>
+<%= form_for @garment, :html => {:class => 'form-horizontal'} do |f| %>
   <% if @garment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@garment.errors.count, "error") %> prohibited this garment from being saved:</h2>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@garment.errors.count, "error") %> prohibited this garment from being saved:</h2>
 
       <ul>
       <% @garment.errors.full_messages.each do |message| %>
@@ -11,91 +11,149 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :garment_type %><br>
-    <%= f.text_field :garment_type %>
+  <div class="form-group">
+    <%= f.label :garment_description, :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_area :garment_description, :class => "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :garment_description %><br>
-    <%= f.text_area :garment_description %>
+  <div class="form-group">
+    <%= f.label :garment_type, :class => "col-lg-2 control-label" %>
+    <div class = "col-lg-10">    
+      <%= f.select :garment_type, :class => "form-control" %>
+    </div>
+  </div>  
+  <legend>Measurements</legend>  
+  <div class="form-group col-lg-6">
+    <%= f.label :bust, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :bust, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :order_id %><br>
-    <%= f.text_field :order_id %>
+  <div class="form-group col-lg-6">
+    <%= f.label :under_bust, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :under_bust, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :bust %><br>
-    <%= f.text_field :bust %>
+  <div class="form-group col-lg-6">
+    <%= f.label :waist, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :waist, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :under_bust %><br>
-    <%= f.text_field :under_bust %>
+  <div class="form-group col-lg-6">
+    <%= f.label :hip_upper, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :hip_upper, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :waist %><br>
-    <%= f.text_field :waist %>
+  <div class="form-group col-lg-6">
+    <%= f.label :hip_lower, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :hip_lower, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :hip_upper %><br>
-    <%= f.text_field :hip_upper %>
+  <div class="form-group col-lg-6">
+    <%= f.label :bust_point, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :bust_point, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :hip_lower %><br>
-    <%= f.text_field :hip_lower %>
+  <div class="form-group col-lg-6">
+    <%= f.label :front_length, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :front_length, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :bust_point %><br>
-    <%= f.text_field :bust_point %>
+  <div class="form-group col-lg-6">
+    <%= f.label :shoulder_to_under_bust, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :shoulder_to_under_bust, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :front_length %><br>
-    <%= f.text_field :front_length %>
+  <div class="form-group col-lg-6">
+    <%= f.label :back_length, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :back_length, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :shoulder_to_under_bust %><br>
-    <%= f.text_field :shoulder_to_under_bust %>
+  <div class="form-group col-lg-6">
+    <%= f.label :across_back, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :across_back, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :back_length %><br>
-    <%= f.text_field :back_length %>
+  <div class="form-group col-lg-6">
+    <%= f.label :shoulderlength, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+     <%= f.text_field :shoulderlength, :class => "form-control" %>
+     <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :across_back %><br>
-    <%= f.text_field :across_back %>
+  <div class="form-group col-lg-6">
+    <%= f.label :skirt_length, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :skirt_length, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :shoulderlength %><br>
-    <%= f.text_field :shoulderlength %>
+  <div class="form-group col-lg-6">
+    <%= f.label :sleeve_length, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :sleeve_length, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :skirt_length %><br>
-    <%= f.text_field :skirt_length %>
+  <div class="form-group col-lg-6">
+    <%= f.label :sleeve_width_upper, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :sleeve_width_upper, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :sleeve_length %><br>
-    <%= f.text_field :sleeve_length %>
+  <div class="form-group col-lg-6">
+    <%= f.label :sleeve_width_elbow, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :sleeve_width_elbow, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :sleeve_width_upper %><br>
-    <%= f.text_field :sleeve_width_upper %>
+  <div class="form-group col-lg-6">
+    <%= f.label :sleeve_width_wrist, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :sleeve_width_wrist, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :sleeve_width_elbow %><br>
-    <%= f.text_field :sleeve_width_elbow %>
+  <div class="form-group col-lg-6">
+    <%= f.label :pants_length, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :pants_length, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :sleeve_width_wrist %><br>
-    <%= f.text_field :sleeve_width_wrist %>
+  <div class="form-group col-lg-6">
+    <%= f.label :jacket_length, :class => "col-lg-8 control-label" %>
+    <div class = "col-lg-4 input-group">
+      <%= f.text_field :jacket_length, :class => "form-control" %>
+      <span class="input-group-addon">cm</span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :pants_length %><br>
-    <%= f.text_field :pants_length %>
+  <div class="form-group">
+    <div class = "col-lg-10 col-lg-offset-2">      
+      <%= f.submit 'Save', :class => "btn btn-primary"%>
+      <%= link_to 'Cancel', garments_path, :class => "btn btn-default" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :jacket_length %><br>
-    <%= f.text_field :jacket_length %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <% end %>
