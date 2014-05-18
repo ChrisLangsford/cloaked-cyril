@@ -20,10 +20,12 @@
                 <th class="col-md-2">Options</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody>        
+
           <% @orders.each do |order| %>
+          <% person = Customer.find(order.customer_id)%>          
             <tr>
-              <td><%= order.customer %></td>
+              <td><%= person.first_name + " "+ person.last_name %></td>
               <td><%= order.order_description %></td>
               <td><%= order.due_date %></td> 
               <td>
