@@ -1,29 +1,60 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>View Order</h1>
+</div>
 
-<p>
-  <strong>Order description:</strong>
-  <%= @order.order_description %>
-</p>
+<div class="alert alert-success"><%= notice %></div>
+  <div class="col-md-12">
+    <p>
+      <strong>Description:</strong>
+      <%= @order.order_description %>
+    </p>
 
-<p>
-  <strong>Due date:</strong>
-  <%= @order.due_date %>
-</p>
+    <p>
+      <strong>Due Date:</strong>
+      <%= @order.due_date %>
+    </p>
 
-<p>
-  <strong>Customer value index:</strong>
-  <%= @order.customer_value_index %>
-</p>
+    <p>
+      <strong>Customer:</strong>
+      <% person = Customer.find(@order.customer_id)%>
+      <%= person.first_name + ' ' + person.last_name %>
+    </p>
+  </div>
+<div class = "col-lg-12">
+  <%= link_to "Add Garment", new_order_garment_path(@order) ,:class => "btn btn-success" %>
+  <%= link_to "Generate Quote", order_path, :class => "btn btn-default"%>
+  <%= link_to "Generate Invoice", order_path, :class => "btn btn-default"%>
+  <%= link_to 'Edit', edit_order_path(@order), :class => "btn btn-link"%>
+  <%= link_to 'Back', orders_path, :class => "btn btn-link" %>
+</div>
 
-<p>
-  <strong>Closed:</strong>
-  <%= @order.closed %>
-</p>
+<div class="table-repsonsive">
+  <table class ="table table-striped">
+    <thead>
+      <tr>
+        <th class ="col-md-6">Garment Description</th>
+        <th class="col-md-2" >Type</th>
+        <th class="col-md-4" >Options</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @garments.each do |garment|%>
+      <tr>
+        <td><%= garment.garment_description%></td>
+        <td><%= garment.garment_type%></td>
+        <td>
+          <%= link_to "Measurements", order_path, :class => "btn btn-sm btn-primary"%>
+          <%= link_to "Costing", order_path, :class => "btn btn-sm btn-success"%>
+          <%= link_to "Edit", order_path, :class => "btn btn-sm btn-warning"%>
+          <%= link_to "Delete", order_path, :class => "btn btn-sm btn-danger"%>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <%end%>
+</div>
 
-<p>
-  <strong>Customer:</strong>
-  <%= @order.customer %>
-</p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+
+
+

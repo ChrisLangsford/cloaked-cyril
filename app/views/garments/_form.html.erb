@@ -1,5 +1,4 @@
-<%= form_for @garment, :html => {:class => 'form-horizontal'} do |f| %>
-  <% if @garment.errors.any? %>
+<% if @garment.errors.any? %>
     <div class="alert alert-danger">
       <h4><%= pluralize(@garment.errors.count, "error") %> prohibited this garment from being saved:</h2>
 
@@ -10,6 +9,8 @@
       </ul>
     </div>
   <% end %>
+
+  <%= form_for :@garment, :html => {:class => 'form-horizontal'} do |f| %>
 
   <div class="form-group">
     <%= f.label :garment_description, :class => "col-lg-2 control-label" %>
@@ -153,7 +154,7 @@
   <div class="form-group">
     <div class = "col-lg-10 col-lg-offset-2">      
       <%= f.submit 'Save', :class => "btn btn-primary"%>
-      <%= link_to 'Cancel', garments_path, :class => "btn btn-default" %>
+      <%= link_to 'Cancel', orders_path, :class => "btn btn-default" %>
     </div>
   </div>
-  <% end %>
+ <%end%>
