@@ -10,7 +10,8 @@
     </div>
   <% end %>
 
-  <%= form_for :@garment, :html => {:class => 'form-horizontal'} do |f| %>
+  <%= form_for [@order,@garment], :html => {:class => 'form-horizontal'} do |f| %>  
+  <%= f.hidden_field :order_id, :value => params[:order_id]%>
 
   <div class="form-group">
     <%= f.label :garment_description, :class => "col-lg-2 control-label" %>
@@ -20,8 +21,9 @@
   </div>
   <div class="form-group">
     <%= f.label :garment_type, :class => "col-lg-2 control-label" %>
-    <div class = "col-lg-10">    
-      <%= f.select :garment_type, :class => "form-control" %>
+    <div class = "col-lg-10"> 
+    <% types = ["Wedding Dress","Matric Farewell", "Formal wear", "Work wear", "Alterations", "Other"]%> 
+    <%= f.select :garment_type, types,{}, {:class => "form-control"}%>
     </div>
   </div>  
   <legend>Measurements</legend>  

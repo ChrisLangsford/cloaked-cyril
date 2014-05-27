@@ -20,7 +20,9 @@ class Garment < ActiveRecord::Base
 			:sleeve_width_elbow,
 			:sleeve_width_wrist,
 			:pants_length,
-			:jacket_length, numericality: true							
+			:jacket_length, numericality: true, allow_nil: true	
+
+GARMENT_TYPES = ["Wedding Dress","Matric Farewell", "Formal wear", "Work wear", "Alterations", "Other"]					
 end
 
 

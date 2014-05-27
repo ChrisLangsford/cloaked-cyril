@@ -38,7 +38,9 @@
       </tr>
     </thead>
     <tbody>
-    <% @garments.each do |garment|%>
+    <%breakdown = @order.garments%>
+    <% breakdown.each do |garment|%>
+
       <tr>
         <td><%= garment.garment_description%></td>
         <td><%= garment.garment_type%></td>
@@ -49,9 +51,9 @@
           <%= link_to "Delete", order_path, :class => "btn btn-sm btn-danger"%>
         </td>
       </tr>
+      <%end%>
     </tbody>
-  </table>
-  <%end%>
+  </table>  
 </div>
 
 

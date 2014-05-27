@@ -3,27 +3,16 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   resources :expenses
-  resources :customers 
+  resources :customers, except: [:destroy]
   resources :appointments
 
+resources :orders, except: [:destroy] do
+	resources :garments, only: [:new]
+end
 
-  resources :orders do  
-  	resources :garments do
-  		resources :costings 
-  	end
-  end
-		
-	
 
-  	
-
-  #resources :appointments
-
-  #resources :orders
-
-  #resources :garments
-
-  #resources :costs
+resources :garments, except: [:index, :new]
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -28,7 +28,7 @@ class GarmentsController < ApplicationController
 
     respond_to do |format|
       if @garment.save
-        format.html { redirect_to @garment, notice: 'Garment was successfully created.' }
+        format.html { redirect_to order_path(@garment.order_id) , notice: 'Garment was successfully created.' }
         format.json { render :show, status: :created, location: @garment }
       else
         format.html { render :new }
