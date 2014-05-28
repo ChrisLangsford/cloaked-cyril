@@ -42,7 +42,7 @@ class GarmentsController < ApplicationController
   def update
     respond_to do |format|
       if @garment.update(garment_params)
-        format.html { redirect_to @garment, notice: 'Garment was successfully updated.' }
+        format.html { redirect_to order_path(@garment.order_id), notice: 'Garment was successfully updated.' }
         format.json { render :show, status: :ok, location: @garment }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class GarmentsController < ApplicationController
   def destroy
     @garment.destroy
     respond_to do |format|
-      format.html { redirect_to garments_url, notice: 'Garment was successfully destroyed.' }
+      format.html { redirect_to order_path(@garment.order_id), notice: 'Garment was successfully deleted.' }
       format.json { head :no_content }
     end
   end
