@@ -11,7 +11,9 @@ resources :orders, except: [:destroy] do
 end
 
 
-resources :garments, except: [:index, :new]
+resources :garments, except: [:index, :new] do
+	resources :costings, only: [:new, :create, :update] 
+end
   
 
   # The priority is based upon order of creation: first created -> highest priority.

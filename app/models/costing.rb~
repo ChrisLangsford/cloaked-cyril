@@ -4,5 +4,5 @@ class Costing < ActiveRecord::Base
   	validates :labour_cost,
   			  :fabric_cost,
   			  :acc_cost,
-  			  :misc_cost, numericality: true, allow_nil: true
+  			  :misc_cost, numericality: true
 end

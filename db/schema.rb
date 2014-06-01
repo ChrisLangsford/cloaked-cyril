@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20140513191604) do
   add_index "appointments", ["customer_id"], name: "index_appointments_on_customer_id"
 
   create_table "costings", force: true do |t|
-    t.date     "cost_date"
     t.string   "cost_status"
     t.decimal  "labour_cost"
     t.decimal  "fabric_cost"

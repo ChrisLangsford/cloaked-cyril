@@ -1,4 +1,5 @@
-<%= form_for @costing, :html => {:class => 'form-horizontal'}  do |f| %>
+<%= form_for [:garment, @costing], :html => {:class => 'form-horizontal'}  do |f| %>
+
   <% if @costing.errors.any? %>
     <div class="alert alert-danger">
       <h4><%= pluralize(@costing.errors.count, "error") %> prohibited this costing from being saved:</h2>
@@ -10,6 +11,8 @@
       </ul>
     </div>
   <% end %>
+  <%= f.hidden_field :garment_id, :value => params[:garment_id]%>
+  <%= f.hidden_field :cost_status, :value => "quote"%>
 
     
   <div class="form-group">
@@ -43,7 +46,7 @@
   <div class="form-group">
     <div class = "col-lg-10 col-lg-offset-3">
       <%= f.submit 'Save', :class => "btn btn-primary"%>
-      <%= link_to 'Cancel', garments_path, :class => "btn btn-default" %>
+      <%= link_to 'Cancel', order_path(@garment.order_id), :class => "btn btn-default" %>
     </div>
   </div>
 <% end %>

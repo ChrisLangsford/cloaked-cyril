@@ -1,5 +1,6 @@
 class CostingsController < ApplicationController
   before_action :set_costing, only: [:show, :edit, :update, :destroy]
+  before_action :set_garment, only: [:new, :create, :update]
 
   # GET /costings
   # GET /costings.json
@@ -28,7 +29,7 @@ class CostingsController < ApplicationController
 
     respond_to do |format|
       if @costing.save
-        format.html { redirect_to @costing, notice: 'Costing was successfully created.' }
+        format.html { redirect_to order_path(@garment.order_id), notice: 'Costing was successfully added.' }
         format.json { render :show, status: :created, location: @costing }
       else
         format.html { render :new }
@@ -65,6 +66,10 @@ class CostingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_costing
       @costing = Costing.find(params[:id])
+    end
+
+    def set_garment
+      @garment = Garment.find(params[:garment_id])      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -46,7 +46,7 @@
         <td><%= garment.garment_type%></td>
         <td>
           <%= link_to "Measurements", garment, :class => "btn btn-sm btn-primary"%>
-          <%= link_to "Costing", order_path, :class => "btn btn-sm btn-success"%>
+          <%= link_to "Costing", new_garment_costing_path(garment), :class => "btn btn-sm btn-success"%>
           <%= link_to "Edit", edit_garment_path(garment), :class => "btn btn-sm btn-warning"%>
           <%= link_to "Delete", garment, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-sm btn-danger"%>
         </td>

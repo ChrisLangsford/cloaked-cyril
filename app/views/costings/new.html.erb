@@ -3,9 +3,12 @@
 </div>
 <div class="col-md-12">
     <div class="col-md-3">
-        <p><strong>Garment Description:</strong>"Some text"</p>
-        <p><strong>Due Date:</strong> ##/##/####</p>
-        <p><strong>Customer:</strong> "Some Text"</p>
+    <% this_order = Order.find(@garment.order_id)%>
+    <% person = Customer.find(this_order.customer_id) %>
+
+        <p><strong>Garment Description: </strong><%= @garment.garment_description%></p>
+        <p><strong>Due Date: </strong><%=this_order.due_date%></p>
+        <p><strong>Customer Name: </strong> <%= person.first_name+" "+person.last_name%></p>
     </div>
 </div>
 
