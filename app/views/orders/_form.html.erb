@@ -28,7 +28,19 @@
     <div class = "col-lg-8">
       <%= f.date_select :due_date, :class =>"form-control" %>
     </div>
-  </div> 
+  </div>
+  <div class="form-group">
+    <%= f.label "Close Order", :class => "col-lg-4 control-label" %>
+    <div class = "col-lg-8">
+      <%= f.check_box :closed, :id =>"close-option"%>    
+    </div>
+  </div>
+  <div class="form-group" id="close-order" style="display:none">
+      <%= f.label :customer_value_index, :class => "col-lg-4 control-label" %>
+        <div class="col-lg-8">
+          <%= f.text_field :customer_value_index, :class => "form-control"%>
+        </div>
+    </div>
   
   <div class = "form-group">
     <div class = "col-lg-10 col-lg-offset-4">
@@ -36,4 +48,11 @@
       <%= link_to 'Cancel', orders_path, :class => "btn btn-default" %>
     </div>
   </div>
-<% end %>
+  <script type = "text/javascript"> 
+  jQuery(document).ready(function(){
+    jQuery('#close-option').click(function(){
+      jQuery('#close-order').toggle();
+    });
+  });
+  </script>
+  <% end %>
