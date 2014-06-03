@@ -3,3 +3,4 @@ jQuery(document).ready(function(){
 		jQuery('.show-tag', this).toggle();
 	});
 });
+

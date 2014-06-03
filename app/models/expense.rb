@@ -6,5 +6,5 @@ class Expense < ActiveRecord::Base
 		  	  :stationery,
 		  	  :computer,
 		  	  :telephone,
-		  	  :misc_expense, numericality: true
+		  	  :misc_expense, numericality: true, allow_nil: true
 end

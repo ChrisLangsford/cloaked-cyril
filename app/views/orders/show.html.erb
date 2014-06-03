@@ -2,7 +2,12 @@
   <h1>View Order</h1>
 </div>
 
-<div class="alert alert-success"><%= notice %></div>
+<% if notice != nil %>
+  <div class="alert alert-success" id="notice">
+    <%= notice %>
+  </div>
+<%end%>
+
   <div class="col-md-12 well">
     <p>
       <strong>Description:</strong>
@@ -22,10 +27,9 @@
   </div>
 <div class = "col-lg-12">
   <%= link_to "Add Garment", new_order_garment_path(@order) ,:class => "btn btn-success" %>
-  <%= link_to 'Edit', edit_order_path(@order), :class => "btn btn-warning" %>
+  <%= link_to 'Edit Order', edit_order_path(@order), :class => "btn btn-warning" %>
   <%= link_to "Generate Quote", order_path, :class => "btn btn-default"%>
   <%= link_to "Generate Invoice", order_path, :class => "btn btn-default"%>
-  <%= link_to 'Edit', edit_order_path(@order), :class => "btn btn-link"%>
   <%= link_to 'Back', orders_path, :class => "btn btn-link" %>
 </div>
 
