@@ -16,30 +16,33 @@
             <tr>
                 <th>Customer</th>
                 <th>Order Description</th>
-                <th class="col-md-2">DueDate</th>
-                <th class="col-md-2">Options</th>
+                <th class="col-md-3">DueDate</th>
+                <th class="col-md-1"></th>
             </tr>
         </thead>
         <tbody>        
 
           <% @orders.each do |order| %>
           <% person = Customer.find(order.customer_id)%>          
-            <tr>
+            <tr class="order-row" onclick="location.href='<%=order_path(order)%>'">
               <td><%= person.first_name + " "+ person.last_name %></td>
               <td><%= order.order_description %></td>
               <td><%= order.due_date %></td> 
               <td>
-              <p>
-                <%= link_to 'Show', order, :class => "btn btn-xs btn-primary" %>
-                <%= link_to 'Edit', edit_order_path(order), :class => "btn btn-xs btn-warning" %>
-                <%= link_to 'Close', order, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-xs btn-danger" %>
-              </p>
+              <p class="show-tag btn btn-xs btn-default disabled" style="display:none"> Show </p>
               </td>
             </tr>
           <% end %>          
         </tbody>        
     </table>
 </div>
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    jQuery('.order-row').hover(function(){
+      jQuery('.show-tag').toggle();
+    });
+  });
+</script>
 
 
   
