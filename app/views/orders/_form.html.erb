@@ -50,9 +50,17 @@
   </div>
   <script type = "text/javascript"> 
   jQuery(document).ready(function(){
-    jQuery('#close-option').click(function(){
+    jQuery('#close-option').click(function(){      
       jQuery('#close-order').toggle();
     });
+  });
+  </script>
+  <script type = "text/javascript"> 
+  jQuery(document).ready(function(){
+    if(jQuery('#close-option').is(':checked'))
+      jQuery('#close-order').show();
+    else
+      jQuery('#close-order').hide();
   });
   </script>
   <% end %>
