@@ -24,25 +24,15 @@
 
           <% @orders.each do |order| %>
           <% person = Customer.find(order.customer_id)%>          
-            <tr class="order-row" onclick="location.href='<%=order_path(order)%>'">
+            <tr class="link-row" onclick="location.href='<%=order_path(order)%>'" style="height:39px;">
               <td><%= person.first_name + " "+ person.last_name %></td>
               <td><%= order.order_description %></td>
               <td><%= order.due_date %></td> 
               <td>
-              <p class="show-tag btn btn-xs btn-default disabled" style="display:none"> Show </p>
+              <p class="btn btn-xs btn-default disabled show-tag" > Show </p>
               </td>
             </tr>
           <% end %>          
         </tbody>        
     </table>
-</div>
-<script type="text/javascript">
-  jQuery(document).ready(function(){
-    jQuery('.order-row').hover(function(){
-      jQuery('.show-tag').toggle();
-    });
-  });
-</script>
-
-
-  
+</div>  

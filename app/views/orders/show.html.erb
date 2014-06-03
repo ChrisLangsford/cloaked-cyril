@@ -33,23 +33,25 @@
   <table class ="table table-striped">
     <thead>
       <tr>
-        <th class ="col-md-6">Garment Description</th>
+        <th class ="col-md-7">Garment Description</th>
         <th class="col-md-2" >Type</th>
-        <th class="col-md-4" >Options</th>
+        <th class="col-md-3" >Options</th>
       </tr>
     </thead>
     <tbody>
     <%breakdown = @order.garments%>
     <% breakdown.each do |garment|%>
 
-      <tr>
+      <tr class="link-row" style="height:49px;" >
         <td><%= garment.garment_description%></td>
         <td><%= garment.garment_type%></td>
         <td>
-          <%= link_to "Measurements", garment, :class => "btn btn-sm btn-primary"%>
-          <%= link_to "Costing", new_garment_costing_path(garment), :class => "btn btn-sm btn-success"%>
-          <%= link_to "Edit", edit_garment_path(garment), :class => "btn btn-sm btn-warning"%>
-          <%= link_to "Delete", garment, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-sm btn-danger"%>
+          <p class="show-tag" style="display:none">
+            <%= link_to "Measurements", garment, :class => "btn btn-xs btn-primary"%>
+            <%= link_to "Costing", new_garment_costing_path(garment), :class => "btn btn-xs btn-success"%>
+            <%= link_to "Edit", edit_garment_path(garment), :class => "btn btn-xs btn-warning"%>
+            <%= link_to "Delete", garment, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-xs btn-danger"%>
+          </p>
         </td>
       </tr>
       <%end%>
