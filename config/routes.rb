@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
  
+  get 'quotes/show'
+
   get 'welcome/index'
 
   resources :expenses
   resources :customers, except: [:destroy]
   resources :appointments
 
+
 resources :orders, except: [:destroy] do
 	resources :garments, only: [:new]
+  resources :quotes, only: [:index]  
 end
 
 

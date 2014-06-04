@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
   belongs_to :customer
   has_many :garments
+  has_many :quotes
 
   validates :order_description, presence: true
   validates :customer_value_index, numericality: true, allow_nil: true,

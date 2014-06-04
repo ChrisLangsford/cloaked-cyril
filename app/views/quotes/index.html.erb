@@ -1,0 +1,15 @@
+<h1>Quote#index</h1>
+<h1>Quote for <%=@order.order_description%></h1>
+
+<table>
+<tbody>
+	<% @garments.each do |g| %>
+		<tr>
+			<td><%=g.garment_description%></td>
+			<% recent = g.costings.last%>
+			<td><%=recent.labour_cost + recent.fabric_cost%></td>
+		</tr>
+	<%end%>
+</tbody>
+</table>
+

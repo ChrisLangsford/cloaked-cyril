@@ -1,6 +1,6 @@
 class CostingsController < ApplicationController
   before_action :set_costing, only: [:show, :edit, :update, :destroy]
-  before_action :set_garment, only: [:new, :create, :update]
+  before_action :set_garment, only: [:show, :new, :create, :update]
 
   # GET /costings
   # GET /costings.json
@@ -11,6 +11,7 @@ class CostingsController < ApplicationController
   # GET /costings/1
   # GET /costings/1.json
   def show
+    
   end
 
   # GET /costings/new

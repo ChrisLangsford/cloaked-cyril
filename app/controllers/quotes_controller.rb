@@ -1,14 +1,13 @@
-class QuotesController < ApplicationController
-	layout "layouts/_blank"
-	before_action :set_order, only: [:show]
-	def show
+class QuotesController < ApplicationController	
+	before_action :get_order, only: [:index]
 
-		@Customer = Customer.find(@order.customer_id)
-	end
+  def index
+  	@garments = @order.garments
+  end
 
-	private
+  private
+  def get_order
+  	@order = Order.find(params[:order_id])
+  end
 
-	def set_order
-	@order =Order.find(1)	
-	end
 end
