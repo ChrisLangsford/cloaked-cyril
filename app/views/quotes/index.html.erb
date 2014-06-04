@@ -1,15 +1,48 @@
-<h1>Quote#index</h1>
-<h1>Quote for <%=@order.order_description%></h1>
+<div class="page-header">
+	<h1>Quote</h1>
+</div>
+<script type="text/javascript">
+	$(function() {
+    $( "#accordion" ).accordion();
+  });
+</script>
 
-<table>
-<tbody>
-	<% @garments.each do |g| %>
-		<tr>
-			<td><%=g.garment_description%></td>
-			<% recent = g.costings.last%>
-			<td><%=recent.labour_cost + recent.fabric_cost%></td>
-		</tr>
-	<%end%>
-</tbody>
-</table>
+<div class="row well">
+	<div class="col-lg-12">
+	<h4>Order Details</h4>
+	<hr>
+		<div class="row">
+			<div class="col-sm-2">
+				<p><b>Customer Name: </b></p>
+			</div>
+		<%=@customer.first_name + " " + @customer.last_name%>
+		</div>
+		<div class="row">
+			<div class="col-sm-2">
+				<p><b>Order Description: </b></p>
+			</div>
+		<%=@order.order_description%>
+		</div>
+		<div class="row">
+			<div class="col-sm-2">
+				<p><b>Due Date:</b></p>
+			</div>
+		<%=@order.due_date%>
+		</div>
+		<hr>
+		<!-- TODO: styling needs work, also figure out how to deal with keeping nils out of the equation-->
 
+		<div id="accordion">
+		<% @order.garments.each do |g|%>
+			<h3><%= g.garment_description%></h3>
+			<div>
+			<%recent = g.costings.last%>
+				<p>Labour <%=recent.labour_cost %><br>
+				Fabric <%=recent.fabric_cost %><br>
+				Accessory <%=recent.acc_cost %><br>
+				Misc <%=recent.misc_cost %></p>
+			</div>
+		<% end %>
+		</div>	
+	</div>		
+</div>
