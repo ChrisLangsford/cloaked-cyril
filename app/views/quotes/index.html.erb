@@ -34,13 +34,13 @@
 
 		<div id="accordion">
 		<% @order.garments.each do |g|%>
-			<h3><%= g.garment_description%></h3>
-			<div>
-			<%recent = g.costings.last%>
-				<p>Labour <%=recent.labour_cost %><br>
-				Fabric <%=recent.fabric_cost %><br>
-				Accessory <%=recent.acc_cost %><br>
-				Misc <%=recent.misc_cost %></p>
+		<%recent = g.costings.last%>
+			<h3><%= g.garment_description%><span> R <%= recent.labour_cost + recent.fabric_cost + recent.acc_cost + recent.misc_cost%></span></h3>
+			<div>			
+				<p>Labour R<%=recent.labour_cost %><br>
+				Fabric R<%=recent.fabric_cost %><br>
+				Accessory R<%=recent.acc_cost %><br>
+				Misc R<%=recent.misc_cost %></p>
 			</div>
 		<% end %>
 		</div>	
