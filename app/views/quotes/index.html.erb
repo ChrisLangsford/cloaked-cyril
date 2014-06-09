@@ -30,17 +30,31 @@
 		<%=@order.due_date%>
 		</div>
 		<hr>
-		<!-- TODO: styling needs work, also figure out how to deal with keeping nils out of the equation-->
+		<!-- TODO: styling needs tweaking, also figure out how to deal with keeping nils out of the equation-->
 
-		<div id="accordion">
+		<div id="accordion" class="col-lg-9">
 		<% @order.garments.each do |g|%>
 		<%recent = g.costings.last%>
-			<h3><%= g.garment_description%><span> R <%= recent.labour_cost + recent.fabric_cost + recent.acc_cost + recent.misc_cost%></span></h3>
+			<h3>
+				<span class="col-sm-2"><%= g.garment_description%></span>
+				<span class="col-sm-offset-9"> R <%value=recent.labour_cost + recent.fabric_cost + recent.acc_cost + recent.misc_cost%>
+				<%= sprintf("%.2f", value)%></span>
+			</h3>
 			<div>			
-				<p>Labour R<%=recent.labour_cost %><br>
-				Fabric R<%=recent.fabric_cost %><br>
-				Accessory R<%=recent.acc_cost %><br>
-				Misc R<%=recent.misc_cost %></p>
+				<p>				
+					<span class = "col-sm-2 col-sm-offset-2">Labour</span> 
+					<span class="col-sm-offset-6 value"><%value=recent.labour_cost%>
+					R <%= sprintf("%.2f", value)%></span><br>
+					<span class = "col-sm-2 col-sm-offset-2">Fabric</span> 
+					<span class="col-sm-offset-6 value"><%value=recent.fabric_cost%>
+					R <%= sprintf("%.2f", value)%></span><br>
+					<span class = "col-sm-2 col-sm-offset-2">Accessory</span> 
+					<span class="col-sm-offset-6 value"><%value=recent.acc_cost%>
+					R <%= sprintf("%.2f", value)%></span><br>
+					<span class = "col-sm-2 col-sm-offset-2">Misc</span>
+					<span class="col-sm-offset-6 value">
+					R <%value=recent.misc_cost%><%= sprintf("%.2f", value)%></span>
+				</p>
 			</div>
 		<% end %>
 		</div>	
