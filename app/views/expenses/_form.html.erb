@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+  <!--<div class="form-group">
     <%= f.label :period_end_date, :class =>"col-lg-4 control-label" %>
-    <div class = "col-lg-8">
-      <%= f.date_select :period_end_date %>
-    </div>
-    
-  </div>
+        <div class = "col-lg-8">
+          <%= f.date_select :period_end_date %>
+        </div>
+      </div>-->
+      <%= f.hidden_field :period_end_date, :value => Time.now  %>
 
   <div class="form-group">
     <%= f.label :habby, :class =>"col-lg-4 control-label" %>

@@ -1,6 +1,6 @@
 ﻿<div class="page-header">
     <h1>Appointments</h1>
-    <h5>Todays date ##/##/####</h5>
+    <h5><b>Today: </b><%=Time.now.strftime("%A %d %b %Y")%></h5>
 </div>
 <% if notice != nil %>
 <div id= "notice" class="alert alert-success">

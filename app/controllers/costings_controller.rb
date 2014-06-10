@@ -1,6 +1,6 @@
 class CostingsController < ApplicationController
   before_action :set_costing, only: [:show, :edit, :update, :destroy]
-  before_action :set_garment, only: [:show, :new, :create, :update]
+  before_action :set_garment, only: [:show, :new, :create, :update, :change_status]
 
   # GET /costings
   # GET /costings.json
@@ -62,6 +62,12 @@ class CostingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def change_status
+    costings = @garment.costings
+    costings.last.update_attribute(:cost_status, "invoice")
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

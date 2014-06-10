@@ -1,5 +1,7 @@
 <div class="page-header">
-	<h1>Quote</h1>
+	<h1>
+	<%= params[:format]%>
+	</h1>
 </div>
 <script type="text/javascript">
 	$(function() {
@@ -30,9 +32,9 @@
 		<%=@order.due_date%>
 		</div>
 		<hr>
-		<!-- TODO: styling needs tweaking, also figure out how to deal with keeping nils out of the equation-->
+		<!-- TODO: styling needs tweaking, also add any official disclaimers, banking and contact details etc-->
 
-		<div id="accordion" class="col-lg-9">
+		<div id="accordion" class="col-lg-10">
 		<% @order.garments.each do |g|%>
 		<%recent = g.costings.last%>
 			<h3>
@@ -42,16 +44,16 @@
 			</h3>
 			<div>			
 				<p>				
-					<span class = "col-sm-2 col-sm-offset-2">Labour</span> 
+					<span class = "col-sm-2 col-sm-offset-1">Labour</span> 
 					<span class="col-sm-offset-6 value"><%value=recent.labour_cost%>
 					R <%= sprintf("%.2f", value)%></span><br>
-					<span class = "col-sm-2 col-sm-offset-2">Fabric</span> 
+					<span class = "col-sm-2 col-sm-offset-1">Fabric</span> 
 					<span class="col-sm-offset-6 value"><%value=recent.fabric_cost%>
 					R <%= sprintf("%.2f", value)%></span><br>
-					<span class = "col-sm-2 col-sm-offset-2">Accessory</span> 
+					<span class = "col-sm-2 col-sm-offset-1">Accessory</span> 
 					<span class="col-sm-offset-6 value"><%value=recent.acc_cost%>
 					R <%= sprintf("%.2f", value)%></span><br>
-					<span class = "col-sm-2 col-sm-offset-2">Misc</span>
+					<span class = "col-sm-2 col-sm-offset-1">Misc</span>
 					<span class="col-sm-offset-6 value">
 					R <%value=recent.misc_cost%><%= sprintf("%.2f", value)%></span>
 				</p>
