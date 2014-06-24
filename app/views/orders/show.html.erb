@@ -28,8 +28,8 @@
 <div class = "col-lg-12">
   <%= link_to "Add Garment", new_order_garment_path(@order) ,:class => "btn btn-success" %>
   <%= link_to 'Edit Order', edit_order_path(@order), :class => "btn btn-warning" %>
-  <%= link_to "Generate Quote", order_quotes_path(@order, "Quote"), :class => "btn btn-default"%>
-  <%= link_to "Generate Invoice", order_quotes_path(@order, "Invoice"), :class => "btn btn-default"%>
+  <%= link_to "Generate Quote", order_quotes_path(@order, "Quote"), :class => "btn btn-default", :target => "_blank"%>
+  <%= link_to "Generate Invoice", order_quotes_path(@order, "Invoice"), :class => "btn btn-default", :target => "_blank"%>
   <%= link_to 'Back', orders_path, :class => "btn btn-link" %>
 </div>
 
