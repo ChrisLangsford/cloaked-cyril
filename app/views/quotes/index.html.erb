@@ -38,8 +38,8 @@
 		<% @order.garments.each do |g|%>
 		<%recent = g.costings.last%>
 			<h3>
-				<span class="col-sm-2"><%= g.garment_description%></span>
-				<span class="col-sm-offset-9"> R <%value=recent.labour_cost + recent.fabric_cost + recent.acc_cost + recent.misc_cost%>
+				<span class="col-sm-9"><%= g.garment_description%></span>
+				<span class="col-sm-offset-11"> R <%value=recent.labour_cost + recent.fabric_cost + recent.acc_cost + recent.misc_cost%>
 				<%= sprintf("%.2f", value)%></span>
 			</h3>
 			<div>			
