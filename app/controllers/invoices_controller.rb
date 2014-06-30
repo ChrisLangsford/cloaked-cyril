@@ -5,6 +5,7 @@ class InvoicesController < ApplicationController
   def index
   	@customer = Customer.find(@order.customer_id)
   	@garments = @order.garments
+    InvoiceMailer.invoice_email(@customer, @order).deliver
   end
 
   private

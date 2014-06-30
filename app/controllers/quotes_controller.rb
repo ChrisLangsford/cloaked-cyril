@@ -5,9 +5,7 @@ class QuotesController < ApplicationController
   def index
   	@customer = Customer.find(@order.customer_id)
   	@garments = @order.garments
-
-    QuoteMailer.quote_email(@customer, @order).deliver
-    
+    QuoteMailer.quote_email(@customer, @order).deliver    
   end
 
   private

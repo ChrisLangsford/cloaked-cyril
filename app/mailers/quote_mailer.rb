@@ -4,7 +4,7 @@ class QuoteMailer < ActionMailer::Base
   def quote_email(customer, order)
   	@customer = customer
   	@order = order
-  	@url =  order_quotes_path(@order, "Quote")
+  	@url =  order_quotes_path(@order)
 
   	mail(to: @customer.email, subject: "Quote from Ivy's Dresses")
   end
