@@ -23,11 +23,15 @@ class AppointmentsController < ApplicationController
 
   # POST /appointments
   # POST /appointments.json
-  def create
+  def create    
     @appointment = Appointment.new(appointment_params)
 
     respond_to do |format|
       if @appointment.save
+        @customer = Customer.find(@appointment.customer_id)
+
+        AppointmentMailer.new_appointment_email(@customer, @appointment).deliver
+
         format.html { redirect_to appointments_path, notice: 'Appointment was successfully created.' }
         format.json { render :show, status: :created, location: @appointment }
       else
