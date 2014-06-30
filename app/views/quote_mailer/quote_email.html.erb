@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+	<h1>Quote from Ivy's Dresses</h1>
+	<hr/>
+	<p>Hi <%= @customer.first_name%>,</p>
+
+	<p>Click <%= link_to "here", order_quotes_path(@order, "Quote"),:target => "_blank"%> to see your quote!</p>
+	
+</body>
+</html>
