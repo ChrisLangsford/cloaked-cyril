@@ -3,9 +3,9 @@
 </div>
 <div class="col-md-12">
     <div class="col-md-3">
-        <p><strong>Customer:</strong> "Some Text"</p>
-        <p><strong>Description:</strong>"Some text"</p>
-        <p><strong>Due Date:</strong> ##/##/####</p>        
+        <p><strong>Customer: </strong><%= @garment.order.customer.first_name + " " + @garment.order.customer.last_name %></p>
+        <p><strong>Description: </strong><%= @garment.order.order_description%></p>
+        <p><strong>Due Date: </strong><%= @garment.order.due_date.strftime("%d-%b-%Y")%> </p>        
     </div>
 </div>
 

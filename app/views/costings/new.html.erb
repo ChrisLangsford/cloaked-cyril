@@ -7,7 +7,7 @@
     <% person = Customer.find(this_order.customer_id) %>
 
         <p><strong>Garment Description: </strong><%= @garment.garment_description%></p>
-        <p><strong>Due Date: </strong><%=this_order.due_date%></p>
+        <p><strong>Due Date: </strong><%=this_order.due_date.strftime("%d-%b-%Y")%></p>
         <p><strong>Customer Name: </strong> <%= person.first_name+" "+person.last_name%></p>
     </div>
 </div>

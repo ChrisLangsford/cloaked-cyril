@@ -16,7 +16,7 @@
 
     <p>
       <strong>Due Date:</strong>
-      <%= @order.due_date %>
+      <%= @order.due_date.strftime("%d-%B-%Y (%A)") %>
     </p>
 
     <p>

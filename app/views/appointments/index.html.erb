@@ -15,7 +15,7 @@
     <table class="table table-striped ">
         <thead>
             <tr>
-                <th class="col-md-1">Date</th>
+                <th class="col-md-2">Date</th>
                 <th class="col-md-1">Time</th>
                 <th>Customer</th>
                 <th>Description</th>
@@ -26,7 +26,7 @@
             <% @appointments.each do |appointment| %>
             <% person = Customer.find(appointment.customer_id)%>
               <tr class="link-row">
-                <td><%= appointment.date %></td>
+                <td><%= appointment.date.strftime("%d-%b-%Y (%A)") %></td>
                 <td><%= appointment.time.to_formatted_s(:time) %></td>
 
                 <td><%= person.first_name + " "+ person.last_name %></td>
