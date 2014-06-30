@@ -18,7 +18,7 @@
 </div>
 <div class="col-lg-12">
 <%= link_to 'Edit', edit_garment_path(@garment), :class => "btn btn-warning" %>
-<%= link_to 'Back', garments_path, :class => "btn btn-link" %>
+<%= link_to 'Back', order_path(@garment.order_id) , :class => "btn btn-link" %>
 <hr>
 </div>
 
