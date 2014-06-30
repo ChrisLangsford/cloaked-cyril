@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 resources :orders, except: [:destroy] do
 	resources :garments, only: [:new]
   resources :quotes, only: [:index]  
+  resources :invoices, only: [:index]  
 end
 
 
