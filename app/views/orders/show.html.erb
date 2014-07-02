@@ -50,7 +50,7 @@
         <td><%= garment.garment_description%></td>
         <td><%= garment.garment_type%></td>
         <td>
-          <p class="show-tag" style="display:none">
+          <p class="show-tag">
             <%= link_to "Measurements", garment, :class => "btn btn-xs btn-primary"%>
             <%= link_to "Costing", new_garment_costing_path(garment), :class => "btn btn-xs btn-success"%>
             <%= link_to "Edit", edit_garment_path(garment), :class => "btn btn-xs btn-warning"%>

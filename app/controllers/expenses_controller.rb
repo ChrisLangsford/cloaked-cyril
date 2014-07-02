@@ -61,6 +61,10 @@ class ExpensesController < ApplicationController
     end
   end
 
+  def get_aggregates
+    #Expense.where(period_end_date > 2014-03-01 && period end date < 2014-08-31).all    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_expense
