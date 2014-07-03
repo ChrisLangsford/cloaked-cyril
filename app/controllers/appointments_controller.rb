@@ -34,7 +34,7 @@ class AppointmentsController < ApplicationController
         AppointmentMailer.new_appointment_email(@customer, @appointment).deliver
         end            
 
-        format.html { redirect_to appointments_path, notice: 'Appointment was successfully created.' + params.inspect }
+        format.html { redirect_to appointments_path, notice: 'Appointment was successfully created.'}
         format.json { render :show, status: :created, location: @appointment }
       else
         format.html { render :new }

@@ -1,0 +1,22 @@
+<div class="table-responsive">		
+	<table class="table table-striped table-bordered">
+		<thead>
+			<h4 class="col-lg-8">Appointments for today</h3>
+			<th>Time</th>
+			<th>Customer</th>
+			<th>Comments</th>
+		</thead>
+		<tbody>
+		<%appointments = Appointment.where(date: Date.today)%>
+		<%appointments.each do |a|%>
+		<tr>
+			<td><%=a.time.strftime("%H:%M %p")%></td>
+			<%person = Customer.find(a.customer_id)%>
+			<td><%=person.first_name + " " + person.last_name%></td>
+			<td><%=a.comments%></td>
+		</tr>
+		<%end%>
+				
+		</tbody>
+	</table>
+</div>
