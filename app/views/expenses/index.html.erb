@@ -46,10 +46,17 @@
         <tbody>
           <% @expense.each do |e|%>
           <tr>
-            <td><%=e.period_end_date%></td>
+            <td><%=e.period_end_date.strftime("%b-%Y")%></td>
+            <td><%=e.HAB%></td>
+            <td><%=e.BC%></td>
+            <td><%=e.EQ%></td>
+            <td><%=e.ST%></td>
+            <td><%=e.COMP%></td>
+            <td><%=e.TEL%></td>
+            <td><%=e.MISC%></td>
           </tr>
           <% end %>
         </tbody>       
-    </table>
+    </table>    
     <br>
 </div>

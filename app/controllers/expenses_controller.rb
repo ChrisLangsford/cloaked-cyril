@@ -5,7 +5,9 @@ class ExpensesController < ApplicationController
   # GET /expenses.json
   def index
     @expenses = Expense.all
-    @expense = Expense.select(:period_end_date).group(:period_end_date).having("period_end_date > '2014-02-28' AND period_end_date < '2014-08-31'")
+    #@expense = Expense.select(:period_end_date).group(:period_end_date).having("period_end_date > '2014-02-28' AND period_end_date < '2014-08-31'")
+    @expense = Expense.select("period_end_date, sum(habby) as HAB, sum(bank_charge) as BC, sum(equipment) as EQ, sum(stationery) as ST, sum(computer) as COMP, sum(telephone) as TEL, sum(misc_expense) as MISC").
+    group("period_end_date")
   end
 
   # GET /expenses/1
@@ -60,10 +62,6 @@ class ExpensesController < ApplicationController
       format.html { redirect_to expenses_path notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def get_aggregates
-    #Expense.select(:period_end_date).group(:period_end_date).having("period_end_date > 2014-02-28 AND period_end_date < 2014-08-31")    
   end
 
   private
