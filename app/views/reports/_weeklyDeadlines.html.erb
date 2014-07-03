@@ -1,0 +1,22 @@
+<div class="table-responsive">
+	<table class="table table-triped table-bordered">
+		<thead>
+			<h4>Deadlines due within the next week</h4>
+			<th class="col-md-3">Due Date</th>
+			<th class="col-md-3">Customer</th>
+			<th class="col-md-6">Order</th>
+		</thead>
+		<tbody>
+			<%d = Date.today%>
+			<%orders = Order.where(due_date: (d..(d+7)))%>
+			<%orders.each do |o|%>
+			<tr>
+				<td><%= o.due_date%></td>
+				<%person = Customer.find(o.customer_id)%>
+				<td><%= person.first_name + " " + person.last_name%></td>
+				<td><%= o.order_description%></td>
+			</tr>
+			<%end%>
+		</tbody>
+	</table>
+</div>
