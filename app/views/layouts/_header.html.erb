@@ -13,7 +13,12 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to 'Home', :controller => 'welcome' %></li>
-            <li><%= link_to 'Orders', orders_path%></li>
+            <li>
+              <%= link_to orders_path do%>
+              Orders&nbsp;
+              <span class="badge"><%=Order.where("closed == 'f'").count%></span>
+              <% end %>
+            </li>
             <li><%= link_to 'Customers', customers_path%></li>            
             <li><%= link_to 'Appointments', appointments_path%></li>
             <li><%= link_to 'Expenses', expenses_path%></li>
