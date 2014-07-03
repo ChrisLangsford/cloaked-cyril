@@ -1,0 +1,23 @@
+<div class="table-repsonsive">
+	<table class="table table-bordered">
+	<thead>
+		<h4>Bottom 5 Customers</h4>
+		<th>Customer</th>
+		<th>Subjective Score</th>
+		<th>Objective Score</th>
+		<th>Combined Score</th>
+	</thead>
+	<tbody>
+	<% cvi_average = Order.select("customer_id, avg(customer_value_index) as SUBJ", :limit => 5).reverse%>
+		<% cvi_average.each do |c|%>
+			<tr>
+				<td><%=c.customer_id%></td>
+				<td><%=c.SUBJ%></td>
+				<!--These fields below still need to be calculated-->
+				<td><%=c.SUBJ%></td>
+				<td><%=c.SUBJ%></td>
+			</tr>
+		<%end%>	
+	</tbody>		
+	</table>
+</div>
