@@ -5,6 +5,7 @@ class ExpensesController < ApplicationController
   # GET /expenses.json
   def index
     @expenses = Expense.all
+    @expense = Expense.select(:period_end_date).group(:period_end_date).having("period_end_date > '2014-02-28' AND period_end_date < '2014-08-31'")
   end
 
   # GET /expenses/1
@@ -62,7 +63,7 @@ class ExpensesController < ApplicationController
   end
 
   def get_aggregates
-    #Expense.where(period_end_date > 2014-03-01 && period end date < 2014-08-31).all    
+    #Expense.select(:period_end_date).group(:period_end_date).having("period_end_date > 2014-02-28 AND period_end_date < 2014-08-31")    
   end
 
   private

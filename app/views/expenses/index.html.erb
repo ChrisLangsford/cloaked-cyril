@@ -29,7 +29,7 @@
                 <th>Misc</th>
             </tr>
         </thead>
-        <tbody>
+        <!--<tbody>
           <% @expenses.each do |expense| %>
             <tr>
               <td><%= expense.period_end_date %></td>
@@ -42,7 +42,14 @@
               <td><%= expense.misc_expense %></td>              
             </tr>
           <% end %>
-        </tbody>        
+        </tbody> -->
+        <tbody>
+          <% @expense.each do |e|%>
+          <tr>
+            <td><%=e.period_end_date%></td>
+          </tr>
+          <% end %>
+        </tbody>       
     </table>
     <br>
 </div>
