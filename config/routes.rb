@@ -19,6 +19,8 @@ end
 resources :garments, except: [:index, :new] do
 	resources :costings, only: [:new, :create, :update] 
 end
+
+resources :welcome, :member => {:calculate_objective_index => :get}
   
 
   # The priority is based upon order of creation: first created -> highest priority.
