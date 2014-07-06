@@ -1,10 +1,10 @@
 <div class="table-responsive">		
 	<table class="table table-striped table-bordered">
 		<thead>
-			<h4 class="col-lg-8">Appointments for today</h3>
-			<th>Time</th>
-			<th>Customer</th>
-			<th>Comments</th>
+			<h4>Appointments for today</h3>
+			<th class="col-md-4">Time</th>
+			<th class="col-md-4">Customer</th>
+			<th class="col-md-4">Comments</th>
 		</thead>
 		<tbody>
 		<%appointments = Appointment.where(date: Date.today)%>

@@ -11,7 +11,8 @@
 	<% cvi_average = Order.select("customer_id, avg(customer_value_index) as SUBJ", :limit => 5).reverse%>
 		<% cvi_average.each do |c|%>
 			<tr>
-				<td><%=c.customer_id%></td>
+				<%person = Customer.find(c.customer_id)%>
+				<td><%=person.first_name + " " + person.last_name%></td>
 				<td><%=c.SUBJ%></td>
 				<!--These fields below still need to be calculated-->
 				<td><%=c.SUBJ%></td>
