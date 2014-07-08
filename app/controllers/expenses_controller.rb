@@ -18,6 +18,9 @@ class ExpensesController < ApplicationController
   # GET /expenses/new
   def new
     @expense = Expense.new
+
+    @periods = ["Feb 2014", "Aug 2014","Feb 2015", "Aug 2015"]
+
   end
 
   # GET /expenses/1/edit
