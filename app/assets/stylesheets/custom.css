@@ -26,3 +26,15 @@
 	width: 30%;
 	display: inline;
 }
+
+.show-tag{
+	display: none;
+}
+
+.link-row{
+	cursor: pointer;
+}
+
+.link-row:hover .show-tag{
+	display: inline-block;
+}
