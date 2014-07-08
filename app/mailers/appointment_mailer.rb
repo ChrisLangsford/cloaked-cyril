@@ -13,7 +13,7 @@ class AppointmentMailer < ActionMailer::Base
   	mail(to: @customer.email, subject: "Ivy's Dresses appointment cancelled")
   end
 
-  def updated_appointment_email(customer,appointment)
+  def update_appointment_email(customer,appointment)
   	@customer = customer
   	@appointment = appointment
   	mail(to: @customer.email, subject: "Your appointment with Ivy's Dresses has been changed")

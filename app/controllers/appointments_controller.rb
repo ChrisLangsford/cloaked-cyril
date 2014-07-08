@@ -48,9 +48,10 @@ class AppointmentsController < ApplicationController
   def update
     respond_to do |format|
       if @appointment.update(appointment_params)
+         @customer = Customer.find(@appointment.customer_id)
 
         if @appointment.follow_up == false
-        AppointmentMailer.updated_appointment_email(@customer, @appointment).deliver
+        AppointmentMailer.update_appointment_email(@customer, @appointment).deliver
         end
 
         format.html { redirect_to appointments_path, notice: 'Appointment was successfully updated.' }
@@ -66,8 +67,9 @@ class AppointmentsController < ApplicationController
   # DELETE /appointments/1.json
   def destroy
     if @appointment.follow_up == false
+       @customer = Customer.find(@appointment.customer_id)
         AppointmentMailer.cancel_appointment_email(@customer, @appointment).deliver
-        end
+    end
     @appointment.destroy
     respond_to do |format|
       format.html { redirect_to appointments_url, notice: 'Appointment was successfully deleted.' }

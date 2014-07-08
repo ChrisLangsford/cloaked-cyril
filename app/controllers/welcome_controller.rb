@@ -13,11 +13,14 @@ class WelcomeController < ApplicationController
 
   	costings_per_order = []
   	@customer.orders.each do |o|
-  		number_of_costings = []
 
-  		o.garments.each do |g|
-  			number_of_costings.push(g.costings.count)
-  		end
+      
+        number_of_costings = []
+
+    		o.garments.each do |g|
+    			number_of_costings.push(g.costings.count)
+    		end
+
 
   		costings_per_order.push(number_of_costings.inject(0.0) { |sum, el| sum + el } / number_of_costings.size)
   	end

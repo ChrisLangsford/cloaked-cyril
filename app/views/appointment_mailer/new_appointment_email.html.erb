@@ -4,12 +4,12 @@
 	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>	
-	<h1> New appointment made with Ivy's Dresses</h1>\
+	<h1> New appointment made with Ivy's Dresses</h1>
 	<p>Hi <%=@customer.first_name%>,</p>
 	<p>You have a new appointment scheduled with Ivy on: </p>
-	<p><%= @appointment.date.strftime("%A %d-%B-%Y")%></p>
+	<p><strong><%= @appointment.date.strftime("%A %d-%B-%Y")%></strong></p>
 	<p>at:</p>
-	<p><%= @appointment.time.strftime("%H:%M")%></p>
+	<p><strong><%= @appointment.time.strftime("%H:%M")%></strong></p>
 
 	<p>Please contact us at least 1 working day prior to cancel or amend this appointment</p>
 	<p>Thanks</p>
