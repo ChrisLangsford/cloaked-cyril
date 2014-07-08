@@ -1,15 +1,18 @@
 ﻿<div class="page-header">
-    <h1>Appointments</h1>
-    <h5><b>Today: </b><%=Time.now.strftime("%A %d %b %Y")%></h5>
+    <div class="row">
+    <h1 class="col-lg-4">Appointments</h1>
+    <%= link_to new_appointment_path, :class => "btn btn-success col-lg-1 col-lg-pull-1  new-button" do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New
+    <%end%>
+    <h5 class="col-lg-12"><b>Today: </b><%=Time.now.strftime("%A %d %b %Y")%></h5>      
+</div>
 </div>
 <% if notice != nil %>
 <div id= "notice" class="alert alert-success">
     <%= notice%>
 </div>
 <%end%>
-<div>
-    <%= link_to 'New Appointment', new_appointment_path, :class => "btn btn-success" %>
-</div>
 <br>
 <div class="table-responsive">
     <table class="table table-striped ">
@@ -25,7 +28,7 @@
         <tbody>
             <% @appointments.each do |appointment| %>
             <% person = Customer.find(appointment.customer_id)%>
-              <tr class="link-row">
+              <tr class="link-row" style="height:49px;">
                 <td><%= appointment.date.strftime("%d-%b-%Y (%A)") %></td>
                 <td><%= appointment.time.to_formatted_s(:time) %></td>
 
@@ -34,8 +37,14 @@
                 <td>
                     <p class="show-tag">
 
-                        <%= link_to 'Edit', edit_appointment_path(appointment), :class => "btn btn-xs btn-warning" %>
-                        <%= link_to 'Delete', appointment, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-xs btn-danger" %>
+                        <%= link_to edit_appointment_path(appointment), :class => "btn btn-xs btn-warning" do %>
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        Edit
+                        <%end%>
+                        <%= link_to appointment, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-xs btn-danger" do %>
+                        <span class = "glyphicon glyphicon-trash"></span>
+                        Delete
+                        <%end%>
                     </p>
                 </td>
               </tr>
