@@ -19,7 +19,18 @@ class ExpensesController < ApplicationController
   def new
     @expense = Expense.new
 
-    @periods = ["Feb 2014", "Aug 2014","Feb 2015", "Aug 2015"]
+    years =[]
+
+    for i in (0..2) do
+      years << (Time.now.year + i)
+    end
+
+    @periods = []
+
+    years.each do |p|
+      @periods << ("Feb "+p.to_s)
+      @periods << ("Aug "+p.to_s)
+    end
 
   end
 
