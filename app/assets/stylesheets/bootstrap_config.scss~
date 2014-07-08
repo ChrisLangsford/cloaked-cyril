@@ -1,6 +1,0 @@
-// Use Twitter Bootstrap
-@import 'bootstrap';
-@import "bootstrap-responsive";
-
-
-

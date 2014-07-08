@@ -1,11 +1,13 @@
 class InvoicesController < ApplicationController
 	layout "corres"	
-	before_action :get_order, only: [:index]
+	before_action :get_order, only: [:show]
 
-  def index
+  def show
   	@customer = Customer.find(@order.customer_id)
   	@garments = @order.garments
-    InvoiceMailer.invoice_email(@customer, @order).deliver
+    if params[:client] != @customer.first_name
+      InvoiceMailer.invoice_email(@customer, @order, order_invoice_url(@order, "1", {client: @customer.first_name})).deliver
+    end
   end
 
   private

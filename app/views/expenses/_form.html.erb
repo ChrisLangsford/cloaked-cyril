@@ -14,7 +14,7 @@
   <div class="form-group">
     <%= f.label :period_end_date, :class =>"col-lg-4 control-label" %>
         <div class = "col-lg-8">
-          <%= f.date_select :period_end_date,
+           <%= f.select :period_end_date, ["2014 Feb"," 2014 Aug"],
            {:with_css_classes => true, :use_short_month => true, :discard_day => true, :start_year => Date.today.year},
            {:class => "form-control"} %>
         </div>

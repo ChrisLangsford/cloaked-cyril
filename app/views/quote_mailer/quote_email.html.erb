@@ -8,7 +8,7 @@
 	<hr/>
 	<p>Hi <%= @customer.first_name%>,</p>
 
-	<p>Click <%= link_to "here", order_quotes_path(@order),:target => "_blank"%> to see your quote!</p>
+	<p>Click <%= link_to "here", @url, :target => "_blank"%> to see your quote!</p>
 	
 </body>
 </html>
