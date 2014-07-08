@@ -31,14 +31,25 @@
 	display: none;
 }
 
-.link-row{
+.link-row-special{
 	cursor: pointer;
+}
+.link-row-special:hover .show-tag{
+	display: inline-block;
 }
 
 .link-row:hover .show-tag{
 	display: inline-block;
 }
 .new-button{
-	margin-top: 20px;
+	margin-top: 23px;
 	margin-bottom: 10px;
 }
+
+/*.hover-tip{
+	display:none;
+}
+
+.button-tip:hover .hover-tip{
+	display: inline;
+}*/

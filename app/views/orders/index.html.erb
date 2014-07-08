@@ -1,6 +1,12 @@
 
 <div class="page-header">
-    <h1>Orders</h1>
+  <div class="row">
+    <h1 class="col-lg-4">Orders</h1>
+    <%= link_to new_order_path, :class =>"btn btn-success col-lg-1 new-button col-lg-pull-1" do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New
+    <%end%>
+  </div>    
 </div>
 
 <%if notice != nil%>
@@ -10,23 +16,23 @@
 <% end%>
 
 <div>
-    <%= link_to 'New Order', new_order_path, :class =>"btn btn-success" %>
+
 </div>
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
             <tr>
-                <th class="col-md-3">DueDate</th>
-                <th>Order Description</th>
-                <th>Customer</th>
-                <th class="col-md-1"></th>
+                <th class="col-md-2">DueDate</th>
+                <th class="col-md-4">Order Description</th>
+                <th class="col-md-2">Customer</th>
+                <th class="col-md-1 col-md-pull-1"></th>
             </tr>
         </thead>
         <tbody>        
 
           <% @orders.each do |order| %>
           <% person = Customer.find(order.customer_id)%>          
-            <tr class="link-row" onclick="location.href='<%=order_path(order)%>'" style="height:39px;">
+            <tr class="link-row-special" onclick="location.href='<%=order_path(order)%>'" style="height:39px;">
               <td><%= order.due_date.strftime("%d-%b-%Y (%A)") %></td> 
               <td><%= order.order_description %></td>
               <td><%= person.first_name + " "+ person.last_name %></td>

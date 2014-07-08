@@ -1,13 +1,18 @@
 <div class="page-header">
-    <h1>Customers</h1>
+    <div class="row">
+      <h1 class="col-lg-3">Customers</h1>
+      <%= link_to new_customer_path, :class => "btn btn-success col-lg-1 new-button" do %>
+      <span class="glyphicon glyphicon-plus"></span>
+      <span>New</span>
+      <%end%>
+    </div>
 </div>
 <% if notice != nil %>
 <p id="notice" class="alert alert-success">
     <%=notice%>
 </p>
 <%end%>
-<div>
-    <%= link_to 'New Customer', new_customer_path, :class => "btn btn-success" %>
+<div>    
 </div>
 <div class="table-responsive">
     <table class="table table-striped">
@@ -21,14 +26,20 @@
         </thead>
         <tbody>
           <% @customers.each do |customer| %>
-            <tr>
+            <tr class="link-row" style="height:49px;">
               <td><%= customer.first_name + ' '+ customer.last_name%></td>
               <td><%= customer.contact_no %></td>
               <td><%= customer.email %></td>
               <td>
-                <p>
-                  <%= link_to 'History', customer, :class => "btn btn-xs btn-primary" %>
-                  <%= link_to 'Update', edit_customer_path(customer), :class => "btn btn-xs btn-warning" %>
+                <p class="show-tag">
+                  <%= link_to customer, :class => "btn btn-xs btn-primary" do %>
+                  <span class="glyphicon glyphicon-book"></span>
+                  <span>History</span>
+                  <%end%>
+                  <%= link_to edit_customer_path(customer), :class => "btn btn-xs btn-warning " do %>
+                  <span class="glyphicon glyphicon-pencil"></span>
+                  <span>Update</span>
+                  <%end%>
                 </p>
               </td>
 

@@ -9,16 +9,31 @@
 <%end%>
 
 <div class="col-md-12 well">
-  <div class="col-md-3">    
-    <p><strong>Description: </strong><%= @garment.garment_description%></p>
-    <p><strong>Type: </strong><%= @garment.garment_type%> </p>
-    <p><strong>Due Date: </strong><%= @garment.order.due_date.strftime("%d-%b-%Y")%> </p>  
-    <p><strong>Customer: </strong><%= @garment.order.customer.first_name + " " + @garment.order.customer.last_name %></p>    
+  <div class="col-md-9">    
+    <p>
+        <strong>Description: </strong>
+        <%= @garment.garment_description%>
+    </p>
+    <p>
+        <strong>Type: </strong>
+        <%= @garment.garment_type%>
+    </p>
+    <p>
+        <strong>Due Date: </strong>
+        <%= @garment.order.due_date.strftime("%d-%b-%Y")%>
+    </p>  
+    <p>
+        <strong>Customer: </strong>
+        <%= @garment.order.customer.first_name + " " + @garment.order.customer.last_name %>
+    </p>        
   </div>
+  <%= link_to edit_garment_path(@garment), :class => "btn btn-xs col-md-1 col-md-offset-2 btn-warning" do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+    <%end%>
 </div>
 <div class="col-lg-12">
-<%= link_to 'Edit', edit_garment_path(@garment), :class => "btn btn-warning" %>
-<%= link_to 'Back', order_path(@garment.order_id) , :class => "btn btn-link" %>
+
 <hr>
 </div>
 
