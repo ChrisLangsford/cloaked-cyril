@@ -3,7 +3,7 @@
     <h1 class="col-lg-4">View Order</h1>
     <%= link_to new_order_garment_path(@order) ,:class => "btn btn-success col-lg-1 col-lg-pull-1 new-button" do %>
     <span class="glyphicon glyphicon-plus"></span>
-    Garment
+    <span>Garments</span>
     <%end%>
   </div>
 </div>
@@ -30,17 +30,27 @@
         <%= person.first_name + ' ' + person.last_name %>
       </p>
     </div>
-    <%= link_to edit_order_path(@order), :class => "btn btn-xs col-md-1 col-md-offset-2 btn-warning" do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
-    <%end%>
+    <div class = "col-md-2 col-md-offset-1">
+      <%= link_to edit_order_path(@order), :class => "btn btn-xs corres-button btn-warning" do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit
+      <%end%>
+      <%= link_to order_quote_path(@order, "1"), :class => "btn btn-default corres-button btn-xs", :target => "_blank" do%>
+      <span class="glyphicon glyphicon-send"></span>
+      <span>Generate Quote</span>
+      <%end%>
+      <%= link_to order_invoice_path(@order,"1"), :class => "btn btn-default btn-xs corres-button ", :target => "_blank" do %>
+      <span class="glyphicon glyphicon-send"></span>
+      <span>Generate Invoice</span>
+      <%end%>
+    </div>
   </div>
-  <div class="row">   
+  <!--<div class="row">   
   <div class = "col-md-12">  
     <%= link_to "Generate Quote", order_quote_path(@order, "1"), :class => "btn btn-default", :target => "_blank"%>
     <%= link_to "Generate Invoice", order_invoice_path(@order,"1"), :class => "btn btn-default", :target => "_blank"%>
   </div>
-</div>
+</div>-->
 
 <div class="table-repsonsive">
   <table class ="table table-striped">

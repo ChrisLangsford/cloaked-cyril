@@ -46,10 +46,8 @@
 	margin-bottom: 10px;
 }
 
-/*.hover-tip{
-	display:none;
+.corres-button{
+	margin-top: 2%;
+	margin-bottom: 2%;
+	display:block;
 }
-
-.button-tip:hover .hover-tip{
-	display: inline;
-}*/
