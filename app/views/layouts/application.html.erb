@@ -11,8 +11,9 @@
 <div class="container">	
 <!--breadcrumbs to go here-->
 <ol class="breadcrumb">
-<li>Home</li>
+	<%= render_breadcrumbs :tag => :li, :separator => ""%>
 </ol>
+
 <%= yield %>
 
 </div>

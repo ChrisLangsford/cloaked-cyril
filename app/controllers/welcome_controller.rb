@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
 	helper_method :calculate_objective_index
+
+  add_breadcrumb "Home", :root_path
   def index
   end
 

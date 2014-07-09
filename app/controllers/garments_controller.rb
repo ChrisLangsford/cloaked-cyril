@@ -1,6 +1,8 @@
 class GarmentsController < ApplicationController
   before_action :set_garment, only: [:show, :edit, :update, :destroy]
 
+  add_breadcrumb "Home", :root_path
+
   # GET /garments
   # GET /garments.json
   def index
@@ -10,6 +12,10 @@ class GarmentsController < ApplicationController
   # GET /garments/1
   # GET /garments/1.json
   def show
+    @order = Order.find(@garment.order_id)
+    add_breadcrumb "Orders", orders_path
+    add_breadcrumb @order.order_description.to_s, order_path(@order)
+    add_breadcrumb @garment.garment_description.to_s, garment_path
   end
 
   # GET /garments/new

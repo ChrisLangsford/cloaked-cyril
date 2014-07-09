@@ -1,6 +1,8 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
 
+  add_breadcrumb "Home", :root_path
+
   # GET /expenses
   # GET /expenses.json
   def index
@@ -8,6 +10,8 @@ class ExpensesController < ApplicationController
     #@expense = Expense.select(:period_end_date).group(:period_end_date).having("period_end_date > '2014-02-28' AND period_end_date < '2014-08-31'")
     @expense = Expense.select("period_end_date, sum(habby) as HAB, sum(bank_charge) as BC, sum(equipment) as EQ, sum(stationery) as ST, sum(computer) as COMP, sum(telephone) as TEL, sum(misc_expense) as MISC").
     group("period_end_date")
+
+    add_breadcrumb "Expenses", expenses_path
   end
 
   # GET /expenses/1

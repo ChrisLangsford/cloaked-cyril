@@ -1,16 +1,21 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-
+  add_breadcrumb "Home", :root_path
   # GET /orders
   # GET /orders.json
   def index
     @orders = Order.where(:closed => 'f').all
+
+    add_breadcrumb "Orders", orders_path
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
     @garments = @order.garments
+
+    add_breadcrumb "Orders", orders_path
+    add_breadcrumb @order.order_description.to_s, order_path(@order)
   end
 
   # GET /orders/new

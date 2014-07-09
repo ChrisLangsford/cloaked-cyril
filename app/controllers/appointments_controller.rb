@@ -1,10 +1,14 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
+  add_breadcrumb "Home", :root_path
+
   # GET /appointments
   # GET /appointments.json
   def index
     @appointments = Appointment.all
+
+    add_breadcrumb "Appointments", appointments_path
   end
 
   # GET /appointments/1
