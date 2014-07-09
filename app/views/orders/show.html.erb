@@ -29,17 +29,17 @@
         <% person = Customer.find(@order.customer_id)%>
         <%= person.first_name + ' ' + person.last_name %>
       </p>
-    </div>
+    </div> 
     <div class = "col-md-2 col-md-offset-1">
       <%= link_to edit_order_path(@order), :class => "btn btn-xs corres-button btn-warning" do %>
       <span class="glyphicon glyphicon-pencil"></span>
       Edit
       <%end%>
-      <%= link_to order_quote_path(@order, "1"), :class => "btn btn-default corres-button btn-xs", :target => "_blank" do%>
+      <%= link_to order_quote_path(@order, "1"), :class => ( check_for_costings(@order) ? "btn btn-default corres-button btn-xs" : "btn btn-default corres-button btn-xs disabled" ), :target => "_blank" do%>
       <span class="glyphicon glyphicon-send"></span>
       <span>Generate Quote</span>
       <%end%>
-      <%= link_to order_invoice_path(@order,"1"), :class => "btn btn-default btn-xs corres-button ", :target => "_blank" do %>
+      <%= link_to order_invoice_path(@order,"1"), :class => ( check_for_costings(@order) ? "btn btn-default corres-button btn-xs" : "btn btn-default corres-button btn-xs disabled" ), :target => "_blank" do %>
       <span class="glyphicon glyphicon-send"></span>
       <span>Generate Invoice</span>
       <%end%>

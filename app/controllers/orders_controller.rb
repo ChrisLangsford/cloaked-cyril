@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :check_for_costings]
+  helper_method :check_for_costings
   add_breadcrumb "Home", :root_path
   # GET /orders
   # GET /orders.json
@@ -65,6 +66,22 @@ class OrdersController < ApplicationController
       format.html { redirect_to orders_url, notice: 'Order was successfully closed.' }
       format.json { head :no_content }
     end
+  end
+
+  def check_for_garments(order)
+    @order = order
+    @order.garments.any? ?  true :  false    
+  end
+
+  def check_for_costings(order)
+    @order = order
+    costings_in_order = []    
+     if check_for_garments(@order)      
+      @order.garments.each do |g|
+        costings_in_order.push(g.costings.any?) 
+      end
+     end     
+     costings_in_order.all? ? true : false
   end
 
   private
