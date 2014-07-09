@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20140630085302) do
   add_index "appointments", ["customer_id"], name: "index_appointments_on_customer_id"
 
   create_table "costings", force: true do |t|
-    t.string   "cost_status"
     t.decimal  "labour_cost"
     t.decimal  "fabric_cost"
     t.decimal  "acc_cost"
@@ -48,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140630085302) do
   end
 
   create_table "expenses", force: true do |t|
-    t.date     "period_end_date"
+    t.string   "period_end_date"
     t.decimal  "habby"
     t.decimal  "bank_charge"
     t.decimal  "equipment"

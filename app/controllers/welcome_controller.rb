@@ -29,7 +29,7 @@ class WelcomeController < ApplicationController
 
   	average_costings_per_order = (costings_per_order.inject(0.0) { |sum, el| sum + el } / costings_per_order.size)
 
-  	return objective_index = (10 - average_costings_per_order) - (appointments_per_order)/1
+  	return objective_index = (10 - average_costings_per_order) - (appointments_per_order)/1.75
 
   end
 end

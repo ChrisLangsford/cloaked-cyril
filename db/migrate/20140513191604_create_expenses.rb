@@ -1,7 +1,7 @@
 class CreateExpenses < ActiveRecord::Migration
   def change
     create_table :expenses do |t|
-      t.date :period_end_date
+      t.string :period_end_date
       t.decimal :habby
       t.decimal :bank_charge
       t.decimal :equipment
