@@ -22,7 +22,7 @@
                 <th class="col-md-1">Time</th>
                 <th>Customer</th>
                 <th>Description</th>
-                <th class="col-md-2"></th>
+                <th class="col-md-2 options"></th>
             </tr>
         </thead>
         <tbody>
@@ -34,16 +34,16 @@
 
                 <td><%= person.first_name + " "+ person.last_name %></td>
                 <td><%= appointment.comments %></td>
-                <td>
-                    <p class="show-tag">
+                <td align="right">
+                    <p class="">
 
                         <%= link_to edit_appointment_path(appointment), :class => "btn btn-xs btn-warning" do %>
                         <span class="glyphicon glyphicon-pencil"></span>
-                        Edit
+                        <span class="show-tag">Edit</span>
                         <%end%>
                         <%= link_to appointment, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-xs btn-danger" do %>
                         <span class = "glyphicon glyphicon-trash"></span>
-                        Delete
+                        <span class="show-tag">Delete</span>
                         <%end%>
                     </p>
                 </td>

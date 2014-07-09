@@ -57,8 +57,8 @@
     <thead>
       <tr>
         <th class ="col-md-6">Garment Description</th>
-        <th class="col-md-2" >Type</th>
-        <th class="col-md-4" >Options</th>
+        <th class="col-md-2">Type</th>
+        <th class="col-md-4 options">Options</th>
       </tr>
     </thead>
     <tbody>
@@ -68,23 +68,23 @@
       <tr class="link-row" style="height:49px;" >
         <td><%= garment.garment_description%></td>
         <td><%= garment.garment_type%></td>
-        <td>
-          <p class="show-tag">
+        <td align="right">
+          <p>
             <%= link_to garment, :class => "btn btn-xs btn-primary" do%>
             <span class="glyphicon glyphicon-list"></span>
-            Measurements
+            <span class="show-tag">Measurements</span>
             <%end%>
             <%= link_to new_garment_costing_path(garment), :class => "btn btn-xs btn-success" do%>
             <span class="glyphicon glyphicon-usd"></span>
-            Costing
+            <span class="show-tag">Costing</span>
             <%end%>
             <%= link_to edit_garment_path(garment), :class => "btn btn-xs btn-warning" do%>
             <span class="glyphicon glyphicon-pencil"></span>
-            Edit
+            <span class="show-tag">Edit</span>
             <%end%>
             <%= link_to garment, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-xs btn-danger" do%>
             <span class="glyphicon glyphicon-trash"></span>
-            Delete
+            <span class="show-tag">Delete</span>
             <%end%>
           </p>
         </td>

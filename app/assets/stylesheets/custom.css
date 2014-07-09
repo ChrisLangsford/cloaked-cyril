@@ -31,6 +31,10 @@
 	display: none;
 }
 
+.options{
+	text-align: right;
+}
+
 .link-row-special{
 	cursor: pointer;
 }
@@ -41,6 +45,7 @@
 .link-row:hover .show-tag{
 	display: inline-block;
 }
+
 .new-button{
 	margin-top: 23px;
 	margin-bottom: 10px;
@@ -50,4 +55,10 @@
 	margin-top: 2%;
 	margin-bottom: 2%;
 	display:block;
+}
+
+.closed-order{
+	text-decoration: line-through;	
+}
+.open-order{	
 }

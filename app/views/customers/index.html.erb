@@ -3,7 +3,7 @@
       <h1 class="col-lg-3">Customers</h1>
       <%= link_to new_customer_path, :class => "btn btn-success col-lg-1 new-button" do %>
       <span class="glyphicon glyphicon-plus"></span>
-      <span>New</span>
+      <span class="">New</span>
       <%end%>
     </div>
 </div>
@@ -21,7 +21,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th class="col-md-3">Contact Number</th>                
-                <th class="col-md-2">Options</th>
+                <th class="col-md-2 options">Options</th>
             </tr>
         </thead>
         <tbody>
@@ -30,15 +30,15 @@
               <td><%= customer.first_name + ' '+ customer.last_name%></td>
               <td><%= customer.contact_no %></td>
               <td><%= customer.email %></td>
-              <td>
-                <p class="show-tag">
+              <td align="right">
+                <p class="">
                   <%= link_to customer, :class => "btn btn-xs btn-primary" do %>
                   <span class="glyphicon glyphicon-book"></span>
-                  <span>History</span>
+                  <span class="show-tag">History</span>
                   <%end%>
                   <%= link_to edit_customer_path(customer), :class => "btn btn-xs btn-warning " do %>
                   <span class="glyphicon glyphicon-pencil"></span>
-                  <span>Update</span>
+                  <span class="show-tag">Update</span>
                   <%end%>
                 </p>
               </td>
