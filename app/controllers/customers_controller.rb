@@ -1,16 +1,24 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
+  add_breadcrumb "Home", :root_path
+
   # GET /customers
   # GET /customers.json
   def index
     @customers = Customer.all
+
+    add_breadcrumb "Customers", customers_path
   end
 
   # GET /customers/1
   # GET /customers/1.json
   def show
     @orders = @customer.orders
+
+    full_name = @customer.first_name + " " + @customer.last_name
+
+    add_breadcrumb full_name.to_s, customer_path(@customer)
   end
 
   # GET /customers/new
