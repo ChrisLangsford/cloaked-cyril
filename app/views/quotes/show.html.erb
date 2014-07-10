@@ -27,7 +27,7 @@
 			<div class="col-sm-3">
 				<p><b>Due Date:</b></p>
 			</div>
-		<%=@order.due_date%>
+		<%=@order.due_date.strftime("%A %d-%B-%Y")%>
 		</div>		
 		<hr>
 		<!-- TODO: styling needs tweaking, also add any official disclaimers, banking and contact details etc-->
@@ -61,13 +61,12 @@
 			</div>
 		<% end %>
 		</div>
-		<br/>
-
 		<div class="row">
 			<h4 class="col-sm-3 col-sm-offset-10 corres-total">
 				<strong>Total: </strong>
 				R<%=sprintf("%.2f",calculate_total)%>
 			</h4>
-		</div>	
+		</div>		
+		<hr>			
 	</div>		
 </div>

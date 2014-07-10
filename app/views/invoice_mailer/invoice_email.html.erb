@@ -4,11 +4,18 @@
 	 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-	<h1>Invoice from Ivy's Dresses</h1>
+	<h2>Invoice from Ivy's Dresses</h2>
 	<hr/>
 	<p>Hi <%= @customer.first_name%>,</p>
 
-	<p>Click <%= link_to "here", @url,:target => "_blank"%> to see your invoice!</p>
+	<p>Click <%= link_to "here", @url,:target => "_blank"%> to see your invoice!</p>	
+	<p><strong>Please Note: </strong> All orders are cash on delivery and proof of payment is required for collection</p>
+
+	<p>*Banking details here*</p>
+
+	<p>Thanks</p>
+	<p>Ivy Langsford</p>
+	<p>Cell: 0832930492</p>
 	
 </body>
 </html>

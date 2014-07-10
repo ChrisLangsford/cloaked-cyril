@@ -27,7 +27,7 @@
 			<div class="col-sm-3">
 				<p><b>Due Date:</b></p>
 			</div>
-		<%=@order.due_date%>
+		<%=@order.due_date.strftime("%A %d-%B-%Y")%>
 		</div>
 		<hr>
 		<!-- TODO: styling needs tweaking, also add any official disclaimers, banking and contact details etc-->
