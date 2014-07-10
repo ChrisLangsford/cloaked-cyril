@@ -26,3 +26,7 @@ end
 every :monday :at => '7am' do
 	runner Report.send_weekly_mail
 end
+
+every 1.day :at =>'8am' do
+	runner Report.appointment_notifications
+end

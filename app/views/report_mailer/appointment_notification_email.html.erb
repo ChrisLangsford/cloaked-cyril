@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+	<h1> New appointment made with Ivy's Dresses</h1>
+	<p>Hi <%=@customer.first_name%>,</p>
+	<p>You have an appointment with Ivy's Dresses tomorrow at: </p>	
+	<p><strong><%= @appointment.time.strftime("%H:%M")%></strong></p>
+
+	<p>Please contact us as soon as possible if you wish to cancel or amend this appointment</p>
+	<p>Thanks</p>
+	<p>Ivy Lansgford</p>
+	<p>Cell: 0832930492</p>	
+</body>
+</html>
