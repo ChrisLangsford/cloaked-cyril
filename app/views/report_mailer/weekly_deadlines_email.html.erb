@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+	<h2>This Weeks Deadlines</h2>
+	<table border="1" style="border-collapse:collapse;">
+		<thead>			
+			<th>Due Date</th>
+			<th>Customer</th>
+			<th>Order</th>
+		</thead>
+		<tbody>
+			<%d = Date.today%>
+			<%orders_late = Order.where(['due_date < ?',d])%>
+				<%orders_late.each do |o|%>
+				<% if o.closed? == false%>				
+					<tr style="color:red">
+						<td><%= o.due_date%></td>
+						<%person = Customer.find(o.customer_id)%>
+						<td><%= person.first_name + " " + person.last_name%></td>
+						<td><%= o.order_description%></td>
+					</tr>
+				<%end%>
+			<%end%>
+			<%orders = Order.where(due_date: (d..(d+7)))%>
+			<%orders.each do |o|%>
+			<%= content_tag :tr, :class => (o.closed? ? "closed-order" : "open-order") do%>
+				<td><%= o.due_date%></td>
+				<%person = Customer.find(o.customer_id)%>
+				<td><%= person.first_name + " " + person.last_name%></td>
+				<td><%= o.order_description%></td>
+			<%end%>
+			<%end%>			
+		</tbody>
+	</table>
+</body>
+</html>
