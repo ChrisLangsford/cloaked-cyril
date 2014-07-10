@@ -63,6 +63,10 @@
 .open-order{	
 }
 
+.late-order{
+	color:red;
+}
+
 .corres-total{
 	margin-top: 20px;
 	margin-bottom: 20px;

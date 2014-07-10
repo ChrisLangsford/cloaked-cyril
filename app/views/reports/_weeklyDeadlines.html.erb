@@ -8,15 +8,26 @@
 		</thead>
 		<tbody>
 			<%d = Date.today%>
+			<%orders_late = Order.where(['due_date < ?',d])%>
+				<%orders_late.each do |o|%>
+				<% if o.closed? == false%>				
+					<%= content_tag :tr, :class => "late-order" do%>
+						<td><%= o.due_date%></td>
+						<%person = Customer.find(o.customer_id)%>
+						<td><%= person.first_name + " " + person.last_name%></td>
+						<td><%= o.order_description%></td>
+					<%end%>
+				<%end%>
+			<%end%>
 			<%orders = Order.where(due_date: (d..(d+7)))%>
 			<%orders.each do |o|%>
-			<%= content_tag :tr, :class => (o.closed ? "closed-order" : "open-order") do%>
+			<%= content_tag :tr, :class => (o.closed? ? "closed-order" : "open-order") do%>
 				<td><%= o.due_date%></td>
 				<%person = Customer.find(o.customer_id)%>
 				<td><%= person.first_name + " " + person.last_name%></td>
 				<td><%= o.order_description%></td>
 			<%end%>
-			<%end%>
+			<%end%>			
 		</tbody>
 	</table>
 </div>
