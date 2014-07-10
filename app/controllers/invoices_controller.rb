@@ -6,7 +6,7 @@ class InvoicesController < ApplicationController
   def show
   	@customer = Customer.find(@order.customer_id)
   	@garments = @order.garments
-    if params[:client] != @customer.first_name
+    if params[:client] != @customer.first_name && !@order.closed?
       InvoiceMailer.invoice_email(@customer, @order, order_invoice_url(@order, "1", {client: @customer.first_name})).deliver
     end
   end

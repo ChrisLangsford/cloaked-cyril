@@ -31,15 +31,15 @@
       </p>
     </div> 
     <div class = "col-md-2 col-md-offset-1">
-      <%= link_to edit_order_path(@order), :class => "btn btn-xs corres-button btn-info" do %>
+      <%= link_to edit_order_path(@order), :class => (@order.closed? ? "btn btn-xs corres-button btn-info disabled" : "btn btn-xs corres-button btn-info ") do %>
       <span class="glyphicon glyphicon-pencil"></span>
       Edit
       <%end%>
-      <%= link_to order_quote_path(@order, "1"), :class => ( check_for_costings(@order) ? "btn btn-default corres-button btn-xs" : "btn btn-default corres-button btn-xs disabled" ), :target => "_blank" do%>
+      <%= link_to order_quote_path(@order, "1"), :class => (check_for_costings(@order)  ? "btn btn-default corres-button btn-xs" : "btn btn-default corres-button btn-xs disabled" ), :target => "_blank" do%>
       <span class="glyphicon glyphicon-send"></span>
       <span>Generate Quote</span>
       <%end%>
-      <%= link_to order_invoice_path(@order,"1"), :class => ( check_for_costings(@order) ? "btn btn-default corres-button btn-xs" : "btn btn-default corres-button btn-xs disabled" ), :target => "_blank" do %>
+      <%= link_to order_invoice_path(@order,"1"), :class => (check_for_costings(@order) ? "btn btn-default corres-button btn-xs" : "btn btn-default corres-button btn-xs disabled" ), :target => "_blank" do %>
       <span class="glyphicon glyphicon-send"></span>
       <span>Generate Invoice</span>
       <%end%>
@@ -74,15 +74,15 @@
             <span class="glyphicon glyphicon-list"></span>
             <span class="show-tag">Measurements</span>
             <%end%>
-            <%= link_to new_garment_costing_path(garment), :class => "btn btn-xs btn-success" do%>
+            <%= link_to new_garment_costing_path(garment), :class => (@order.closed? ? "btn btn-xs btn-success disabled" : "btn btn-xs btn-success") do%>
             <span class="glyphicon glyphicon-usd"></span>
             <span class="show-tag">Costing</span>
             <%end%>
-            <%= link_to edit_garment_path(garment), :class => "btn btn-xs btn-info" do%>
+            <%= link_to edit_garment_path(garment), :class => (@order.closed? ? "btn btn-xs btn-info disabled" : "btn btn-xs btn-info") do%>
             <span class="glyphicon glyphicon-pencil"></span>
             <span class="show-tag">Edit</span>
             <%end%>
-            <%= link_to garment, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-xs btn-danger" do%>
+            <%= link_to garment, method: :delete, data: {confirm: 'Are you sure?'}, :class => (@order.closed? ? "btn btn-xs btn-danger disabled" : "btn btn-xs btn-danger") do%>
             <span class="glyphicon glyphicon-trash"></span>
             <span class="show-tag">Delete</span>
             <%end%>

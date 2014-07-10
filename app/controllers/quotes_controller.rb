@@ -6,7 +6,7 @@ class QuotesController < ApplicationController
   def show
   	@customer = Customer.find(@order.customer_id)
   	@garments = @order.garments
-    if params[:client] != @customer.first_name
+    if params[:client] != @customer.first_name && !@order.closed? 
       QuoteMailer.quote_email(@customer, @order, order_quote_url(@order, "1", {client: @customer.first_name})).deliver    
     end
   end

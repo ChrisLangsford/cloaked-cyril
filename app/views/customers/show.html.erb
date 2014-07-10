@@ -54,10 +54,10 @@
 				<td><%=order.closed ? "Closed" : "Open"%></td>
 				<td><%= order.closed ? order.customer_value_index.to_s : "Pending" %></td>
 				<td align="right" class="col-sm-2">
-					<a href="#" class="btn btn-xs btn-primary">
+					<%= link_to order_path(order),:class => "btn btn-xs btn-primary" do %>
 						<span class="glyphicon glyphicon-search"></span>
 						<span class="show-tag">Show</span> 
-					</a>
+					<%end%>
 				</td>
 			</tr>
 			<% end %>
