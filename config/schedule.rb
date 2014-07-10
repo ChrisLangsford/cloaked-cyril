@@ -18,3 +18,11 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+
+every 1.day :at => '7am' do
+	runner Report.send_daily_mail
+end
+
+every :monday :at => '7am' do
+	runner Report.send_weekly_mail
+end
