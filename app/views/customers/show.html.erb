@@ -1,27 +1,41 @@
-<p id="notice"><%= notice %></p>
+<h2 class="page-header">Customer Details</h2>
 
-<p>
-  <strong>First name:</strong>
-  <%= @customer.first_name %>
-</p>
+<% if notice != nil %>
+  <div class="alert alert-success" id="notice">
+    <%= notice %>
+  </div>
+<%end%>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @customer.last_name %>
-</p>
+<div class="col-md-12 well">
+	<div class="col-md-9">
+		<p>
+  			<strong>First name:</strong>
+  			<%= @customer.first_name %>
+		</p>
+		<p>
+		  <strong>Last name:</strong>
+		  <%= @customer.last_name %>
+		</p>
 
-<p>
-  <strong>Contact no:</strong>
-  <%= @customer.contact_no %>
-</p>
+		<p>
+		  <strong>Contact no:</strong>
+		  <%= @customer.contact_no %>
+		</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @customer.email %>
-</p>
+		<p>
+		  <strong>Email:</strong>
+		  <%= @customer.email %>
+		</p>		
+	</div>
+	<div class = "col-md-2 col-md-offset-1">
+      <%= link_to edit_customer_path(@customer), :class => "btn btn-xs corres-button btn-info" do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      <span>Update</span>
+      <%end%>
+    </div>	
+</div>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<h4 class="page-header">Order History</h4>
 
 <div class="table-responsive">
 	<table class="table table-striped">

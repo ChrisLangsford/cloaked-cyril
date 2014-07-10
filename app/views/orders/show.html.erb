@@ -3,7 +3,7 @@
     <h1 class="col-lg-4">View Order</h1>
     <%= link_to new_order_garment_path(@order) ,:class => "btn btn-success col-lg-1 col-lg-pull-1 new-button" do %>
     <span class="glyphicon glyphicon-plus"></span>
-    <span>Garments</span>
+    <span>Garment</span>
     <%end%>
   </div>
 </div>
@@ -31,7 +31,7 @@
       </p>
     </div> 
     <div class = "col-md-2 col-md-offset-1">
-      <%= link_to edit_order_path(@order), :class => "btn btn-xs corres-button btn-warning" do %>
+      <%= link_to edit_order_path(@order), :class => "btn btn-xs corres-button btn-info" do %>
       <span class="glyphicon glyphicon-pencil"></span>
       Edit
       <%end%>
@@ -78,7 +78,7 @@
             <span class="glyphicon glyphicon-usd"></span>
             <span class="show-tag">Costing</span>
             <%end%>
-            <%= link_to edit_garment_path(garment), :class => "btn btn-xs btn-warning" do%>
+            <%= link_to edit_garment_path(garment), :class => "btn btn-xs btn-info" do%>
             <span class="glyphicon glyphicon-pencil"></span>
             <span class="show-tag">Edit</span>
             <%end%>
