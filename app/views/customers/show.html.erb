@@ -43,13 +43,22 @@
 			<th>Order Description</th>
 			<th>Due Date</th>
 			<th>Status</th>
+			<th>Rating</th>
+			<th></th>
 		</thead>
 		<tbody>
 			<% @orders.each do |order| %>
-			<tr>
+			<tr class="link-row">
 				<td><%=order.order_description%></td>
 				<td><%=order.due_date %></td>
-				<td><%= order.closed ? "Closed" : "Open"%></td>
+				<td><%=order.closed ? "Closed" : "Open"%></td>
+				<td><%= order.closed ? order.customer_value_index.to_s : "Pending" %></td>
+				<td align="right" class="col-sm-2">
+					<a href="#" class="btn btn-xs btn-primary">
+						<span class="glyphicon glyphicon-search"></span>
+						<span class="show-tag">Show</span> 
+					</a>
+				</td>
 			</tr>
 			<% end %>
 		</tbody>
