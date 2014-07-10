@@ -2,7 +2,9 @@ class WelcomeController < ApplicationController
 	helper_method :calculate_objective_index
 
   add_breadcrumb "Home", :root_path
-  def index    
+  def index  
+  #ReportMailer.daily_schedule_email.deliver
+  ReportMailer.weekly_deadlines_email.deliver  
   end
 
   def calculate_objective_index(customer)  	

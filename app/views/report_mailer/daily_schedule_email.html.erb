@@ -5,24 +5,27 @@
 </head>
 <body>
 	<h2>Today's Appointments</h2>
-
+	<%appointments = Appointment.where(date: Date.today)%>
+		<% if appointments.any?%>
 	<table border="1" style="border-collapse:collapse;">
 		<thead align="left">
 			<th>Time</th>
 			<th>Customer</th>
 			<th>Comments</th>
 		</thead>
-		<tbody>
-		<%appointments = Appointment.where(date: Date.today)%>
-		<%appointments.each do |a|%>
-		<tr align="left">
-			<td><%=a.time.strftime("%H:%M")%></td>
-			<%person = Customer.find(a.customer_id)%>
-			<td><%=person.first_name + " " + person.last_name%></td>
-			<td><%=a.comments%></td>
-		</tr>
-		<%end%>							
+		<tbody>		
+			<%appointments.each do |a|%>
+			<tr align="left">
+				<td><%=a.time.strftime("%H:%M")%></td>
+				<%person = Customer.find(a.customer_id)%>
+				<td><%=person.first_name + " " + person.last_name%></td>
+				<td><%=a.comments%></td>
+			</tr>
+			<%end%>
+		<%else%>								
 		</tbody>
 	</table>
+	<p>You don't have any appointments scheduled for today! :)</p>	
+		<%end%>
 </body>
 </html>
