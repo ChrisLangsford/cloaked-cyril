@@ -7,16 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'layouts/header'%>
-<div class="container">	
-<!--breadcrumbs to go here-->
-<ol class="breadcrumb">
-	<%= render_breadcrumbs :tag => :li, :separator => ""%>
-</ol>
 
-<%= yield %>
-
+<div id="wrapper">
+	<div id="header">
+		<%= render 'layouts/header'%>
+	</div>
+	<div id="content">
+		<div class="container">	
+		<ol class="breadcrumb">
+			<%= render_breadcrumbs :tag => :li, :separator => ""%>
+		</ol>		
+		<%= yield %>
+		</div>		
+	</div>
+	<div id="footer">
+		<footer class="">
+			<div class="footer container">
+				<p>Built by Takumi Solutions &copy 2014</p>
+				
+			</div>
+		</footer>		
+	</div>
 </div>
-
 </body>
 </html>
