@@ -1,12 +1,12 @@
  <script type="text/javascript">
             var chart;
-            var chartData = <%= raw @expense.to_json.gsub(/\"period\"/, "period").gsub(/\"habby\"/, "habby").gsub(/\"bank\"/, "bank").gsub(/\"equip\"/, "equip").gsub(/\"stat\"/, "stat").gsub(/\"comp\"/, "comp").gsub(/\"tel\"/, "tel").gsub(/\"misc\"/, "misc") %>;             
+            var chartData = <%= raw @expense.to_json.gsub(/\"habby\"/, "habby").gsub(/\"bank\"/, "bank").gsub(/\"equip\"/, "equip").gsub(/\"stat\"/, "stat").gsub(/\"comp\"/, "comp").gsub(/\"tel\"/, "tel").gsub(/\"misc\"/, "misc") %>;             
 
             AmCharts.ready(function () {
                 // SERIAL CHART
                 chart = new AmCharts.AmSerialChart();
                 chart.dataProvider = chartData;
-                chart.categoryField = "period";
+                chart.categoryField = "period_end_date";
                 chart.plotAreaBorderAlpha = 0.2;
 
                 // AXES
@@ -112,6 +112,7 @@
                 var legend = new AmCharts.AmLegend();
                 legend.borderAlpha = 0.2;
                 legend.horizontalGap = 10;
+                legend.autoMargins = false;
                 chart.addLegend(legend);
 
                 chart.depth3D = 25;
