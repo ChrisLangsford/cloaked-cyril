@@ -32,16 +32,16 @@
             </tr>
         </thead>
         <tbody>
-          <% @expenses.each do |expense| %>
+          <% @expenses.each do |e| %>
             <tr>
-              <td><%= expense.period_end_date %></td>
-              <td><%= expense.habby %></td>
-              <td><%= expense.bank_charge %></td>
-              <td><%= expense.equipment %></td>
-              <td><%= expense.stationery %></td>
-              <td><%= expense.computer %></td>
-              <td><%= expense.telephone %></td>
-              <td><%= expense.misc_expense %></td>              
+              <td><%= e.period_end_date %></td>
+              <td><%= e.habby %></td>
+              <td><%= e.bank_charge %></td>
+              <td><%= e.equipment %></td>
+              <td><%= e.stationery %></td>
+              <td><%= e.computer %></td>
+              <td><%= e.telephone %></td>
+              <td><%= e.misc_expense %></td>              
             </tr>
           <% end %>
         </tbody>
@@ -49,13 +49,13 @@
           <% @expense.each do |e|%>
           <tr>
             <td><%=e.period_end_date%></td>
-            <td><%=e.HAB%></td>
-            <td><%=e.BC%></td>
-            <td><%=e.EQ%></td>
-            <td><%=e.ST%></td>
-            <td><%=e.COMP%></td>
-            <td><%=e.TEL%></td>
-            <td><%=e.MISC%></td>
+            <td><%=e.habby%></td>
+            <td><%=e.bank%></td>
+            <td><%=e.equip%></td>
+            <td><%=e.stat%></td>
+            <td><%=e.comp%></td>
+            <td><%=e.tel%></td>
+            <td><%=e.misc%></td>
           </tr>
           <% end %>
         </tbody>       

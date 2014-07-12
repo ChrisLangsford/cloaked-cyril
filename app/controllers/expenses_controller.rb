@@ -7,9 +7,7 @@ class ExpensesController < ApplicationController
   # GET /expenses.json
   def index
     @expenses = Expense.all
-    #@expense = Expense.select(:period_end_date).group(:period_end_date).having("period_end_date > '2014-02-28' AND period_end_date < '2014-08-31'")
-    @expense = Expense.select("period_end_date, sum(habby) as HAB, sum(bank_charge) as BC, sum(equipment) as EQ, sum(stationery) as ST, sum(computer) as COMP, sum(telephone) as TEL, sum(misc_expense) as MISC").
-    group("period_end_date")
+    @expense = Expense.select("period_end_date, sum(habby) as habby, sum(bank_charge) as bank, sum(equipment) as equip, sum(stationery) as stat, sum(computer) as comp, sum(telephone) as tel, sum(misc_expense) as misc").group("period_end_date")#.where(period_end_date: "Feb 2014")
 
     add_breadcrumb "Expenses", expenses_path
   end
