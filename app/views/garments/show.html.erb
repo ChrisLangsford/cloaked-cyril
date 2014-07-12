@@ -27,10 +27,16 @@
         <%= @garment.order.customer.first_name + " " + @garment.order.customer.last_name %>
     </p>        
   </div>
-  <%= link_to edit_garment_path(@garment), :class => ( @order.closed? ? "btn btn-xs col-md-1 col-md-offset-2 btn-info disabled" : "btn btn-xs col-md-1 col-md-offset-2 btn-info") do %>
+  <div class="col-md-2 col-md-offset-1">
+  <%= link_to edit_garment_path(@garment), :class => ( @order.closed? ? "btn btn-xs btn-info disabled corres-button" : "btn btn-xs btn-info corres-button") do %>
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
-    <%end%>
+    <%end%> 
+    <%= link_to order_path(@order), :class => "btn btn-xs btn-link corres-button " do%>
+    <span class="glyphicon glyphicon-arrow-left"></span>
+    Back
+    <%end%>     
+  </div>
 </div>
 <div class="col-lg-12">
 
