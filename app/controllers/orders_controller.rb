@@ -68,6 +68,8 @@ class OrdersController < ApplicationController
     end
   end
 
+  #select strftime("%m", due_date), count(*) from orders group by strftime("%m", due_date)
+
   def check_for_garments(order)
     @order = order
     @order.garments.any? ?  true :  false    

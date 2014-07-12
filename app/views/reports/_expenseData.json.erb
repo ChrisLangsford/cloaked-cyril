@@ -1,7 +1,0 @@
-<%=
-	JBuilder.encode do |json|
-		json.expenses @expense do |json, expense|
-			json.expense expense.value
-		end
-	end
-%>
