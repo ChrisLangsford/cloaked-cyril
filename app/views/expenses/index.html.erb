@@ -15,8 +15,9 @@
 <% end %>
 
 <!--This is where I want to insert an amChart displaying the totals for each type and possibly the comparison to income tracker-->
+<%= render "/reports/expenses"%>
 
-<div class="table-responsive">
+<!--<div class="table-responsive">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -30,7 +31,7 @@
                 <th>Misc</th>
             </tr>
         </thead>
-        <!--<tbody>
+        <tbody>
           <% @expenses.each do |expense| %>
             <tr>
               <td><%= expense.period_end_date %></td>
@@ -43,7 +44,7 @@
               <td><%= expense.misc_expense %></td>              
             </tr>
           <% end %>
-        </tbody> -->
+        </tbody>
         <tbody>
           <% @expense.each do |e|%>
           <tr>
@@ -60,4 +61,4 @@
         </tbody>       
     </table>    
     <br>
-</div>
+</div>-->
