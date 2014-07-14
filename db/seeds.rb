@@ -11,6 +11,10 @@ Costing.create!([
 Customer.create!([
   {first_name: "Chris", last_name: "Langsford", contact_no: "0833841037", email: "langz020@gmail.com"}
 ])
+Expense.create!([
+  {period_end_date: "Feb 2014", habby: "100.0", bank_charge: "120.0", equipment: "140.0", stationery: "200.0", computer: "250.0", telephone: "300.0", misc_expense: "250.0"},
+  {period_end_date: "Aug 2014", habby: "200.0", bank_charge: "300.0", equipment: "200.0", stationery: "300.0", computer: "200.0", telephone: "300.0", misc_expense: "200.0"}
+])
 Garment.create!([
   {garment_type: "Other", garment_description: "Onesie", order_id: 1, bust: "0.0", under_bust: "0.0", waist: "0.0", hip_upper: "0.0", hip_lower: "0.0", bust_point: "0.0", front_length: "0.0", shoulder_to_under_bust: "0.0", back_length: "0.0", across_back: "0.0", shoulderlength: "0.0", skirt_length: "0.0", sleeve_length: "0.0", sleeve_width_upper: "0.0", sleeve_width_elbow: "0.0", sleeve_width_wrist: "0.0", pants_length: "0.0", jacket_length: "0.0"},
   {garment_type: "Formal wear", garment_description: "Red Tie", order_id: 2, bust: "0.0", under_bust: "0.0", waist: "0.0", hip_upper: "0.0", hip_lower: "0.0", bust_point: "0.0", front_length: "0.0", shoulder_to_under_bust: "0.0", back_length: "0.0", across_back: "0.0", shoulderlength: "0.0", skirt_length: "0.0", sleeve_length: "0.0", sleeve_width_upper: "0.0", sleeve_width_elbow: "0.0", sleeve_width_wrist: "0.0", pants_length: "0.0", jacket_length: "0.0"},
