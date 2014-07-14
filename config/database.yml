@@ -39,3 +39,11 @@ test:
   pool: 5
   username: chris
   password: 
+
+  production:
+  adapter: postgresql
+  encoding: unicode
+  database: project_database
+  pool: 5
+  username: chris
+  password: 
