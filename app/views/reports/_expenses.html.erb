@@ -8,6 +8,12 @@
                 chart.dataProvider = chartData;
                 chart.categoryField = "period_end_date";
                 chart.plotAreaBorderAlpha = 0.2;
+                chart.depth3D = 10;
+                chart.angle = 30;
+                chart.columnWidth = 0.65;
+                chart.startDuration = 1;
+                chart.startEffect = ">";
+
 
                 // AXES
                 // category
@@ -27,85 +33,85 @@
                 // first graph    
                 var graph = new AmCharts.AmGraph();
                 graph.title = "Habby";
-                graph.labelText = "[[value]]";
+                graph.labelText = "R [[value]]";
                 graph.valueField = "habby";
                 graph.type = "column";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 1;
                 graph.lineColor = "#C72C95";
-                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span style='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span style='font-size:14px'>[[title]]:<b>R [[value]]</b></span>";
                 chart.addGraph(graph);
 
                 // second graph              
                 graph = new AmCharts.AmGraph();
                 graph.title = "Bank Charges";
-                graph.labelText = "[[value]]";
+                graph.labelText = "R [[value]]";
                 graph.valueField = "bank";
                 graph.type = "column";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 1;
                 graph.lineColor = "#D8E0BD";
-                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span style='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span style='font-size:14px'>[[title]]:<b>R [[value]]</b></span>";
                 chart.addGraph(graph);                
 
                 // third graph                              
                 graph = new AmCharts.AmGraph();
                 graph.title = "Equipment";
-                graph.labelText = "[[value]]";
+                graph.labelText = "R [[value]]";
                 graph.valueField = "equip";
                 graph.type = "column";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 1;
                 graph.lineColor = "#B3DBD4";
-                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span style='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span style='font-size:14px'>[[title]]:<b>R [[value]]</b></span>";
                 chart.addGraph(graph);
 
                 // fourth graph  
                 graph = new AmCharts.AmGraph();
                 graph.title = "Stationery";
-                graph.labelText = "[[value]]";
+                graph.labelText = "R [[value]]";
                 graph.valueField = "stat";
                 graph.type = "column";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 1;
                 graph.lineColor = "#69A55C";
-                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span style='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span style='font-size:14px'>[[title]]:<b>R [[value]]</b></span>";
                 chart.addGraph(graph);
 
                 // fifth graph
                 graph = new AmCharts.AmGraph();
                 graph.title = "Computers";
-                graph.labelText = "[[value]]";
+                graph.labelText = "R [[value]]";
                 graph.valueField = "comp";
                 graph.type = "column";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 1;
                 graph.lineColor = "#B5B8D3";
-                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span style='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span style='font-size:14px'>[[title]]:<b>R [[value]]</b></span>";
                 chart.addGraph(graph);
 
                 // sixth graph   
                 graph = new AmCharts.AmGraph();
                 graph.title = "Telephone";
-                graph.labelText = "[[value]]";
+                graph.labelText = "R [[value]]";
                 graph.valueField = "tel";
                 graph.type = "column";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 1;
                 graph.lineColor = "#F4E23B";
-                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span class='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span class='font-size:14px'>[[title]]:<b>R [[value]]</b></span>";
                 chart.addGraph(graph);
 
                 // sixth graph   
                 graph = new AmCharts.AmGraph();
                 graph.title = "Misc";
-                graph.labelText = "[[value]]";
+                graph.labelText = "R [[value]]";
                 graph.valueField = "misc";
                 graph.type = "column";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 1;
                 graph.lineColor = "#FF5400";
-                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span class='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span class='font-size:14px'>[[title]]:<b>R [[value]]</b></span>";
                 chart.addGraph(graph);
 
                 // LEGEND                  
@@ -113,10 +119,7 @@
                 legend.borderAlpha = 0.2;
                 legend.horizontalGap = 10;
                 legend.autoMargins = false;
-                chart.addLegend(legend);
-
-                chart.depth3D = 25;
-                chart.angle = 30;
+                chart.addLegend(legend);                
 
                 // WRITE
                 chart.write("chartdiv");
