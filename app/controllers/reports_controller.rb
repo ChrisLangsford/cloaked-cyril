@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-	helper_method :group_due_dates, :to_month
+	helper_method :group_due_dates, :calculate_objective_index 
   def show
   	@periods = group_due_dates  	
   end
@@ -7,46 +7,34 @@ class ReportsController < ApplicationController
   def group_due_dates
     Order.select("to_char(due_date, 'YYYY-MM') as due_date, count(*) as total").group("due_date").order("due_date")
   end
+  
+def calculate_objective_index(customer)   
+    @customer = customer
 
-  def to_month(float)
-  	@float = float
-  	case float
-  	when  1.0
-  		return "January"
-  	
-  	when  2.0
-  		return "February"
-  	
-  	when  3.0
-  		return "March"
-  	
-  	when  4.0
-  		return "April"
-  	
-  	when  5.0
-  		return "May"
-  	
-  	when  6.0
-  		return "June"
-  	
-  	when  7.0
-  		return "July"
-  	
-  	when  8.0
-  		return "August"
-  	
-  	when  9.0
-  		return "September"
-  	
-  	when  10.0
-  		return "October"
-  	
-  	when  11.0
-  		return "November"
-  	
-  	when  12.0
-  		return "December"
-  	end
+    appointments = @customer.appointments.count
+    orders = @customer.orders.count
+
+    appointments_per_order = appointments/orders
+
+    costings_per_order = []
+    @customer.orders.each do |o|
+      if o.closed == true
+      
+        number_of_costings = []
+
+        o.garments.each do |g|
+          number_of_costings.push(g.costings.count)
+        end
+      else
+        number_of_costings =[0]
+      end
+
+      costings_per_order.push(number_of_costings.inject(0.0) { |sum, el| sum + el } / number_of_costings.size)
+    end
+
+    average_costings_per_order = (costings_per_order.inject(0.0) { |sum, el| sum + el } / costings_per_order.size)
+
+    return objective_index = (10 - average_costings_per_order) - (appointments_per_order)/1.75
+
   end
-
 end

@@ -14,16 +14,14 @@
           <li><%= link_to 'Home', :controller => 'welcome' %></li>
           <li>
             <%= link_to orders_path do%>
-            Orders&nbsp;
-            <span class="badge"><%=Order.where("closed = false").count%></span>
+              Orders&nbsp;
+              <span class="badge"><%=Order.where("closed = false").count%></span>
             <% end %>
           </li>
           <li><%= link_to 'Customers', customers_path%></li>            
           <li><%= link_to 'Appointments', appointments_path%></li>
           <li><%= link_to 'Expenses', expenses_path%></li>
-          <li>
-            <a href="#">Reports</a>            
-          </li>                 
+          <li><%= link_to 'Reports', reports_show_path%></li>                 
         </ul>                     
     </div><!--/.nav-collapse -->
   </div><!-- /.container container-fluid  -->  

@@ -1,3 +1,126 @@
-<h1>Reports#show</h1>
-<p>Find me in app/views/reports/show.html.erb</p>
-<%=render "/reports/busySeason"%>
+<h1 class="page-header">Reports</h1>
+<ul>
+	<li>
+		<a href="#" data-toggle="modal" data-target="#Modal1">Daily Appointments</a></li>
+	<li><a href="#" data-toggle="modal" data-target="#Modal2">Weekly Deadlines</a></li>
+	<li><a href="#" data-toggle="modal" data-target="#Modal3">Busy Season</a></li>
+	<li><a href="#" data-toggle="modal" data-target="#Modal4">Expenses</a></li>
+	<li><a href="#" data-toggle="modal" data-target="#Modal5">Top 5 Customers</a></li>
+	<li><a href="#" data-toggle="modal" data-target="#Modal6">Bottom 5 Customers</a></li>
+</ul>
+<% modal_heading = "Ivy's Dresses Business Report " %>
+<% modal_footer = Time.now.strftime("%d-%b-%Y at %H:%m")%>
+
+<!--DailySchedule-->
+<div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <h4 class="modal-title" id="myModalLabel"><%= modal_heading%></h4>
+            </div>
+            <div class="modal-body">
+                <%= render "dailySchedule"%>
+            </div>
+            <div class="modal-footer">
+            	<%=modal_footer%>
+            </div>
+    </div>
+  </div>
+</div>
+
+<!--WeeklyDeadLine-->
+<div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <h4 class="modal-title" id="myModalLabel"><%= modal_heading%></h4>
+            </div>
+            <div class="modal-body">
+                <%= render "weeklyDeadlines"%>
+            </div>
+            <div class="modal-footer">
+            	<%=modal_footer%>
+            </div>
+    </div>
+  </div>
+</div>
+
+<!--Busy Season-->
+<div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <h4 class="modal-title" id="myModalLabel"><%= modal_heading%></h4>
+            </div>
+            <div class="modal-body">
+                <%= render "busySeason"%>
+            </div>
+            <div class="modal-footer">
+            	<%=modal_footer%>
+            </div>
+    </div>
+  </div>
+</div>
+
+<!--Expenses-->
+<div class="modal fade" id="Modal4" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <h4 class="modal-title" id="myModalLabel"><%= modal_heading%></h4>
+            </div>
+            <div class="modal-body">
+                <%= render "expenses"%>
+            </div>
+            <div class="modal-footer">
+            	<%=modal_footer%>
+            </div>
+    </div>
+  </div>
+</div>
+
+<!--top 5-->
+<div class="modal fade" id="Modal5" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <h4 class="modal-title" id="myModalLabel"><%= modal_heading%></h4>
+            </div>
+            <div class="modal-body">
+                <%= render "top5"%>
+            </div>
+            <div class="modal-footer">
+            	<%=modal_footer%>
+            </div>
+    </div>
+  </div>
+</div>
+
+<!--bottom 5-->
+<div class="modal fade" id="Modal6" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <h4 class="modal-title" id="myModalLabel"><%= modal_heading%></h4>
+            </div>
+            <div class="modal-body">
+                <%= render "bottom5"%>
+            </div>
+            <div class="modal-footer">
+            	<%=modal_footer%>
+            </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $('.modal').on('shown.bs.modal', function() {
+    chart.invalidateSize();
+});
+</script>
