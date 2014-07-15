@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  get 'reports/show'
+
   get 'quotes/show'
 
   get 'welcome/index'

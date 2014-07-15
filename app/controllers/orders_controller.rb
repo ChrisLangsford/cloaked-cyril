@@ -66,9 +66,7 @@ class OrdersController < ApplicationController
       format.html { redirect_to orders_url, notice: 'Order was successfully closed.' }
       format.json { head :no_content }
     end
-  end
-
-  #select strftime("%m", due_date), count(*) from orders group by strftime("%m", due_date)
+  end  
 
   def check_for_garments(order)
     @order = order
