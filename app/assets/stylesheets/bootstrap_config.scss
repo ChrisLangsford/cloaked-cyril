@@ -1,0 +1,22 @@
+@import "bootstrap";
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
+
+.minute{
+	@extend .form-control;
+}
+
+.hour{
+	@extend .form-control;
+}
+
+.day{
+	@extend .form-control, .col-md-2;	
+}
+
+.month{
+	@extend .form-control, col-md-6;	
+}
+
+.year{
+	@extend .form-control, col-md-4;	
+}

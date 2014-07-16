@@ -34,7 +34,7 @@ gem 'spring',        group: :development
 gem 'railroady'
 
 gem 'bootstrap-sass', '~> 3.1.1.1'
-gem 'bootswatch-rails'
+#gem 'bootswatch-rails'
 
 gem 'heroku', '~> 3.7.3'
 
