@@ -1,7 +1,11 @@
 class ReportsController < ApplicationController
 	helper_method :group_due_dates, :calculate_objective_index 
+
+  add_breadcrumb "Home", :root_path
   def show
-  	@periods = group_due_dates  	
+  	@periods = group_due_dates  
+
+    add_breadcrumb "Reports", reports_show_path	
   end
 
   def group_due_dates
