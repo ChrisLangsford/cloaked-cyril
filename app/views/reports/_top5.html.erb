@@ -8,7 +8,7 @@
 		<th>Combined Score</th>
 	</thead>
 	<tbody>
-	<% cvi_average = Order.select("customer_id, avg(customer_value_index) as subj", :limit => 5).group("customer_id")%>
+	<% cvi_average = Order.select("customer_id, avg(customer_value_index) as subj", :limit => 5).group("customer_id").order("subj")%>
 		<% cvi_average.each do |c|%>			
 			<tr>				
 				<%person = Customer.find(c.customer_id)%>
