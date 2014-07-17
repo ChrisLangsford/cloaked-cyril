@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   add_breadcrumb "Home", :root_path
   def index  
   #ReportMailer.daily_schedule_email.deliver
-  #ReportMailer.weekly_deadlines_email.deliver  
+  #ReportMailer.weekly_deadlines_email.deliver
   end
 
   def calculate_objective_index(customer)  	
@@ -35,5 +35,5 @@ class WelcomeController < ApplicationController
 
   	return objective_index = (10 - average_costings_per_order) - (appointments_per_order)/1.75
 
-  end
+  end 
 end
