@@ -13,7 +13,7 @@
                 chart = new AmCharts.AmSerialChart();
                 chart.pathToImages = "../../assets/amcharts/images/";
                 chart.dataProvider = chartData;
-                chart.categoryField = "due_date";
+                chart.categoryField = "per_month";
                 chart.balloon.bulletSize = 5;
 
                 // listen for "dataUpdated" event (fired when chart is rendered) and call zoomChart method when it happens
@@ -72,9 +72,11 @@
                 graph.bulletBorderAlpha = 1;
                 graph.lineThickness = 2;
                 graph.lineColor = "#5fb503";
-                graph.negativeLineColor = "#efcc26";
+                graph.negativeLineColor = '#fb5000';
                 graph.hideBulletsCount = 50; // this makes the chart to hide bullets when there are more than 50 series in selection
+                graph.useNegativeColorIfDown = true;
                 chart.addGraph(graph);
+
 
                 // CURSOR
                 chartCursor = new AmCharts.ChartCursor();
@@ -137,3 +139,5 @@
     <input type="radio" name="group" id="rb1" onclick="setPanSelect()">Select
     <input type="radio" checked="true" name="group" id="rb2" onclick="setPanSelect()">Pan
 </div>
+<%= raw @periods.to_json.gsub(/\"due_date\"/, "due_date").gsub(/\"total\"/, " total") %>
+

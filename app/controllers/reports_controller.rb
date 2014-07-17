@@ -9,7 +9,7 @@ class ReportsController < ApplicationController
   end
 
   def group_due_dates
-    Order.select("to_char(due_date, 'YYYY-MM') as due_date, count(*) as total").group("due_date").order("due_date")
+    Order.select("to_char(due_date, 'YYYY-MM') as per_month, count(*) as total").group("per_month").order("per_month")
   end
   
 def calculate_objective_index(customer)   
