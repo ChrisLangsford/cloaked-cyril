@@ -36,11 +36,11 @@
       Edit
       <%end%>
       <%= link_to order_quote_path(@order, "1"), :class => (check_for_costings(@order)  ? "btn btn-default corres-button btn-xs" : "btn btn-default corres-button btn-xs disabled" ), :target => "_blank" do%>
-      <span class="glyphicon glyphicon-envelope"></span>
+      <span class="glyphicon glyphicon-send"></span>
       <span>Generate Quote</span>
       <%end%>
       <%= link_to order_invoice_path(@order,"1"), :class => (check_for_costings(@order) ? "btn btn-default corres-button btn-xs" : "btn btn-default corres-button btn-xs disabled" ), :target => "_blank" do %>
-      <span class="glyphicon glyphicon-envelope"></span>
+      <span class="glyphicon glyphicon-send"></span>
       <span>Generate Invoice</span>
       <%end%>
     </div>
