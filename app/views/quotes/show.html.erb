@@ -30,37 +30,7 @@
 		<%=@order.due_date.strftime("%A %d-%B-%Y")%>
 		</div>	
 		<hr>
-		<!-- TODO: styling needs tweaking, also add any official disclaimers, banking and contact details etc-->
-
-		<!--<div id="accordion" class="col-lg-12">
-		<%sub_totals =[]%>
-		<% @order.garments.each do |g|%>
-		<%recent = g.costings.last%>
-			<h3 class="row">
-				<span class="col-sm-9 corres-head"><%= g.garment_description%></span>
-				<span class="col-sm-offset-9 corres-value"> R 
-				<%value=recent.labour_cost + recent.fabric_cost + recent.acc_cost + recent.misc_cost%>
-				<%= sprintf("%.2f", value)%></span>
-				<%sub_totals.push(value)%>
-			</h3>
-			<div>			
-				<p>				
-					<span class = "col-sm-2 ">Labour</span> 
-					<span class="col-sm-offset-6 value"><%value=recent.labour_cost%>
-					R <%= sprintf("%.2f", value)%></span><br>
-					<span class = "col-sm-2 ">Fabric</span> 
-					<span class="col-sm-offset-6 value"><%value=recent.fabric_cost%>
-					R <%= sprintf("%.2f", value)%></span><br>
-					<span class = "col-sm-2 ">Accessories</span> 
-					<span class="col-sm-offset-6 value"><%value=recent.acc_cost%>
-					R <%= sprintf("%.2f", value)%></span><br>
-					<span class = "col-sm-2 ">Misc</span>
-					<span class="col-sm-offset-6 value">
-					R <%value=recent.misc_cost%><%= sprintf("%.2f", value)%></span>
-				</p>
-			</div>
-		<% end %>
-		</div>-->
+		<!-- TODO: styling needs tweaking, also add any official disclaimers, banking and contact details etc-->	
 
 		<div class="panel-group" id="accordion">
 		<%sub_totals =[]%>
@@ -80,7 +50,7 @@
 				<%end%>					
 		      </h4>
 		    </div>
-		    <div id="<%=g.garment_description.gsub(/\s+/, '')%>" class="panel-collapse collapse in">
+		    <div id="<%=g.garment_description.gsub(/\s+/, '')%>" class="panel-collapse collapse ">
 		      <div class="panel-body">
 		       		<span class = "col-sm-2 ">Labour</span> 
 					<span class="col-sm-offset-6 value"><%value=recent.labour_cost%>
