@@ -9,7 +9,7 @@
 		<th>Combined Score</th>
 	</thead>
 	<tbody>
-	<% cvi_average = Order.select("customer_id, avg(customer_value_index) as subj", :limit => 5).group("customer_id").reverse%>
+	<% cvi_average = Order.select("customer_id, avg(customer_value_index) as subj", :limit => 5).group("customer_id").order("subj")%>
 		<% cvi_average.each do |c|%>
 			<tr>
 				<%person = Customer.find(c.customer_id)%>
@@ -20,7 +20,7 @@
 				<td><%= ((c.subj + objective_index)/2).round(1) %></td>
 			</tr>
 		<%end%>	
-		<!--<tr> used as a placeholder to fix UI without having data avilable
+		<!--<tr> 
 			<td>Name</td>
 			<td>10</td>
 			<td>10</td>

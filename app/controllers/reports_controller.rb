@@ -41,4 +41,5 @@ def calculate_objective_index(customer)
     return objective_index = (10 - average_costings_per_order) - (appointments_per_order)/1.75
 
   end
+
 end
