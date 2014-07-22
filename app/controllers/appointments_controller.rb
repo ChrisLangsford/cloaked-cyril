@@ -19,10 +19,15 @@ class AppointmentsController < ApplicationController
   # GET /appointments/new
   def new
     @appointment = Appointment.new
+
+    add_breadcrumb "Appointments", appointments_path
+    add_breadcrumb "Add Appointment", new_appointment_path
   end
 
   # GET /appointments/1/edit
   def edit
+    add_breadcrumb "Appointments", appointments_path
+    add_breadcrumb "Edit Appointment", edit_appointment_path
   end
 
   # POST /appointments

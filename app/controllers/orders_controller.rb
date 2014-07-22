@@ -22,10 +22,14 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    add_breadcrumb "Orders", orders_path
+    add_breadcrumb "Create Order", new_order_path
   end
 
   # GET /orders/1/edit
   def edit
+    add_breadcrumb "Orders", orders_path
+    add_breadcrumb "Edit Order", edit_order_path
   end
 
   # POST /orders

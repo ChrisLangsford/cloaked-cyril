@@ -2,6 +2,8 @@ class CostingsController < ApplicationController
   before_action :set_costing, only: [:show, :edit, :update, :destroy]
   before_action :set_garment, only: [:show, :new, :create, :update, :change_status]
 
+  add_breadcrumb "Home", :root_path
+
   # GET /costings
   # GET /costings.json
   def index
@@ -17,6 +19,11 @@ class CostingsController < ApplicationController
   # GET /costings/new
   def new
     @costing = Costing.new
+    order = Order.find(@garment.order_id)
+    add_breadcrumb "Orders", orders_path
+    add_breadcrumb order.order_description.to_s, order_path(order)
+    add_breadcrumb @garment.garment_description.to_s, garment_path(@garment)
+    add_breadcrumb "New Costing", new_garment_costing_path
   end
 
   # GET /costings/1/edit

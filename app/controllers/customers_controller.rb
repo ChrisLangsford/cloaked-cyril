@@ -24,10 +24,14 @@ class CustomersController < ApplicationController
   # GET /customers/new
   def new
     @customer = Customer.new
+    add_breadcrumb "Customers", customers_path
+    add_breadcrumb "Add Customer", new_customer_path
   end
 
   # GET /customers/1/edit
   def edit
+    add_breadcrumb "Customers", customers_path
+    add_breadcrumb "Edit Customer", edit_customer_path
   end
 
   # POST /customers

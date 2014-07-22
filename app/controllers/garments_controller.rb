@@ -13,6 +13,7 @@ class GarmentsController < ApplicationController
   # GET /garments/1.json
   def show
     @order = Order.find(@garment.order_id)
+
     add_breadcrumb "Orders", orders_path
     add_breadcrumb @order.order_description.to_s, order_path(@order)
     add_breadcrumb @garment.garment_description.to_s, garment_path
@@ -20,11 +21,19 @@ class GarmentsController < ApplicationController
 
   # GET /garments/new
   def new
-    @garment = Garment.new
+    @garment = Garment.new 
+    order = Order.find(params[:order_id]) 
+    add_breadcrumb "Orders", orders_path
+    add_breadcrumb order.order_description.to_s, order_path(order)
+    add_breadcrumb "Add Garment", new_order_garment_path    
   end
 
   # GET /garments/1/edit
   def edit
+    order = Order.find(@garment.order_id) 
+    add_breadcrumb "Orders", orders_path
+    add_breadcrumb order.order_description.to_s, order_path(order)
+    add_breadcrumb "Edit Garment", edit_garment_path 
   end
 
   # POST /garments
