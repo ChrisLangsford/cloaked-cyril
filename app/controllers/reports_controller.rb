@@ -3,7 +3,9 @@ class ReportsController < ApplicationController
 
   add_breadcrumb "Home", :root_path
   def show
-  	@periods = group_due_dates  
+  	@periods = group_due_dates
+    @expense = Expense.select("period_end_date, sum(habby) as habby, sum(bank_charge) as bank, sum(equipment) as equip, sum(stationery) as stat, sum(computer) as comp, sum(telephone) as tel, sum(misc_expense) as misc").group("period_end_date").limit(4)
+  
 
     add_breadcrumb "Reports", reports_show_path	
   end

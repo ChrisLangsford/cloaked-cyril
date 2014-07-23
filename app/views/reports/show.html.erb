@@ -1,1 +1,33 @@
-<%= render "busySeason" %>
+<div id="tabs">
+	<ul class="nav nav-tabs" role ="tablist">
+		<li class="active"><a href="#bs-report" role="tab" data-toggle="tab">Busy Season</a></li>
+		<li><a href="#gp-report" role="tab" data-toggle="tab">Garment popularity</a></li> 
+	</ul>
+
+	<div class="tab-content">
+		<div id="bs-report" class=" tab-pane fade in active">
+			<%= render "busySeason"%>			
+		</div>
+		<div id="gp-report" class=" tab-pane fade">
+			<h1>2</h1>
+		</div>		
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	$('#bs-report a').click(function (e) {
+  		e.preventDefault()
+  		$(this).tab('show')
+  		chart.invalidateSize();
+	})
+
+	$('#gp-report').click(function (e) {
+  		e.preventDefault()
+  		$(this).tab('show')
+	})
+
+	
+	
+</script>
+
