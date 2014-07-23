@@ -6,10 +6,12 @@
 
 	<div class="tab-content">
 		<div id="bs-report" class=" tab-pane fade in active">
-			<%= render "garmentPopularity"%>			
-		</div>
+<!--  			<%= render "busySeason"%>
+ --> 		</div>
 		<div id="gp-report" class=" tab-pane fade">
-			<h1>2</h1>
+			<div class="col-lg-4">
+			<%= render "garmentPopularity"%>
+			</div>
 		</div>		
 	</div>
 </div>
@@ -19,15 +21,18 @@
 	$('#bs-report a').click(function (e) {
   		e.preventDefault()
   		$(this).tab('show')
-  		chart.invalidateSize();
+  		gpchart.invalidateNow();
+  		gpchart.ValidateSize();
+
 	})
 
 	$('#gp-report').click(function (e) {
   		e.preventDefault()
   		$(this).tab('show')
-	})
+  		chart2.invalidateNow();
+  		chart2.ValidateSize();
+	})	
 
-	
-	
+
 </script>
 

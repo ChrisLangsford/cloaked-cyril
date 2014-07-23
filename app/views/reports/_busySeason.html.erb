@@ -1,6 +1,6 @@
 <script type="text/javascript">
             var chart;
-            var chartData = <%= raw @periods.to_json.gsub(/\"per_month\"/, "per_month").gsub(/\"total\"/, " total") %>;
+            var chartData = <%= raw @periods.to_json.gsub(/\"due_date\"/, "due_date").gsub(/\"total\"/, " total") %>;
             var chartCursor;
 
 
@@ -134,7 +134,7 @@
 
         </script>
         <h3 class="page-header">Busy Season</h3>
-<div id="BSchartdiv" style="width:100%; height:400px; "></div>
+<div id="BSchartdiv" style="width:1140px; height:400px; "></div>
 <div style="margin-left:35px;">
     <input type="radio" name="group" id="rb1" onclick="setPanSelect()">Select
     <input type="radio" checked="true" name="group" id="rb2" onclick="setPanSelect()">Pan

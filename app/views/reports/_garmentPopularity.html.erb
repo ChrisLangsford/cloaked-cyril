@@ -1,14 +1,14 @@
 <script type="text/javascript">
-            var chart;
+            var gpchart;
 
             var chartData = <%= raw @garment_categories.to_json %>;
 
             AmCharts.ready(function () {
                 // RADAR CHART
-                chart = new AmCharts.AmRadarChart();
-                chart.dataProvider = chartData;
-                chart.categoryField = "garment_type";
-                chart.startDuration = 2;
+                gpchart = new AmCharts.AmRadarChart();
+                gpchart.dataProvider = chartData;
+                gpchart.categoryField = "garment_type";
+                gpchart.startDuration = 2;
 
                 // VALUE AXIS
                 var valueAxis = new AmCharts.ValueAxis();
@@ -17,18 +17,19 @@
                 valueAxis.dashLength = 3;
                 valueAxis.axisTitleOffset = 20;
                 valueAxis.gridCount = 5;
-                chart.addValueAxis(valueAxis);
+                gpchart.addValueAxis(valueAxis);
 
                 // GRAPH
                 var graph = new AmCharts.AmGraph();
                 graph.valueField = "total";
                 graph.bullet = "round";
-                graph.balloonText = "[[value]] litres of beer per year";
-                chart.addGraph(graph);
+                graph.lineColor = "#5fb503";
+                graph.balloonText = "[[value]] [[garment_type]] have been produced ";
+                gpchart.addGraph(graph);
 
                 // WRITE
-                chart.write("GPchartdiv");
+                gpchart.write("GPchartdiv");
+                gpchart.validateNow();
             });
 </script>
-<div id="GPchartdiv" style="width:600px; height:400px;"></div>
-<%= raw @garment_categories.to_json %>
+<div id="GPchartdiv" style="width:1140px; height:400px;"></div>
