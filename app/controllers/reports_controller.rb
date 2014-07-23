@@ -2,12 +2,54 @@ class ReportsController < ApplicationController
 	helper_method :group_due_dates, :calculate_objective_index 
 
   add_breadcrumb "Home", :root_path
-  def show
-  	@periods = group_due_dates
+  def index
+
+    add_breadcrumb "Reports", reports_index_path  
+  end
+
+  def dailySchedule
+
+    add_breadcrumb "Reports", reports_index_path
+    add_breadcrumb "Daily Schedule", reports_dailySchedule_path
+    
+  end
+
+  def weeklyDeadline
+
+    add_breadcrumb "Reports", reports_index_path
+    add_breadcrumb "Weekly Deadlines", reports_weeklyDeadline_path
+    
+  end
+
+  def customerRanking
+
+    add_breadcrumb "Reports", reports_index_path
+    add_breadcrumb "Customer Ranking", reports_customerRanking_path
+    
+  end
+
+  def expense
     @expense = Expense.select("period_end_date, sum(habby) as habby, sum(bank_charge) as bank, sum(equipment) as equip, sum(stationery) as stat, sum(computer) as comp, sum(telephone) as tel, sum(misc_expense) as misc").group("period_end_date").limit(4)
+
+    add_breadcrumb "Reports", reports_index_path
+    add_breadcrumb "Expenses", reports_expense_path
+    
+  end
+
+  def busySeason
+    @periods = group_due_dates
+
+    add_breadcrumb "Reports", reports_index_path
+    add_breadcrumb "Busy Season", reports_busySeason_path
+    
+  end
+
+  def garmentPopularity
     @garment_categories = Garment.select("garment_type, count(*)as total").group("garment_type")       
 
-    add_breadcrumb "Reports", reports_show_path	
+    add_breadcrumb "Reports", reports_index_path
+    add_breadcrumb "Garment Type Popularity", reports_garmentPopularity_path
+    
   end
 
   

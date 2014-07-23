@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
  
-  get 'reports/show'
+  get 'reports/index'
+  get 'reports/dailySchedule'
+  get 'reports/weeklyDeadline'
+  get 'reports/customerRanking'
+  get 'reports/expense'
+  get 'reports/busySeason'
+  get 'reports/garmentPopularity'
 
   get 'quotes/show'
 
@@ -23,6 +29,10 @@ resources :garments, except: [:index, :new] do
 end
 
 resources :welcome, :member => {:calculate_objective_index => :get}
+
+
+
+
   
 
   # The priority is based upon order of creation: first created -> highest priority.
