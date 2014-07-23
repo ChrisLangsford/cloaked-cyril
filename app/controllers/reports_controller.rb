@@ -5,7 +5,8 @@ class ReportsController < ApplicationController
   def show
   	@periods = group_due_dates
     @expense = Expense.select("period_end_date, sum(habby) as habby, sum(bank_charge) as bank, sum(equipment) as equip, sum(stationery) as stat, sum(computer) as comp, sum(telephone) as tel, sum(misc_expense) as misc").group("period_end_date").limit(4)
-  
+    @garment_categories = Garment.select("garment_type, count(*)as total").group("garment_type")
+    #Garment.select("sum(Wedding Dress) as wd, sum(Matric Farewell) as md, sum(Formal wear) as fw, sum(Work wear) as ww, sum(Alterations) as alt, sum(Other) as ot").group("garment_type")
 
     add_breadcrumb "Reports", reports_show_path	
   end

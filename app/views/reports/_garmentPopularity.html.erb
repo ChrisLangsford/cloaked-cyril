@@ -1,0 +1,34 @@
+<script type="text/javascript">
+            var chart;
+
+            var chartData = <%= raw @garment_categories.to_json %>;
+
+            AmCharts.ready(function () {
+                // RADAR CHART
+                chart = new AmCharts.AmRadarChart();
+                chart.dataProvider = chartData;
+                chart.categoryField = "garment_type";
+                chart.startDuration = 2;
+
+                // VALUE AXIS
+                var valueAxis = new AmCharts.ValueAxis();
+                valueAxis.axisAlpha = 0.15;
+                valueAxis.minimum = 0;
+                valueAxis.dashLength = 3;
+                valueAxis.axisTitleOffset = 20;
+                valueAxis.gridCount = 5;
+                chart.addValueAxis(valueAxis);
+
+                // GRAPH
+                var graph = new AmCharts.AmGraph();
+                graph.valueField = "total";
+                graph.bullet = "round";
+                graph.balloonText = "[[value]] litres of beer per year";
+                chart.addGraph(graph);
+
+                // WRITE
+                chart.write("GPchartdiv");
+            });
+</script>
+<div id="GPchartdiv" style="width:600px; height:400px;"></div>
+<%= raw @garment_categories.to_json %>
