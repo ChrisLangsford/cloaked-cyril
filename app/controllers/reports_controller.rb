@@ -48,7 +48,7 @@ class ReportsController < ApplicationController
     @garment_categories = Garment.select("garment_type, count(*)as total").group("garment_type")
 
     order_garments = Order.joins(:garments)   
-    @garments_per_order = order_garments.select("to_char(due_date, 'YYYY') as order_year, count(*) as count").group("order_year")
+    @garments_per_order = order_garments.select("to_char(due_date, 'YYYY') as order_year, count(*) as count").group("order_year").limit(4)
 
     add_breadcrumb "Reports", reports_index_path
     add_breadcrumb "Garment Type Popularity", reports_garmentPopularity_path    
