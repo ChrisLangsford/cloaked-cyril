@@ -1,5 +1,6 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with name: "i", password: "l", except: :index
 
   add_breadcrumb "Home", :root_path
 
