@@ -8,7 +8,7 @@
 			<th class="col-md-4">Comments</th>
 		</thead>
 		<tbody>
-		<%appointments = Appointment.where(date: d)%>
+		<%appointments = Appointment.where(date: d).order(:due_date)%>
 		<%appointments.each do |a|%>
 		<tr>
 			<td><%=a.time.strftime("%H:%M %p")%></td>

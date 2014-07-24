@@ -8,21 +8,21 @@
 			<th class="col-md-4">Order</th>
 		</thead>
 		<tbody>
-			<%orders_late = Order.where(['due_date < ?',d])%>
+			<%orders_late = Order.where(['due_date < ?',d]).order(:due_date).reverse%>
 				<%orders_late.each do |o|%>
 				<% if o.closed? == false%>				
 					<%= content_tag :tr, :class => "late-order" do%>
-						<td><%= o.due_date.strftime("(%A) %d-%b-%Y")%></td>
+						<td><%= o.due_date.strftime("(%a) %d-%b-%Y")%></td>
 						<%person = Customer.find(o.customer_id)%>
 						<td><%= person.first_name + " " + person.last_name%></td>
 						<td><%= o.order_description%></td>
 					<%end%>
 				<%end%>
 			<%end%>
-			<%orders = Order.where(due_date: (d..(d+7)))%>
+			<%orders = Order.where(due_date: (d..(d+7))).order(:due_date)%>
 			<%orders.each do |o|%>
 			<%= content_tag :tr, :class => (o.closed? ? "closed-order" : "open-order") do%>
-				<td><%= o.due_date.strftime("(%A) %d-%b-%Y")%></td>
+				<td><%= o.due_date.strftime("(%a) %d-%b-%Y")%></td>
 				<%person = Customer.find(o.customer_id)%>
 				<td><%= person.first_name + " " + person.last_name%></td>
 				<td><%= o.order_description%></td>
