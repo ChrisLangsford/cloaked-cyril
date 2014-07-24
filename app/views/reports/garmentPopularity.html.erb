@@ -1,10 +1,10 @@
 <%d = Date.today%>
 <h1 class="page-header">Garment Type Popularity <span><h5><%= d.strftime("%A %d-%B-%Y")%></h5></span></h1>
 <div class="row">
-	<div class="col-md-8">
+	<div class="col-md-7">
 		<%= render "garmentsPerYear"%>
 	</div>
-	<div class="col-md-4">
+	<div class="col-md-5">
 		<%= render "garmentPopularity"%>	
 	</div>
 </div>

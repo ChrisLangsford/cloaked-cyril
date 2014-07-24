@@ -45,13 +45,22 @@ class ReportsController < ApplicationController
   end
 
   def garmentPopularity
-    @garment_categories = Garment.select("garment_type, count(*)as total").group("garment_type")
+    @year_selected = Time.now.year
+    @garment_categories = get_garments_per_year(@year_selected)
 
     order_garments = Order.joins(:garments)   
     @garments_per_order = order_garments.select("to_char(due_date, 'YYYY') as order_year, count(*) as count").group("order_year").limit(4)
+    @year_list = Order.select("to_char(due_date, 'YYYY')as order_years").group("order_years")
+    
 
     add_breadcrumb "Reports", reports_index_path
     add_breadcrumb "Garment Type Popularity", reports_garmentPopularity_path    
+  end
+
+  def get_garments_per_year(year)
+    @year = year
+    order_garments = Order.joins(:garments).where("to_char(due_date, 'YYYY') = ?", @year.to_s)
+    order_garments.select("garment_type, count(*)as total, to_char(due_date, 'YYYY')as order_year").group("garment_type", "order_year")        
   end  
 
   def group_due_dates
