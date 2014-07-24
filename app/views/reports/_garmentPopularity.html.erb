@@ -21,11 +21,19 @@
 
                 // GRAPH
                 var graph = new AmCharts.AmGraph();
+                graph.title = "Since the dawn of time";
                 graph.valueField = "total";
                 graph.bullet = "round";
                 graph.lineColor = "#fb5000";
                 graph.balloonText = "[[value]] [[garment_type]] have been produced ";
                 gpchart.addGraph(graph);
+
+                // LEGEND                  
+                var legend = new AmCharts.AmLegend();
+                legend.borderAlpha = 0.2;
+                legend.horizontalGap = 10;
+                legend.autoMargins = false;
+                gpchart.addLegend(legend);
                 
 
                 // WRITE
@@ -33,5 +41,6 @@
                 gpchart.validateNow();
             });
 </script>
+<h3 class="page-header">Garment produced of each type</h3>
 <div id="GPchartdiv" style="width:100%; height:400px;"></div>
-<%= raw @garment_categories.to_json %>
+<!--<%= raw @garment_categories.to_json %>-->
