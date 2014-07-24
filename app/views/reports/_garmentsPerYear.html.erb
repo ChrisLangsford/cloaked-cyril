@@ -1,0 +1,78 @@
+<script type="text/javascript">
+            var chart1;
+
+            var chartData1 = [
+                {
+                    "year": 2005,
+                    "income": 23.5
+                },
+                {
+                    "year": 2006,
+                    "income": 26.2
+                },
+                {
+                    "year": 2007,
+                    "income": 30.1
+                },
+                {
+                    "year": 2008,
+                    "income": 29.5
+                },
+                {
+                    "year": 2009,
+                    "income": 24.6
+                }
+            ];
+
+
+            AmCharts.ready(function () {
+                // SERIAL CHART
+                chart1 = new AmCharts.AmSerialChart();
+                chart1.dataProvider = chartData1;
+                chart1.categoryField = "year";
+                // this single line makes the chart a bar chart,
+                // try to set it to false - your bars will turn to columns
+                chart1.rotate = true;
+                // the following two lines makes chart 3D
+                chart1.depth3D = 20;
+                chart1.angle = 30;
+
+                // AXES
+                // Category
+                var categoryAxis = chart1.categoryAxis;
+                categoryAxis.gridPosition = "start";
+                categoryAxis.axisColor = "#DADADA";
+                categoryAxis.fillAlpha = 1;
+                categoryAxis.gridAlpha = 0;
+                categoryAxis.fillColor = "#FAFAFA";
+
+                // value
+                var valueAxis = new AmCharts.ValueAxis();
+                valueAxis.axisColor = "#DADADA";
+                valueAxis.title = "Income in millions, USD";
+                valueAxis.gridAlpha = 0.1;
+                chart1.addValueAxis(valueAxis);
+
+                // GRAPH
+                var graph1 = new AmCharts.AmGraph();
+                graph1.title = "Income";
+                graph1.valueField = "income";
+                graph1.type = "column";
+                graph1.balloonText = "Income in [[category]]:[[value]]";
+                graph1.lineAlpha = 0;
+                graph1.fillColors = "#bf1c25";
+                graph1.fillAlphas = 1;
+                chart1.addGraph(graph1);
+
+                chart1.creditsPosition = "top-right";
+
+                // WRITE
+                chart1.write("GPYchartdiv");
+            });
+        </script>
+<div id="GPYchartdiv" style="width: 500px; height: 600px;"></div>
+<%= raw @og.to_json %>
+<hr>
+<%= raw @garments_per_order.to_json %>
+<hr>
+<%= Order.class.name %>

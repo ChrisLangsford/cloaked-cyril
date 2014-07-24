@@ -45,14 +45,16 @@ class ReportsController < ApplicationController
   end
 
   def garmentPopularity
-    @garment_categories = Garment.select("garment_type, count(*)as total").group("garment_type")       
+    @garment_categories = Garment.select("garment_type, count(*)as total").group("garment_type")
+
+    order_garments = Order.joins(:garments)   
+    @garments_per_order = order_garments.select("order_id, count(*)").group("order_id").order("order_id")
+    @og = order_garments.select("order_id, to_char(due_date, 'YYYY') as order_year")
+    @oc = @garments_per_order.joins("join og ON order_id")
 
     add_breadcrumb "Reports", reports_index_path
-    add_breadcrumb "Garment Type Popularity", reports_garmentPopularity_path
-    
-  end
-
-  
+    add_breadcrumb "Garment Type Popularity", reports_garmentPopularity_path    
+  end  
 
   def group_due_dates
     Order.select("to_char(due_date, 'YYYY-MM') as per_month, count(*) as total").group("per_month").order("per_month")
