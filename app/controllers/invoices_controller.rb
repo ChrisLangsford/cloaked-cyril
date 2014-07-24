@@ -2,7 +2,6 @@ class InvoicesController < ApplicationController
 	layout "corres"	
 	before_action :get_order, only: [:show, :calculate_total]
   helper_method :calculate_total
-  http_basic_authenticate_with name: "i", password: "l"
 
   def show
   	@customer = Customer.find(@order.customer_id)
