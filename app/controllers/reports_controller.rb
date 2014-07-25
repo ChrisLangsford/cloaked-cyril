@@ -45,12 +45,12 @@ class ReportsController < ApplicationController
   end
 
   def garmentPopularity
-    @year_selected = Time.now.year
+    @year_selected = Time.now.year    
     @garment_categories = get_garments_per_year(@year_selected)
 
     order_garments = Order.joins(:garments)   
     @garments_per_order = order_garments.select("to_char(due_date, 'YYYY') as order_year, count(*) as count").group("order_year").limit(4)
-    @year_list = Order.select("to_char(due_date, 'YYYY')as order_years").group("order_years")
+    @year_list = get_list_of_year_values
     
 
     add_breadcrumb "Reports", reports_index_path
@@ -65,6 +65,14 @@ class ReportsController < ApplicationController
 
   def group_due_dates
     Order.select("to_char(due_date, 'YYYY-MM') as per_month, count(*) as total").group("per_month").order("per_month")
+  end
+
+  def get_list_of_year_values
+    year_list = []
+    Order.all.each do |o|
+      year_list.push(o.due_date.year)
+    end
+    return year_list.uniq.reverse
   end
 
     
