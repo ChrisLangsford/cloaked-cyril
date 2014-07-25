@@ -42,8 +42,27 @@
             });
 </script>
 <h3 class="page-header">Garment produced of each type</h3>
+<div>
+    <select id="MyList"></select>
+    <button class="btn btn-sm btn-default">Generate</button>
+</div>
 <div id="GPchartdiv" style="width:100%; height:400px;"></div>
 <%= raw @garment_categories.to_json %>
 <hr>
 <%= raw @year_list.to_json%>
+<script type="text/javascript">
+    window.onload = function() {
+    var select = document.getElementById("MyList");
+    var options = <%= @year_list%>;
+    for (var i = 0; i < options.length; i++) {
+        var opt = options[i];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        select.appendChild(el);
+    }
+}
+</script>
+
+
 
