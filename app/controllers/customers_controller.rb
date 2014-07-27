@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    @customers = Customer.all.order(:last_name)
 
     add_breadcrumb "Customers", customers_path
   end
