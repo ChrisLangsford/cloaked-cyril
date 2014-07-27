@@ -64,7 +64,7 @@ function sendChartData () {
         url: "/ajax/renderChart.json",
         type: "POST",
         data: {year_selected: selectedYear},
-        success: function(data){console.log(data.message);}
+        success: function(data){AmCharts.makeChart("GPchartdiv", data);}
     });
 }
 </script>

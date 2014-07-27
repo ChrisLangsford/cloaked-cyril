@@ -63,7 +63,7 @@ class ReportsController < ApplicationController
 
   respond_to do |format|
     format.html {redirect_to reports_index_path}
-    format.json {render :json => {:message => "JSON successfully rendered"}}
+    format.json {render :json => {type: "radar", dataProvider: @garment_categories, categoryField: "garment_type", graphs: [{valueField: "total", lineColor: "#fb5000"}] }}
   end
     
   end
