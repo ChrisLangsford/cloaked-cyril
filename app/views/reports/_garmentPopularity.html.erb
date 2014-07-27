@@ -26,15 +26,7 @@
                 graph.bullet = "round";
                 graph.lineColor = "#fb5000";
                 graph.balloonText = "[[value]] [[garment_type]] have been produced ";
-                gpchart.addGraph(graph);
-
-                // LEGEND                  
-                var legend = new AmCharts.AmLegend();
-                legend.borderAlpha = 0.2;
-                legend.horizontalGap = 10;
-                legend.autoMargins = false;
-                gpchart.addLegend(legend);
-                
+                gpchart.addGraph(graph);               
 
                 // WRITE
                 gpchart.write("GPchartdiv");
@@ -44,7 +36,7 @@
 <h3 class="page-header">Garment produced of each type</h3>
 <div>
     <select id="MyList"></select>
-    <button class="btn btn-sm btn-default">Generate</button>
+    <button class="btn btn-sm btn-default" onclick="sendChartData()">Generate</button>
 </div>
 <div id="GPchartdiv" style="width:100%; height:400px;"></div>
 <%= raw @garment_categories.to_json %>
@@ -61,6 +53,19 @@
         el.value = opt;
         select.appendChild(el);
     }
+}
+
+function sendChartData () {
+    var s = document.getElementById("MyList");
+    var selectedYear = s.options[s.selectedIndex].value;
+    console.log(selectedYear);
+
+    $.ajax({
+        url: "/ajax/renderChart.json",
+        type: "POST",
+        data: {year_selected: selectedYear},
+        success: function(data){console.log(data.message);}
+    });
 }
 </script>
 

@@ -45,8 +45,8 @@ class ReportsController < ApplicationController
   end
 
   def garmentPopularity
-    @year_selected = Time.now.year    
-    @garment_categories = get_garments_per_year(@year_selected)
+    #year_selected = Time.now.year    
+    #@garment_categories = get_garments_per_year(@year_selected)
 
     order_garments = Order.joins(:garments)   
     @garments_per_order = order_garments.select("to_char(due_date, 'YYYY') as order_year, count(*) as count").group("order_year").limit(4)
@@ -55,6 +55,17 @@ class ReportsController < ApplicationController
 
     add_breadcrumb "Reports", reports_index_path
     add_breadcrumb "Garment Type Popularity", reports_garmentPopularity_path    
+  end
+
+  def ajax_renderChart
+  year_selected = params["year_selected"]    
+  @garment_categories = get_garments_per_year(year_selected) 
+
+  respond_to do |format|
+    format.html {redirect_to reports_index_path}
+    format.json {render :json => {:message => "JSON successfully rendered"}}
+  end
+    
   end
 
   def get_garments_per_year(year)
@@ -72,7 +83,7 @@ class ReportsController < ApplicationController
     Order.all.each do |o|
       year_list.push(o.due_date.year)
     end
-    return year_list.uniq.reverse
+    return year_list.uniq
   end
 
     

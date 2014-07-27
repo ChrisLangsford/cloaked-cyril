@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
+  post '/ajax/renderChart' => 'reports#ajax_renderChart'
+
   resources :expenses
   resources :customers, except: [:destroy]
   resources :appointments
