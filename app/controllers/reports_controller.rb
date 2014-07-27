@@ -63,7 +63,27 @@ class ReportsController < ApplicationController
 
   respond_to do |format|
     format.html {redirect_to reports_index_path}
-    format.json {render :json => {type: "radar", dataProvider: @garment_categories, categoryField: "garment_type", graphs: [{valueField: "total", lineColor: "#fb5000"}] }}
+    format.json {render :json => {
+      type: "radar",
+      dataProvider: @garment_categories,
+      categoryField: "garment_type",
+      startDuration: 2,
+      valueAxes: [{
+        axisAlpha: 0.15,
+        minimum: 0,
+        dashLength: 3,
+        axisTitleOffset: 20,
+        gridCount: 5
+        }],
+
+      graphs: [{
+        title: "Garment popularity for the year #{year_selected}",
+        valueField: "total",
+        bullet: "round",
+        lineColor: "#fb5000",
+        balloonText: "[[value]] [[garment_type]] have been produced "
+        }]         
+      }}
   end
     
   end
