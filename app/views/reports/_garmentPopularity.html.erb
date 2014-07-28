@@ -6,8 +6,8 @@
     <div class="col-md-5"> <!-- Radar Chart -->
 <h3 class="page-header">Garment produced of each type</h3>
 <div>
-    <select id="MyList"></select>
-    <button class="btn btn-sm btn-default" onclick="sendChartData()">Generate</button>
+    <!-- <select id="MyList"></select>
+    <button class="btn btn-sm btn-default" >Generate</button> -->
 </div>
 <div id="GPchartdiv" style="width:100%; height:600px;"></div>            
     </div>
@@ -27,10 +27,11 @@
 }
 
 //this function sends the year to the controller and receives the relevant chart data
-function sendChartData () {
-    var s = document.getElementById("MyList");
-    var selectedYear = s.options[s.selectedIndex].value;
-    console.log(selectedYear);
+function sendChartData (year) {
+    //var s = document.getElementById("MyList");
+    //var selectedYear = s.options[s.selectedIndex].value;
+    //console.log(selectedYear);
+    var selectedYear = year;
 
     $.ajax({
         url: "/ajax/renderChart.json",
@@ -56,6 +57,7 @@ function sendChartData () {
                 chart1.rotate = true;
                 chart1.depth3D = 20;
                 chart1.angle = 30;
+                chart1.addListener("clickGraphItem", handleClick);
 
                 // AXES
                 // Category
@@ -89,4 +91,9 @@ function sendChartData () {
                 // WRITE
                 chart1.write("GPYchartdiv");
             });
+
+        function handleClick(event)
+        {
+            sendChartData(event.item.category)
+        }
         </script>
