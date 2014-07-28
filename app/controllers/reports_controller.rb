@@ -81,7 +81,8 @@ class ReportsController < ApplicationController
         valueField: "total",
         bullet: "round",
         lineColor: "#fb5000",
-        balloonText: "[[value]] [[garment_type]] have been produced "
+        fillAlphas: 0.15,
+        balloonText: "[[value]] [[garment_type]] have been produced"
         }]         
       }}
   end
