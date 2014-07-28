@@ -1,7 +1,7 @@
-<div class="row">
+<div class="row" style="margin-top: -35px;">
     <div class="col-md-7"><!--Bar Chart-->
         <h3 class="page-header"> Garments produced per year<span><h6>click each bar for a more detailed breakdown</h6></span></h3>
-        <div id="GPYchartdiv" style="width: 500px; height: 600px;"></div>        
+        <div id="GPYchartdiv" style="width: 500px; height: 500px;"></div>        
     </div>
     <div class="col-md-5"> <!-- Radar Chart -->
 <h3 class="page-header">Garment produced of each type</h3>
@@ -9,7 +9,7 @@
     <select id="MyList"></select>
     <button class="btn btn-sm btn-default" >Generate</button>
 </div> -->
-<div id="GPchartdiv" style="width:100%; height:600px;"></div>            
+<div id="GPchartdiv" style="width:100%; height:500px;"></div>            
     </div>
 </div>
 <script type="text/javascript">
@@ -58,6 +58,8 @@ function sendChartData (year) {
                 chart1.depth3D = 20;
                 chart1.angle = 30;
                 chart1.addListener("clickGraphItem", handleClick);
+                chart1.columnSpacing3D = 1;
+                chart1.columnSpacing = 10;
 
                 // AXES
                 // Category
@@ -84,6 +86,7 @@ function sendChartData (year) {
                 graph1.lineAlpha = 0;
                 graph1.fillColors = "#5fb503";
                 graph1.fillAlphas = 1;
+                graph1.columnWidth = 0.2;
                 chart1.addGraph(graph1);
 
                 chart1.creditsPosition = "top-right";
