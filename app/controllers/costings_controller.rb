@@ -21,6 +21,9 @@ class CostingsController < ApplicationController
   def new
     @costing = Costing.new
     order = Order.find(@garment.order_id)
+
+    @previous = @garment.costings.last
+
     add_breadcrumb "Orders", orders_path
     add_breadcrumb order.order_description.to_s, order_path(order)
     add_breadcrumb @garment.garment_description.to_s, garment_path(@garment)

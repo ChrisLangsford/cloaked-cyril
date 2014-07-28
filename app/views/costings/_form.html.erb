@@ -12,33 +12,34 @@
     </div>
   <% end %>
   <%= f.hidden_field :garment_id, :value => params[:garment_id]%>
+  <%p = @previous%>
     
   <div class="form-group">
     <%= f.label :labour_cost, :class => "col-lg-3 control-label" %>
     <div class = "col-lg-9 input-group">
     <span class="input-group-addon">R</span>
-      <%= f.text_field :labour_cost, :class =>"form-control", :value => 0, :autofocus => true %>
+      <%= f.text_field :labour_cost, :class =>"form-control", :value => (@previous.nil? ? 0 : @previous.labour_cost ), :autofocus => true %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :fabric_cost, :class => "col-lg-3 control-label" %>
     <div class = "col-lg-9 input-group">
     <span class="input-group-addon">R</span>
-      <%= f.text_field :fabric_cost, :class =>"form-control", :value => 0 %>
+      <%= f.text_field :fabric_cost, :class =>"form-control", :value => (@previous.nil? ? 0 : @previous.fabric_cost ) %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :acc_cost, :class => "col-lg-3 control-label" %>
     <div class = "col-lg-9 input-group">
     <span class="input-group-addon">R</span>
-      <%= f.text_field :acc_cost, :class =>"form-control", :value => 0 %>
+      <%= f.text_field :acc_cost, :class =>"form-control", :value => (@previous.nil? ? 0 : @previous.acc_cost ) %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :misc_cost, :class => "col-lg-3 control-label" %>
     <div class = "col-lg-9 input-group">
     <span class="input-group-addon">R</span>
-      <%= f.text_field :misc_cost, :class =>"form-control", :value => 0 %>
+      <%= f.text_field :misc_cost, :class =>"form-control", :value => (@previous.nil? ? 0 : @previous.misc_cost ) %>
     </div>
   </div>  
   <div class="form-group">
