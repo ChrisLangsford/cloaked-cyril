@@ -81,7 +81,7 @@
                 // CURSOR
                 chartCursor = new AmCharts.ChartCursor();
                 chartCursor.cursorPosition = "mouse";
-                chartCursor.pan = true; // set it to fals if you want the cursor to work in "select" mode
+                chartCursor.pan = false; // set it to fals if you want the cursor to work in "select" mode
                 chart.addChartCursor(chartCursor);
 
                 // SCROLLBAR
@@ -135,7 +135,7 @@
         </script>
 <div id="BSchartdiv" style="width:1140px; height:400px; "></div>
 <div style="margin-left:35px;">
-    <input type="radio" name="group" id="rb1" onclick="setPanSelect()">Select
-    <input type="radio" checked="true" name="group" id="rb2" onclick="setPanSelect()">Pan
+    <input type="radio" checked="true" name="group" id="rb1" onclick="setPanSelect()">Select
+    <input type="radio" name="group" id="rb2" onclick="setPanSelect()">Pan
 </div>
 

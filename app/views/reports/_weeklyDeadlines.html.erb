@@ -8,7 +8,7 @@
 			<th class="col-md-4">Order</th>
 		</thead>
 		<tbody>
-			<%orders_late = Order.where(['due_date < ?',d]).order(:due_date).reverse%>
+			<%orders_late = Order.where(['due_date < ?',d]).order(:due_date)%>
 				<%orders_late.each do |o|%>
 				<% if o.closed? == false%>				
 					<%= content_tag :tr, :class => "late-order" do%>
