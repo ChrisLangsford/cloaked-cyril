@@ -25,6 +25,7 @@
             <tr>
                 <th class="col-md-2">Date</th>
                 <th class="col-md-1">Time</th>
+                <th class="col-md-1">Follow Up</th>
                 <th>Customer</th>
                 <th>Description</th>
                 <th class="col-md-2 options"></th>
@@ -36,9 +37,10 @@
               <tr class="link-row" style="height:49px;">
                 <td><%= appointment.date.strftime("%d-%b-%Y (%A)") %></td>
                 <td><%= appointment.time.to_formatted_s(:time) %></td>
+                <td><%= appointment.follow_up? ? "Yes" : "No" %></td>
 
                 <td><%= person.first_name + " "+ person.last_name %></td>
-                <td><%= appointment.comments %></td>
+                <td><%= appointment.comments.capitalize %></td>
                 <td align="right">
                     <p class="">
 
