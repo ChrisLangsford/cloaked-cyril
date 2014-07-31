@@ -48,6 +48,8 @@ gem 'amcharts.rb', '~> 3.4.8.0'
 
 gem 'rails_12factor', group: :production
 
+gem 'ri_cal'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
