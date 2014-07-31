@@ -7,7 +7,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
   def index
-    @appointments = Appointment.all.order(:date)
+    @appointments = Appointment.all.order(:date).limit(10)
 
     add_breadcrumb "Appointments", appointments_path
   end

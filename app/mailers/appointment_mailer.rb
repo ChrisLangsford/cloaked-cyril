@@ -9,12 +9,13 @@ class AppointmentMailer < ActionMailer::Base
     d = @appointment.date
     t = @appointment.time
     dt = DateTime.new(d.year, d.month, d.day, t.hour, t.min)
-    event = RiCal.Event do
-      description @appointment.comments
-      dtstart     dt
-      dtend       dt = 1.hours
-      #location    "Cape Canaveral"
-      add_attendee @customer.email      
+    edt = dt+1.hours
+    event = RiCal.Event do |e|
+      e.description "#{@appointment.comments}"
+      e.dtstart     dt.strftime("%Y%m%dT%H%M%S")
+      e.dtend       edt.strftime("%Y%m%dT%H%M%S")
+      e.location    ""
+      e.add_attendee @customer.email      
     end
 
     attachments['event.ics'] = event.export()
