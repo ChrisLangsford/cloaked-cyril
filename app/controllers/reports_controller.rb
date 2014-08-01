@@ -120,10 +120,10 @@ class ReportsController < ApplicationController
     order_garments = Order.joins(:garments).where("to_char(due_date, 'YYYY') = ?", @year.to_s)
     types = ["Wedding Dress", "Matric Farewell", "Formal wear", "Work wear", "Alterations", "Other"]
     revenues = []
-    total = 0
 
-    for i in 0..types.size-1
+    for i in 0..types.size-1    
       og = order_garments.where("garment_type = ?", types[i])
+    total = 0
       if og.present?
         og.each do |o|
           sub_total = []
@@ -139,9 +139,9 @@ class ReportsController < ApplicationController
           end
           total = sub_total.reduce(:+)
         end
-      end
-      revenues.push(total.to_s + types[i])
-    end
+      end        
+        revenues.push(total.to_s)
+    end  
     revenues
   end 
 
@@ -185,7 +185,6 @@ def calculate_objective_index(customer)
     average_costings_per_order = (costings_per_order.inject(0.0) { |sum, el| sum + el } / costings_per_order.size)
 
     return objective_index = (10 - average_costings_per_order) - (appointments_per_order)/1.75
-
   end
 
 end
