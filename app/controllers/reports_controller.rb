@@ -64,27 +64,12 @@ class ReportsController < ApplicationController
   respond_to do |format|
     format.html {redirect_to reports_index_path}
     format.json {render :json => {
-      type: "radar",
+      type: "pie",
       dataProvider: @garment_categories,
-      categoryField: "garment_type",
-      startDuration: 2,
-      valueAxes: [{
-        axisAlpha: 0.15,
-        minimum: 0,
-        dashLength: 3,
-        axisTitleOffset: 20,
-        gridCount: 5
-        }],
-
-      graphs: [{
-        title: "Garment popularity for the year #{year_selected}",
-        valueField: "total",
-        bullet: "round",
-        lineColor: "#fb5000",
-        fillAlphas: 0.3,
-        balloonText: "[[value]] [[garment_type]] have been produced"
-        }]         
-      }}
+      titleField: "garment_type",
+      valueField: "total",
+      balloonText: "[[value]] [[garment_type]] have been produced"
+    }}
   end
     
   end
