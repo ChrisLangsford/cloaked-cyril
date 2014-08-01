@@ -12,7 +12,7 @@
 				<%orders_late.each do |o|%>
 				<% if o.closed? == false%>				
 					<%= content_tag :tr, :class => "late-order" do%>
-						<td><%= o.due_date.strftime("(%a) %d-%b-%Y")%></td>
+						<td><%= o.due_date.strftime("Late %d-%b-%Y")%></td>
 						<%person = Customer.find(o.customer_id)%>
 						<td><%= person.first_name + " " + person.last_name%></td>
 						<td><%= o.order_description%></td>

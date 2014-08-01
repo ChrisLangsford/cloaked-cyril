@@ -22,7 +22,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new
 
     add_breadcrumb "Appointments", appointments_path
-    add_breadcrumb "Add Appointment", new_appointment_path
+    add_breadcrumb "Create Appointment", new_appointment_path
   end
 
   # GET /appointments/1/edit
