@@ -68,7 +68,11 @@ class ReportsController < ApplicationController
       dataProvider: @garment_categories,
       titleField: "garment_type",
       valueField: "total",
-      balloonText: "[[value]] [[garment_type]] have been produced"
+      balloonText: "[[value]] [[garment_type]] have been produced",
+      legend: {
+        align: "centre",
+        markerType: "circle"
+      }
     }}
   end
     
