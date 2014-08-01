@@ -45,8 +45,9 @@ class ReportsController < ApplicationController
   end
 
   def garmentPopularity
-    #year_selected = Time.now.year    
+    year_selected = Time.now.year    
     #@garment_categories = get_garments_per_year(@year_selected)
+    @total_per_type = total_per_garment_type(year_selected)
 
     order_garments = Order.joins(:garments)   
     @garments_per_order = order_garments.select("to_char(due_date, 'YYYY') as order_year, count(*) as count").group("order_year").limit(4)
@@ -112,7 +113,37 @@ class ReportsController < ApplicationController
     @year = year
     order_garments = Order.joins(:garments).where("to_char(due_date, 'YYYY') = ?", @year.to_s)
     order_garments.select("garment_type, count(*)as total, to_char(due_date, 'YYYY')as order_year").group("garment_type", "order_year")        
-  end  
+  end 
+
+  def total_per_garment_type(year)
+    @year = year
+    order_garments = Order.joins(:garments).where("to_char(due_date, 'YYYY') = ?", @year.to_s)
+    types = ["Wedding Dress", "Matric Farewell", "Formal wear", "Work wear", "Alterations", "Other"]
+    revenues = []
+    total = 0
+
+    for i in 0..types.size-1
+      og = order_garments.where("garment_type = ?", types[i])
+      if og.present?
+        og.each do |o|
+          sub_total = []
+          o.garments.each do |g|
+            r = g.costings.last
+            if r.present?
+            value = r.labour_cost +
+                r.fabric_cost +
+                r.acc_cost +
+                r.misc_cost
+            end
+            sub_total.push(value)
+          end
+          total = sub_total.reduce(:+)
+        end
+      end
+      revenues.push(total.to_s + types[i])
+    end
+    revenues
+  end 
 
   def group_due_dates
     Order.select("to_char(due_date, 'YYYY-MM') as per_month, count(*) as total").group("per_month").order("per_month")
