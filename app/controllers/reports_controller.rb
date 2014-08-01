@@ -75,8 +75,38 @@ class ReportsController < ApplicationController
       }
     }}
   end
-    
+
   end
+  def ajax_profit_per_garment_type
+    year_selected = params["year_selected"]
+    @garment_categories = get_garments_per_year(year_selected)
+
+    respond_to do |format|
+      format.json {render :json => {
+      type: "radar",
+      dataProvider: @garment_categories,
+      categoryField: "garment_type",
+      startDuration: 2,
+      valueAxes: [{
+        axisAlpha: 0.15,
+        minimum: 0,
+        dashLength: 3,
+        axisTitleOffset: 20,
+        gridCount: 5
+        }],
+
+      graphs: [{
+        title: "Garment popularity for the year #{year_selected}",
+        valueField: "total",
+        bullet: "round",
+        lineColor: "#fb5000",
+        fillAlphas: 0.3,
+        balloonText: "[[value]] [[garment_type]] have been produced"
+        }]         
+      }}
+    end    
+  end
+    
 
   def get_garments_per_year(year)
     @year = year

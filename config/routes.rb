@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   post '/ajax/renderChart' => 'reports#ajax_renderChart'
 
+  post '/ajax/profit_per_garment_type' => 'reports#ajax_profit_per_garment_type'
+
   resources :expenses
   resources :customers, except: [:destroy]
   resources :appointments
