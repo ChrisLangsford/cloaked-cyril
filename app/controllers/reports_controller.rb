@@ -46,7 +46,7 @@ class ReportsController < ApplicationController
 
   def garmentPopularity
     year_selected = Time.now.year    
-    #@garment_categories = get_garments_per_year(@year_selected)
+    @garment_categories = get_garments_per_year(2014)
     @total_per_type = total_per_garment_type(year_selected)
 
     order_garments = Order.joins(:garments)   
@@ -80,12 +80,12 @@ class ReportsController < ApplicationController
   end
   def ajax_profit_per_garment_type
     year_selected = params["year_selected"]
-    @garment_categories = get_garments_per_year(year_selected)
+    profit_per_category = total_per_garment_type(year_selected)
 
     respond_to do |format|
       format.json {render :json => {
       type: "radar",
-      dataProvider: @garment_categories,
+      dataProvider: profit_per_category,
       categoryField: "garment_type",
       startDuration: 2,
       valueAxes: [{
@@ -119,7 +119,7 @@ class ReportsController < ApplicationController
     @year = year
     order_garments = Order.joins(:garments).where("to_char(due_date, 'YYYY') = ?", @year.to_s)
     types = ["Wedding Dress", "Matric Farewell", "Formal wear", "Work wear", "Alterations", "Other"]
-    revenues = []
+    revenues =[]
 
     for i in 0..types.size-1    
       og = order_garments.where("garment_type = ?", types[i])
@@ -129,6 +129,7 @@ class ReportsController < ApplicationController
           sub_total = []
           o.garments.each do |g|
             r = g.costings.last
+            value = 0
             if r.present?
             value = r.labour_cost +
                 r.fabric_cost +
@@ -143,6 +144,7 @@ class ReportsController < ApplicationController
         revenues.push(total.to_s)
     end  
     revenues
+    
   end 
 
   def group_due_dates
