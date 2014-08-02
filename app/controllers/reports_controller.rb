@@ -47,7 +47,7 @@ class ReportsController < ApplicationController
   def garmentPopularity
     year_selected = Time.now.year    
     @garment_categories = get_garments_per_year(2014)
-    @total_per_type = total_per_garment_type(year_selected)
+    @total_per_type = total_per_garment_type(2014)
 
     order_garments = Order.joins(:garments)   
     @garments_per_order = order_garments.select("to_char(due_date, 'YYYY') as order_year, count(*) as count").group("order_year").limit(4)
@@ -80,13 +80,13 @@ class ReportsController < ApplicationController
   end
   def ajax_profit_per_garment_type
     year_selected = params["year_selected"]
-    profit_per_category = total_per_garment_type(year_selected)
+    @profit_per_category = total_per_garment_type(year_selected)
 
     respond_to do |format|
       format.json {render :json => {
       type: "radar",
-      dataProvider: profit_per_category,
-      categoryField: "garment_type",
+      dataProvider: @profit_per_category,
+      categoryField: "type",
       startDuration: 2,
       valueAxes: [{
         axisAlpha: 0.15,
@@ -98,11 +98,11 @@ class ReportsController < ApplicationController
 
       graphs: [{
         title: "Garment popularity for the year #{year_selected}",
-        valueField: "total",
+        valueField: "income",
         bullet: "round",
         lineColor: "#fb5000",
         fillAlphas: 0.3,
-        balloonText: "[[value]] [[garment_type]] have been produced"
+        balloonText: "R [[value]] [[type]]"
         }]         
       }}
     end    
@@ -121,7 +121,7 @@ class ReportsController < ApplicationController
     types = ["Wedding Dress", "Matric Farewell", "Formal wear", "Work wear", "Alterations", "Other"]
     revenues =[]
 
-    for i in 0..types.size-1    
+    for i in 0..5    
       og = order_garments.where("garment_type = ?", types[i])
     total = 0
       if og.present?
@@ -143,8 +143,18 @@ class ReportsController < ApplicationController
       end        
         revenues.push(total.to_s)
     end  
-    revenues
     
+    r = []
+    for j in 0..5
+      p = Hash.new
+      p["type"] = types[j]
+      p["income"] = revenues[j]
+
+      if revenues[j] != "0"
+      r.push(p)        
+      end
+    end
+    r 
   end 
 
   def group_due_dates
