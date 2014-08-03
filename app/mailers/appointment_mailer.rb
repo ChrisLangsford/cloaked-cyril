@@ -1,5 +1,5 @@
 class AppointmentMailer < ActionMailer::Base
-  default from: "langz020@gmil.com"
+  default from: "ivysdresses85@gmail.com"
 
   def new_appointment_email(customer, appointment)
   	@customer = customer

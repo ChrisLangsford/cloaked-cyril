@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
 	helper_method :calculate_objective_index
-  http_basic_authenticate_with name: "i", password: "l"
+  http_basic_authenticate_with name: "ivysdresses", password: "poisoni"
 
   add_breadcrumb "Home", :root_path
   def index  

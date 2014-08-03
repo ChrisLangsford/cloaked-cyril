@@ -1,5 +1,5 @@
 class QuoteMailer < ActionMailer::Base
-  default from: "langz020@gmail.com"
+  default from: "ivysdresses85@gmail.com"
 
   def quote_email(customer, order, url)
   	@customer = customer

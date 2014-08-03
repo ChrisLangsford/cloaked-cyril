@@ -1,7 +1,7 @@
 class CostingsController < ApplicationController
   before_action :set_costing, only: [:show, :edit, :update, :destroy]
   before_action :set_garment, only: [:show, :new, :create, :update, :change_status]
-  http_basic_authenticate_with name: "i", password: "l", only: :new
+  http_basic_authenticate_with name: "ivysdresses", password: "poisoni", only: :new
 
   add_breadcrumb "Home", :root_path
 

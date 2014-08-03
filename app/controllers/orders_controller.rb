@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy, :check_for_costings]
   helper_method :check_for_costings
+  http_basic_authenticate_with name: "ivysdresses", password: "poisoni", except: :index
+
   add_breadcrumb "Home", :root_path
   # GET /orders
   # GET /orders.json
