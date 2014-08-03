@@ -29,6 +29,7 @@
       <%= f.date_select :due_date,{:order => [:day, :month, :year], :with_css_classes => true} %>
     </div>
   </div>
+  <%if @edit_order%>
   <div class="form-group">
     <%= f.label "Close Order", :class => "col-lg-4 control-label" %>
     <div class = "col-lg-8">
@@ -41,6 +42,7 @@
           <%= f.text_field :customer_value_index, :class => "form-control"%>
         </div>
     </div>
+  <%end%>
   
   <div class = "form-group">
     <div class = "col-lg-10 col-lg-offset-4">
