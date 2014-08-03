@@ -19,14 +19,14 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.day :at => '7am' do
-	runner Report.send_daily_mail
+every 1.minute do
+	runner "Report.send_daily_mail"
 end
 
-every :monday :at => '7am' do
-	runner Report.send_weekly_mail
+every :monday, :at => '7am' do
+	runner "Report.send_weekly_mail"
 end
 
-every 1.day :at =>'8am' do
-	runner Report.appointment_notifications
+every 1.day, :at =>'8am' do
+	runner "Report.appointment_notifications"
 end

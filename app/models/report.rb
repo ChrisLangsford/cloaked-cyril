@@ -1,14 +1,14 @@
 class Report < ActiveRecord::Base
 
-	def send_daily_mail
+	def self.send_daily_mail
 		ReportMailer.daily_schedule_email.deliver
 	end
 
-	def send_weekly_mail
+	def self.send_weekly_mail
 		ReportMailer.weekly_deadlines_email.deliver
 	end
 
-	def appointment_notifications
+	def self.appointment_notifications
 		d = Date.today
 
 		@appointments = Appointment.where(date: d+1)
