@@ -45,9 +45,9 @@ class ReportsController < ApplicationController
   end
 
   def garmentPopularity
-    year_selected = Time.now.year    
-    @garment_categories = get_garments_per_year(2014)
-    @total_per_type = total_per_garment_type(2014)
+    #year_selected = Time.now.year    
+    #@garment_categories = get_garments_per_year(2014)
+    #@total_per_type = total_per_garment_type(2014)
 
     order_garments = Order.joins(:garments)   
     @garments_per_order = order_garments.select("to_char(due_date, 'YYYY') as order_year, count(*) as count").group("order_year").limit(4)
@@ -69,7 +69,7 @@ class ReportsController < ApplicationController
       dataProvider: @garment_categories,
       titleField: "garment_type",
       valueField: "total",
-      balloonText: "[[value]] [[garment_type]] have been produced",
+      balloonText: "<strong>[[value]]</strong> [[garment_type]] have been produced",
       legend: {
         align: "centre",
         markerType: "circle"
@@ -102,7 +102,7 @@ class ReportsController < ApplicationController
         bullet: "round",
         lineColor: "#fb5000",
         fillAlphas: 0.3,
-        balloonText: "R [[value]] [[type]]"
+        balloonText: "<strong>R[[value]]</strong> [[type]]"
         }]         
       }}
     end    
