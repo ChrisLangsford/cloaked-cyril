@@ -46,8 +46,8 @@ class ReportsController < ApplicationController
 
   def garmentPopularity
     #year_selected = Time.now.year    
-    #@garment_categories = get_garments_per_year(2014)
-    #@total_per_type = total_per_garment_type(2014)
+    @garment_categories = get_garments_per_year(2014)
+    @total_per_type = total_per_garment_type(2014)
 
     order_garments = Order.joins(:garments)   
     @garments_per_order = order_garments.select("to_char(due_date, 'YYYY') as order_year, count(*) as count").group("order_year").limit(4)
@@ -97,13 +97,26 @@ class ReportsController < ApplicationController
         }],
 
       graphs: [{
-        title: "Garment popularity for the year #{year_selected}",
+        title: "Total income per garment type for #{year_selected}",
         valueField: "income",
         bullet: "round",
         lineColor: "#fb5000",
         fillAlphas: 0.3,
         balloonText: "<strong>R[[value]]</strong> [[type]]"
-        }]         
+        },{
+        title: "Average income per garment type for #{year_selected}",
+        valueField: "average",
+        bullet: "round",
+        lineColor: "#5fb503",
+        fillAlphas: 0.3,
+        balloonText: "<strong>R[[value]]</strong> [[type]]"
+        }],
+        legend: [{
+          position: "right",
+          borderAlpha: 0.3,
+          horizontalGap: 10,
+          switchType: "v"
+          }]         
       }}
     end    
   end
@@ -143,12 +156,47 @@ class ReportsController < ApplicationController
       end        
         revenues.push(total.to_s)
     end  
+
+    count_per_type = get_garments_per_year(@year)
+    counts = []
+
+    count_per_type.each do |h|
+      case h.garment_type
+      when "Wedding Dress"
+        counts[0] = h.total
+
+      when "Matric Farewell"
+        counts[1] = h.total
+
+      when "Formal wear"
+        counts[2] = h.total
+
+      when "Work wear"
+        counts[3] = h.total
+
+      when "Alterations"
+        counts[4] = h.total
+
+      when "Other"
+        counts[5] = h.total
+      end
+    end
+
+    averages = []
+    for k in 0..5
+      if counts[k].present?
+        averages[k] = (revenues[k].to_f / counts[k].to_f)
+      end
+    end
+
+    
     
     r = []
     for j in 0..5
       p = Hash.new
       p["type"] = types[j]
       p["income"] = revenues[j]
+      p["average"] = averages[j]
 
       if revenues[j] != "0"
       r.push(p)        
