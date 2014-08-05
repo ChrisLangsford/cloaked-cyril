@@ -87,7 +87,7 @@ class ReportsController < ApplicationController
       type: "radar",
       dataProvider: @profit_per_category,
       categoryField: "type",
-      startDuration: 2,
+      startDuration: 1,
       valueAxes: [{
         axisAlpha: 0.15,
         minimum: 0,
