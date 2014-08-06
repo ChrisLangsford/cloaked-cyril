@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.where(:closed => 'f').all.order(:due_date)
+    @orders = Order.all.where(:closed => 'f').order(:due_date)
 
     add_breadcrumb "Orders", orders_path
   end

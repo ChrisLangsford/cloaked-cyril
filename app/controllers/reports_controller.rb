@@ -132,14 +132,14 @@ class ReportsController < ApplicationController
     @year = year
     order_garments = Order.joins(:garments).where("to_char(due_date, 'YYYY') = ?", @year.to_s)
     types = ["Wedding Dress", "Matric Farewell", "Formal wear", "Work wear", "Alterations", "Other"]
-    revenues =[]
+    type_revenues =[]
 
     for i in 0..5    
-      og = order_garments.where("garment_type = ?", types[i])
-    total = 0
+      og = order_garments.where("garment_type = ?", types[i]).uniq
+      type_total = 0
       if og.present?
         og.each do |o|
-          sub_total = []
+          order_total = []
           o.garments.each do |g|
             r = g.costings.last
             value = 0
@@ -149,12 +149,12 @@ class ReportsController < ApplicationController
                 r.acc_cost +
                 r.misc_cost
             end
-            sub_total.push(value)
+            order_total.push(value)
           end
-          total = sub_total.reduce(:+)
+          type_total += order_total.reduce(:+)
         end
       end        
-        revenues.push(total.to_s)
+        type_revenues.push(type_total.to_s)
     end  
 
     count_per_type = get_garments_per_year(@year)
@@ -185,7 +185,7 @@ class ReportsController < ApplicationController
     averages = []
     for k in 0..5
       if counts[k].present?
-        averages[k] = (revenues[k].to_f / counts[k].to_f)
+        averages[k] = (type_revenues[k].to_f / counts[k].to_f)
       end
     end
 
@@ -195,10 +195,10 @@ class ReportsController < ApplicationController
     for j in 0..5
       p = Hash.new
       p["type"] = types[j]
-      p["income"] = revenues[j]
+      p["income"] = type_revenues[j]
       p["average"] = averages[j]
 
-      if revenues[j] != "0"
+      if type_revenues[j] != "0"
       r.push(p)        
       end
     end
