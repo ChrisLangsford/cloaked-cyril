@@ -244,7 +244,7 @@ class ReportsController < ApplicationController
   end
 
     
-def calculate_objective_index(customer)   
+  def calculate_objective_index(customer)   
     @customer = customer
 
     appointments = @customer.appointments.count
@@ -252,28 +252,28 @@ def calculate_objective_index(customer)
 
     if (orders != 0 && appointments != 0)
 
-    appointments_per_order = appointments/orders
+      appointments_per_order = appointments/orders
 
-    costings_per_order = []
-    @customer.orders.each do |o|
-      if o.closed == true
-      
-        number_of_costings = []
+      costings_per_order = []
+       @customer.orders.each do |o|
+        if o.closed == true
+          
+          number_of_costings = []
 
-        o.garments.each do |g|
+          o.garments.each do |g|
           number_of_costings.push(g.costings.count)
         end
-      else
-        number_of_costings =[0]
+        else
+          number_of_costings =[0]
+        end
+        costings_per_order.push(number_of_costings.inject(0.0) { |sum, el| sum + el } / number_of_costings.size)
       end
 
-      costings_per_order.push(number_of_costings.inject(0.0) { |sum, el| sum + el } / number_of_costings.size)
+        average_costings_per_order = (costings_per_order.inject(0.0) { |sum, el| sum + el } / costings_per_order.size)
+        return objective_index = (10 - average_costings_per_order) - (appointments_per_order)/1.75
+    end#end of if
+    else
+      return objective_index = 0
     end
 
-    average_costings_per_order = (costings_per_order.inject(0.0) { |sum, el| sum + el } / costings_per_order.size)
-
-    return objective_index = (10 - average_costings_per_order) - (appointments_per_order)/1.75
-  end
-end
-
-end
+end#end of controller
