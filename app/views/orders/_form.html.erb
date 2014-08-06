@@ -29,6 +29,7 @@
       <%= f.date_select :due_date,{:order => [:day, :month, :year], :with_css_classes => true} %>
     </div>
   </div>
+  <!--only orders that have already been created can be closed-->
   <%if @edit_order%>
   <div class="form-group">
     <%= f.label "Close Order", :class => "col-lg-4 control-label" %>
@@ -39,7 +40,7 @@
   <div class="form-group" id="close-order" style="display:none">
       <%= f.label :customer_value_index, :class => "col-lg-4 control-label" %>
         <div class="col-lg-8">
-          <%= f.text_field :customer_value_index, :class => "form-control"%>
+          <%= f.text_field :customer_value_index, value: 0, :class => "form-control"%>
         </div>
     </div>
   <%end%>

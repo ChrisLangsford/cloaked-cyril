@@ -14,10 +14,12 @@
 			<tr>
 				<%person = Customer.find(c.customer_id)%>
 				<td><%=person.first_name + " " + person.last_name%></td>
-				<td><%=c.subj.round(1)%></td>
-				<%objective_index = calculate_objective_index(person)%>
-				<td><%= objective_index.round(1)%></td>
-				<td><%= ((c.subj + objective_index)/2).round(1) %></td>
+				<%if c.subj.present?%>
+					<td><%=c.subj.round(1)%></td>
+					<%objective_index = calculate_objective_index(person)%>
+					<td><%= objective_index.round(1)%></td>
+					<td><%= ((c.subj + objective_index)/2).round(1) %></td>
+				<%end%>
 			</tr>
 		<%end%>	
 		<!--<tr> 
