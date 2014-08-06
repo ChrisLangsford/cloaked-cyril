@@ -64,7 +64,7 @@
 
                 // GRAPH
                 var graph = new AmCharts.AmGraph();
-                graph.title = "red line";
+                graph.title = "Number of orders due per month";
                 graph.valueField = "total";
                 graph.bullet = "round";
                 graph.bulletBorderColor = "#FFFFFF";
@@ -80,9 +80,16 @@
 
                 // CURSOR
                 chartCursor = new AmCharts.ChartCursor();
-                chartCursor.cursorPosition = "mouse";
+                //chartCursor.cursorPosition = "mouse";
                 chartCursor.pan = false; // set it to fals if you want the cursor to work in "select" mode
                 chart.addChartCursor(chartCursor);
+
+                //LEGEND
+                var legend = new AmCharts.AmLegend();
+                legend.borderAlpha = 0.2;
+                legend.horizontalGap = 10;
+                legend.autoMargins = false;
+                chart.addLegend(legend);
 
                 // SCROLLBAR
                 var chartScrollbar = new AmCharts.ChartScrollbar();
