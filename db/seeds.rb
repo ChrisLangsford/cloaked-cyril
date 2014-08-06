@@ -25,4 +25,24 @@ Garment.create!([
 ])
 Order.create!([
   {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1}
 ])

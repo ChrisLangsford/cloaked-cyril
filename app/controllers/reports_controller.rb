@@ -23,6 +23,32 @@ class ReportsController < ApplicationController
 
   def customerRanking
 
+    customers = Customer.all
+    cvi_average_per_customer = Order.select("customer_id, avg(customer_value_index) as subj", :limit => 5).group("customer_id").order("subj").reverse
+
+    all_customers_with_scores = []
+
+    customers.each do |c|
+      customer_with_scores = Hash.new
+      customer_value_scores = []
+
+      c.orders.each do|o|
+        customer_value_scores.push(o.customer_value_index)
+      end
+
+      individual_score = customer_value_scores.inject{ |sum, el| sum + el }.to_f / customer_value_scores.size
+      customer_with_scores["name"] = c.first_name + " " + c.last_name
+      customer_with_scores["sub_score"] = individual_score
+      customer_with_scores["obj_score"] = calculate_objective_index(c)
+
+      all_customers_with_scores.push(customer_with_scores)
+    end
+
+
+    @top5 = all_customers_with_scores.sort_by { |hsh| hsh[:sub_score]}[0..4]
+    @bottom5 = all_customers_with_scores.sort_by { |hsh| hsh[:sub_score]}.reverse[0..4]
+
+
     add_breadcrumb "Reports", reports_index_path
     add_breadcrumb "Customer Ranking", reports_customerRanking_path
     
@@ -224,6 +250,8 @@ def calculate_objective_index(customer)
     appointments = @customer.appointments.count
     orders = @customer.orders.count
 
+    if (orders != 0 && appointments != 0)
+
     appointments_per_order = appointments/orders
 
     costings_per_order = []
@@ -246,5 +274,6 @@ def calculate_objective_index(customer)
 
     return objective_index = (10 - average_costings_per_order) - (appointments_per_order)/1.75
   end
+end
 
 end
