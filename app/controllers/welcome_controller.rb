@@ -6,35 +6,62 @@ class WelcomeController < ApplicationController
   def index  
   #ReportMailer.daily_schedule_email.deliver
   #ReportMailer.weekly_deadlines_email.deliver
+
+  customers = Customer.all
+    cvi_average_per_customer = Order.select("customer_id, avg(customer_value_index) as subj", :limit => 5).group("customer_id").order("subj").reverse
+
+    all_customers_with_scores = []
+
+    customers.each do |c|
+      customer_with_scores = Hash.new
+      customer_value_scores = []
+
+      c.orders.each do|o|
+        customer_value_scores.push(o.customer_value_index)
+      end
+
+      individual_score = customer_value_scores.inject{ |sum, el| sum + el }.to_f / customer_value_scores.size
+      customer_with_scores["name"] = c.first_name + " " + c.last_name
+      customer_with_scores["sub_score"] = individual_score
+      customer_with_scores["obj_score"] = calculate_objective_index(c)
+
+      all_customers_with_scores.push(customer_with_scores)
+    end
+
+
+    @top5 = all_customers_with_scores.sort_by { |hsh| hsh[:sub_score]}[0..4]
+    @bottom5 = all_customers_with_scores.sort_by { |hsh| hsh[:sub_score]}.reverse[0..4]
   end
 
-  def calculate_objective_index(customer)  	
-  	@customer = customer
+  def calculate_objective_index(customer)   
+    @customer = customer
 
-  	appointments = @customer.appointments.count
-  	orders = @customer.orders.count
+    appointments = @customer.appointments.count
+    orders = @customer.orders.count
 
-  	appointments_per_order = appointments/orders
+    if (orders != 0 && appointments != 0)
 
-  	costings_per_order = []
-  	@customer.orders.each do |o|
+    appointments_per_order = appointments/orders
+
+    costings_per_order = []
+    @customer.orders.each do |o|
       if o.closed == true
       
         number_of_costings = []
 
-    		o.garments.each do |g|
-    			number_of_costings.push(g.costings.count)
-    		end
+        o.garments.each do |g|
+          number_of_costings.push(g.costings.count)
+        end
       else
         number_of_costings =[0]
       end
 
-  		costings_per_order.push(number_of_costings.inject(0.0) { |sum, el| sum + el } / number_of_costings.size)
-  	end
+      costings_per_order.push(number_of_costings.inject(0.0) { |sum, el| sum + el } / number_of_costings.size)
+    end
 
-  	average_costings_per_order = (costings_per_order.inject(0.0) { |sum, el| sum + el } / costings_per_order.size)
+    average_costings_per_order = (costings_per_order.inject(0.0) { |sum, el| sum + el } / costings_per_order.size)
 
-  	return objective_index = (10 - average_costings_per_order) - (appointments_per_order)/1.75
-
-  end 
+    return objective_index = (10 - average_costings_per_order) - (appointments_per_order)/1.75
+  end
+end
 end
