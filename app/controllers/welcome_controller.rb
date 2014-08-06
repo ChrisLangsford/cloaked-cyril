@@ -7,6 +7,7 @@ class WelcomeController < ApplicationController
   #ReportMailer.daily_schedule_email.deliver
   #ReportMailer.weekly_deadlines_email.deliver
 
+  #customer ranking code
   customers = Customer.all
     cvi_average_per_customer = Order.select("customer_id, avg(customer_value_index) as subj", :limit => 5).group("customer_id").order("subj").reverse
 
@@ -31,6 +32,7 @@ class WelcomeController < ApplicationController
 
     @top5 = all_customers_with_scores.sort_by { |hsh| hsh[:sub_score]}[0..4]
     @bottom5 = all_customers_with_scores.sort_by { |hsh| hsh[:sub_score]}.reverse[0..4]
+    #end customer ranking code
   end
 
   def calculate_objective_index(customer)   
