@@ -12,9 +12,9 @@
 		<% @top5.each do |c|%>
 			<tr>
 				<td><%=a = c["name"]%></td>
-				<td><%=b = c["sub_score"]%></td>
-				<td><%=d = c["obj_score"]%></td>
-				<td><%= (a.to_f+b.to_f)/2%></td>
+				<td><%=b = c["sub_score"].round(1)%></td>
+				<td><%=d = c["obj_score"].round(1)%></td>
+				<td><%= ((a.to_f+b.to_f)/2).round(1)%></td>
 			</tr>
 		<%end%>
 	</tbody>		
