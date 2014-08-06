@@ -1,5 +1,5 @@
 Appointment.create!([
-  {date: "2014-07-07", time: "2000-01-01 09:00:00", comments: "meeting", follow_up: false, customer_id: 1}  
+  {date: "2014-07-07", time: "2000-01-01 09:00:00", comments: "Meeting", follow_up: false, customer_id: 1}  
 ])
 Costing.create!([
   {labour_cost: "100.0", fabric_cost: "100.0", acc_cost: "10.0", misc_cost: "0.0", garment_id: 1}  
@@ -24,5 +24,5 @@ Garment.create!([
   {garment_type: "Other", garment_description: "Onesie", order_id: 1, bust: "0.0", under_bust: "0.0", waist: "0.0", hip_upper: "0.0", hip_lower: "0.0", bust_point: "0.0", front_length: "0.0", shoulder_to_under_bust: "0.0", back_length: "0.0", across_back: "0.0", shoulderlength: "0.0", skirt_length: "0.0", sleeve_length: "0.0", sleeve_width_upper: "0.0", sleeve_width_elbow: "0.0", sleeve_width_wrist: "0.0", pants_length: "0.0", jacket_length: "0.0"}
 ])
 Order.create!([
-  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1}
+  {order_description: "Onesie", due_date: "2014-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
 ])

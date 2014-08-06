@@ -51,7 +51,8 @@
   <div class = "form-group">
     <div class = "col-lg-10 col-lg-offset-4">
       <%= f.submit 'Save', :class => "btn btn-primary"%>
-      <%= link_to 'Cancel', orders_path , :class => "btn btn-default" %>
+      <% cancel_path = @new_order ? orders_path : order_path%>
+      <%= link_to 'Cancel', cancel_path , :class => "btn btn-default" %>
     </div>
   </div>
 
