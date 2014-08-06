@@ -40,9 +40,12 @@
   <div class="form-group" id="close-order" style="display:none">
       <%= f.label :customer_value_index, :class => "col-lg-4 control-label" %>
         <div class="col-lg-8">
-          <%= f.text_field :customer_value_index, value: 0, :class => "form-control"%>
+          <%= f.text_field :customer_value_index, :class => "form-control"%>
         </div>
     </div>
+  <%end%>
+    <%if @new_order%>
+    <%= f.hidden_field :closed, :value => false%>
   <%end%>
   
   <div class = "form-group">

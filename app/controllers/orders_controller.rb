@@ -22,7 +22,8 @@ class OrdersController < ApplicationController
   end
 
   # GET /orders/new
-  def new    
+  def new 
+    @new_order = true
     @order = Order.new
     add_breadcrumb "Orders", orders_path
     add_breadcrumb "Create Order", new_order_path
