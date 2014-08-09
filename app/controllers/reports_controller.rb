@@ -135,7 +135,7 @@ class ReportsController < ApplicationController
         bullet: "round",
         lineColor: "#5fb503",
         fillAlphas: 0.3,
-        balloonText: "<strong>R[[value]]</strong> [[type]]"
+        balloonText: "<strong>R[[value]]</strong> / [[type]] garment"
         }],
         legend: [{
           position: "right",
