@@ -14,7 +14,8 @@
 					<%= content_tag :tr, :class => "late-order" do%>
 						<td><%= o.due_date.strftime("Late %d-%b-%Y")%></td>
 						<%person = Customer.find(o.customer_id)%>
-						<td><%= person.first_name + " " + person.last_name%></td>
+						<%name = person.first_name + " " + person.last_name %>
+						<td><%= link_to name, customer_path(person) %></td>
 						<td><%= o.order_description%></td>
 					<%end%>
 				<%end%>
@@ -24,7 +25,8 @@
 			<%= content_tag :tr, :class => (o.closed? ? "closed-order" : "open-order") do%>
 				<td><%= o.due_date.strftime("(%a) %d-%b-%Y")%></td>
 				<%person = Customer.find(o.customer_id)%>
-				<td><%= person.first_name + " " + person.last_name%></td>
+				<%name = person.first_name + " " + person.last_name %>
+				<td><%= link_to name, customer_path(person) %></td>
 				<td><%= o.order_description%></td>
 			<%end%>
 			<%end%>			
