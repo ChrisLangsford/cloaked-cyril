@@ -9,12 +9,19 @@
 		</thead>
 		<tbody>
 		<%appointments = Appointment.where(date: d).order(:date)%>
-		<%appointments.each do |a|%>
+		<%appointments.each do |a|%>		
 		<tr>
+			<%if a.follow_up%>
+			<td>
+				<span class="badge">Follow up</span>
+			</td>
+			<%else%>
 			<td><%=a.time.strftime("%H:%M %p")%></td>
+			<%end%>
 			<%person = Customer.find(a.customer_id)%>
-			<td><%=person.first_name + " " + person.last_name%></td>
-			<td><%= a.follow_up ? "Follow up" : a.comments %></td>
+			<%name = person.first_name + " " + person.last_name %>
+			<td><%= link_to name, customer_path(person)%></td>
+			<td><%= a.comments %></td>
 		</tr>
 		<%end%>
 				
