@@ -88,7 +88,13 @@ Garment.create!([
   {garment_type: "Formal wear", garment_description: "Camo onesie", order_id: 17, bust: "0.0", under_bust: "0.0", waist: "0.0", hip_upper: "0.0", hip_lower: "0.0", bust_point: "0.0", front_length: "0.0", shoulder_to_under_bust: "0.0", back_length: "0.0", across_back: "0.0", shoulderlength: "0.0", skirt_length: "0.0", sleeve_length: "0.0", sleeve_width_upper: "0.0", sleeve_width_elbow: "0.0", sleeve_width_wrist: "0.0", pants_length: "0.0", jacket_length: "0.0"},
   {garment_type: "Alterations", garment_description: "Camo onesie", order_id: 18, bust: "0.0", under_bust: "0.0", waist: "0.0", hip_upper: "0.0", hip_lower: "0.0", bust_point: "0.0", front_length: "0.0", shoulder_to_under_bust: "0.0", back_length: "0.0", across_back: "0.0", shoulderlength: "0.0", skirt_length: "0.0", sleeve_length: "0.0", sleeve_width_upper: "0.0", sleeve_width_elbow: "0.0", sleeve_width_wrist: "0.0", pants_length: "0.0", jacket_length: "0.0"},
   {garment_type: "Work wear", garment_description: "Camo onesie", order_id: 19, bust: "0.0", under_bust: "0.0", waist: "0.0", hip_upper: "0.0", hip_lower: "0.0", bust_point: "0.0", front_length: "0.0", shoulder_to_under_bust: "0.0", back_length: "0.0", across_back: "0.0", shoulderlength: "0.0", skirt_length: "0.0", sleeve_length: "0.0", sleeve_width_upper: "0.0", sleeve_width_elbow: "0.0", sleeve_width_wrist: "0.0", pants_length: "0.0", jacket_length: "0.0"},
-  {garment_type: "Other", garment_description: "Camo onesie", order_id: 20, bust: "0.0", under_bust: "0.0", waist: "0.0", hip_upper: "0.0", hip_lower: "0.0", bust_point: "0.0", front_length: "0.0", shoulder_to_under_bust: "0.0", back_length: "0.0", across_back: "0.0", shoulderlength: "0.0", skirt_length: "0.0", sleeve_length: "0.0", sleeve_width_upper: "0.0", sleeve_width_elbow: "0.0", sleeve_width_wrist: "0.0", pants_length: "0.0", jacket_length: "0.0"}
+  {garment_type: "Other", garment_description: "Camo onesie", order_id: 20, bust: "0.0", under_bust: "0.0", waist: "0.0", hip_upper: "0.0", hip_lower: "0.0", bust_point: "0.0", front_length: "0.0", shoulder_to_under_bust: "0.0", back_length: "0.0", across_back: "0.0", shoulderlength: "0.0", skirt_length: "0.0", sleeve_length: "0.0", sleeve_width_upper: "0.0", sleeve_width_elbow: "0.0", sleeve_width_wrist: "0.0", pants_length: "0.0", jacket_length: "0.0"},
+  {garment_type: "Alterations", garment_description: "Camo onesie", order_id: 21, bust: "0.0", under_bust: "0.0", waist: "0.0", hip_upper: "0.0", hip_lower: "0.0", bust_point: "0.0", front_length: "0.0", shoulder_to_under_bust: "0.0", back_length: "0.0", across_back: "0.0", shoulderlength: "0.0", skirt_length: "0.0", sleeve_length: "0.0", sleeve_width_upper: "0.0", sleeve_width_elbow: "0.0", sleeve_width_wrist: "0.0", pants_length: "0.0", jacket_length: "0.0"},
+  {garment_type: "Work wear", garment_description: "Camo onesie", order_id: 22, bust: "0.0", under_bust: "0.0", waist: "0.0", hip_upper: "0.0", hip_lower: "0.0", bust_point: "0.0", front_length: "0.0", shoulder_to_under_bust: "0.0", back_length: "0.0", across_back: "0.0", shoulderlength: "0.0", skirt_length: "0.0", sleeve_length: "0.0", sleeve_width_upper: "0.0", sleeve_width_elbow: "0.0", sleeve_width_wrist: "0.0", pants_length: "0.0", jacket_length: "0.0"},
+  {garment_type: "Matric Farewell", garment_description: "Camo onesie", order_id: 23, bust: "0.0", under_bust: "0.0", waist: "0.0", hip_upper: "0.0", hip_lower: "0.0", bust_point: "0.0", front_length: "0.0", shoulder_to_under_bust: "0.0", back_length: "0.0", across_back: "0.0", shoulderlength: "0.0", skirt_length: "0.0", sleeve_length: "0.0", sleeve_width_upper: "0.0", sleeve_width_elbow: "0.0", sleeve_width_wrist: "0.0", pants_length: "0.0", jacket_length: "0.0"},
+  {garment_type: "Matric Farewell", garment_description: "Camo onesie", order_id: 24, bust: "0.0", under_bust: "0.0", waist: "0.0", hip_upper: "0.0", hip_lower: "0.0", bust_point: "0.0", front_length: "0.0", shoulder_to_under_bust: "0.0", back_length: "0.0", across_back: "0.0", shoulderlength: "0.0", skirt_length: "0.0", sleeve_length: "0.0", sleeve_width_upper: "0.0", sleeve_width_elbow: "0.0", sleeve_width_wrist: "0.0", pants_length: "0.0", jacket_length: "0.0"},
+  {garment_type: "Wedding Dress", garment_description: "Camo onesie", order_id: 25, bust: "0.0", under_bust: "0.0", waist: "0.0", hip_upper: "0.0", hip_lower: "0.0", bust_point: "0.0", front_length: "0.0", shoulder_to_under_bust: "0.0", back_length: "0.0", across_back: "0.0", shoulderlength: "0.0", skirt_length: "0.0", sleeve_length: "0.0", sleeve_width_upper: "0.0", sleeve_width_elbow: "0.0", sleeve_width_wrist: "0.0", pants_length: "0.0", jacket_length: "0.0"},
+  {garment_type: "Wedding Dress", garment_description: "Camo onesie", order_id: 26, bust: "0.0", under_bust: "0.0", waist: "0.0", hip_upper: "0.0", hip_lower: "0.0", bust_point: "0.0", front_length: "0.0", shoulder_to_under_bust: "0.0", back_length: "0.0", across_back: "0.0", shoulderlength: "0.0", skirt_length: "0.0", sleeve_length: "0.0", sleeve_width_upper: "0.0", sleeve_width_elbow: "0.0", sleeve_width_wrist: "0.0", pants_length: "0.0", jacket_length: "0.0"}
 ])
 Order.create!([
   {order_description: "Onesie", due_date: "2013-07-11", customer_value_index: "8.0", closed: true, customer_id: 1},
@@ -104,13 +110,17 @@ Order.create!([
   {order_description: "Onesie", due_date: "2013-11-11", customer_value_index: "8.0", closed: true, customer_id: 1},
   {order_description: "Onesie", due_date: "2013-12-11", customer_value_index: "7.7", closed: true, customer_id: 2},
   {order_description: "Onesie", due_date: "2013-12-11", customer_value_index: "7.5", closed: true, customer_id: 3},
-  {order_description: "Onesie", due_date: "2014-01-11", customer_value_index: "7.0", closed: false, customer_id: 4},
-  {order_description: "Onesie", due_date: "2014-02-11", customer_value_index: "6.0", closed: false, customer_id: 5},
-  {order_description: "Onesie", due_date: "2014-02-11", customer_value_index: "5.0", closed: false, customer_id: 6},
-  {order_description: "Onesie", due_date: "2014-02-11", customer_value_index: "4.0", closed: false, customer_id: 7},
-  {order_description: "Onesie", due_date: "2014-03-11", customer_value_index: "3.0", closed: false, customer_id: 8},
-  {order_description: "Onesie", due_date: "2014-04-11", customer_value_index: "2.0", closed: false, customer_id: 9},
-  {order_description: "Onesie", due_date: "2014-04-11", customer_value_index: "8.0", closed: false, customer_id: 1},
-  {order_description: "Onesie", due_date: "2014-05-11", customer_value_index: "6.0", closed: false, customer_id: 5},
-  {order_description: "Onesie", due_date: "2014-05-11", customer_value_index: "2.0", closed: false, customer_id: 10}
+  {order_description: "Onesie", due_date: "2014-01-11", customer_value_index: "7.0", closed: true, customer_id: 4},
+  {order_description: "Onesie", due_date: "2014-02-11", customer_value_index: "6.0", closed: true, customer_id: 5},
+  {order_description: "Onesie", due_date: "2014-02-11", customer_value_index: "5.0", closed: true, customer_id: 6},
+  {order_description: "Onesie", due_date: "2014-02-11", customer_value_index: "4.0", closed: true, customer_id: 7},
+  {order_description: "Onesie", due_date: "2014-03-11", customer_value_index: "3.0", closed: true, customer_id: 8},
+  {order_description: "Onesie", due_date: "2014-04-11", customer_value_index: "2.0", closed: true, customer_id: 9},
+  {order_description: "Onesie", due_date: "2014-04-11", customer_value_index: "8.0", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-05-11", customer_value_index: "6.0", closed: true, customer_id: 5},
+  {order_description: "Onesie", due_date: "2014-05-11", customer_value_index: "7.5", closed: true, customer_id: 1},
+  {order_description: "Onesie", due_date: "2014-08-18", customer_value_index: "7.5", closed: false, customer_id: 2},
+  {order_description: "Onesie", due_date: "2014-08-20", customer_value_index: "6", closed: true, customer_id: 3},
+  {order_description: "Onesie", due_date: "2014-08-21", customer_value_index: "6.5", closed: false, customer_id: 4},
+  {order_description: "Onesie", due_date: "2014-08-22", customer_value_index: "7.0", closed: false, customer_id: 5}
 ])

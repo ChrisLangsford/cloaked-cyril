@@ -6,6 +6,6 @@ class InvoiceMailer < ActionMailer::Base
   	@order = order
   	@url =  url
 
-  	mail(to: @customer.email, subject: "Invoice from Ivy's Dresses")
+  	mail(to: @customer.email, subject: "Your invoice from Ivy's Dresses")
   end
 end
