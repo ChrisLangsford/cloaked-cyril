@@ -19,13 +19,13 @@ class AppointmentMailer < ActionMailer::Base
     end
 
     attachments['event.ics'] = event.export()
-  	mail(to: @customer.email, subject: "Appointment made with Ivy's Dresses")
+  	mail(to: @customer.email, subject: "You have a new appointment with Ivy's Dresses")
   end
 
   def cancel_appointment_email(customer, appointment)
   	@customer = customer
   	@appointment = appointment
-  	mail(to: @customer.email, subject: "Ivy's Dresses appointment cancelled")
+  	mail(to: @customer.email, subject: "Your appointment with Ivy's Dresses has been cancelled")
   end
 
   def update_appointment_email(customer,appointment)

@@ -11,7 +11,7 @@
 	<tbody>
 		<% @top5.each do |c|%>
 			<tr>
-				<td><%= link_to c["name"], customer_path(c)%></td>
+				<td><%= c["name"]%></td>
 				<td><%= a = c["sub_score"].round(1)%></td>
 				<td><%= b = c["obj_score"].round(1)%></td>
 				<td><%= ((a.to_f + b.to_f)/2).round(1)%></td>
