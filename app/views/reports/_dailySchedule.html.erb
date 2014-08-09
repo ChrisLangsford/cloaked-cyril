@@ -14,7 +14,7 @@
 			<td><%=a.time.strftime("%H:%M %p")%></td>
 			<%person = Customer.find(a.customer_id)%>
 			<td><%=person.first_name + " " + person.last_name%></td>
-			<td><%=a.comments%></td>
+			<td><%= a.follow_up ? "Follow up" : a.comments %></td>
 		</tr>
 		<%end%>
 				
