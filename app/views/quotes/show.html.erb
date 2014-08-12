@@ -1,15 +1,17 @@
-<div class="page-header">
-	<h2>Quote</h2>
+<div class="page-header row">
+	<div class="col-lg-6">
+		<h1>Ivy's Dresses</h1>
+	</div>
+	<div class="col-lg-offset-1 col-lg-4">
+	<h1><i><b>Quotation</b></i></h1>		
+	</div>
 </div>
-<script type="text/javascript">
-	$(function() {
-    $( "#accordion" ).accordion();
-  });
-</script>
+	
+
 
 <div class="row well col-lg-10">
 	<div class="col-lg-12">
-	<h4>Order Details</h4>
+	<h4>Quotation Details</h4>
 	<hr>
 		<div class="row">
 			<div class="col-sm-3">
@@ -28,9 +30,16 @@
 				<p><b>Due Date:</b></p>
 			</div>
 		<%=@order.due_date.strftime("%A %d-%B-%Y")%>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<p><b>Note:</b></p>
+			</div>
+			<p>This quote is valid for <b>3</b> working days</p>
 		</div>	
 		<hr>
-		<!-- TODO: styling needs tweaking, also add any official disclaimers, banking and contact details etc-->	
+		<!-- This is where the accoridon starts -->	
+		<h6><i>Click on a line item to see a cost breakdown</i></h6>
 
 		<div class="panel-group" id="accordion">
 		<%sub_totals =[]%>
@@ -66,9 +75,8 @@
 					R <%value=recent.misc_cost%><%= sprintf("%.2f", value)%></span>
 		      </div>
 		    </div>   
-		 </div>
-		 
-		 <%end%>		  
+		  </div>		 
+		 <%end%>	  
 
   		</div>
 
@@ -78,6 +86,17 @@
 				R<%=sprintf("%.2f",calculate_total)%>
 			</h4>
 		</div>		
-		<hr>			
+		<hr>
+		<div class="col-md-offset-4">
+		<h4><b>Thank you for your business</b></h4>	
+		</div>
+		<br>
+		<hr>		
+		<h6 class="col-md-offset-2">If you have any questions concerning this quotation contact <b>Ivy</b> on <b>0832930492</b> or <b>ivysdresse85@gmail.com</b></h6>
 	</div>		
 </div>
+<script type="text/javascript">
+	$(function() {
+    $( "#accordion" ).accordion();
+  });
+</script>
