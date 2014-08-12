@@ -25,7 +25,6 @@
             <tr>
                 <th class="col-md-2">Date</th>
                 <th class="col-md-1">Time</th>
-                <th class="col-md-1">Follow Up</th>
                 <th>Customer</th>
                 <th>Description</th>
                 <th class="col-md-2 options"></th>
@@ -35,10 +34,12 @@
             <% @appointments.each do |appointment| %>
             <% person = Customer.find(appointment.customer_id)%>
               <tr class="link-row" style="height:49px;">
-                <td><%= appointment.date.strftime("%d-%b-%Y (%A)") %></td>
-                <td><%= appointment.time.to_formatted_s(:time) %></td>
-                <td><%= appointment.follow_up? ? "Yes" : "No" %></td>
-
+                  <td><%= appointment.date.strftime("%d-%b-%Y (%A)") %></td>
+                  <%if appointment.follow_up%>
+                    <td><span class="badge">Follow up</span></td>
+                  <%else%>
+                  <td><%= appointment.time.to_formatted_s(:time) %></td>
+                  <%end%>
                 <td><%= person.first_name + " "+ person.last_name %></td>
                 <td><%= appointment.comments.capitalize %></td>
                 <td align="right">

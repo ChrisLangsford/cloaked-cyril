@@ -1,5 +1,5 @@
-<%d = Date.today%>
-<h1 class="page-header">Busy Season<span><h5><%= d.strftime("%A %d-%B-%Y")%></h5></span></h1>
+<%d = Time.now%>
+<h1 class="page-header">Busy Season<span><h5><%= d.strftime("%A %d-%B-%Y %H:%M")%></h5></span></h1>
 <div class="well">
 <%= render "busySeason"%>	
 </div>
