@@ -4,7 +4,7 @@
 	<li><%= link_to reports_dailySchedule_path do%>Daily Schedule<%end%></li>
 	<li><%= link_to reports_weeklyDeadline_path do%>Weekly Deadlines<%end%></li>
 	<li><%= link_to reports_customerRanking_path do%>Customer Ranking<%end%></li>
-	<li><%= link_to reports_expense_path do%>Expenses<%end%></li>
+	<li><%= link_to reports_expense_path, "data-no-turbolink" => true do%>Expenses<%end%></li>
 	<li><%= link_to reports_busySeason_path, "data-no-turbolink" => true do%>Busy Season<%end%></li>
 	<li><%= link_to reports_garmentPopularity_path, "data-no-turbolink" => true do%>Product Popularity<%end%></li>
 </ul>
