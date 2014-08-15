@@ -72,8 +72,8 @@ class ReportsController < ApplicationController
 
   def garmentPopularity
     #year_selected = Time.now.year    
-    @garment_categories = get_garments_per_year(2014)
-    @total_per_type = total_per_garment_type(2014)
+    #@garment_categories = get_garments_per_year(2014)
+    #@total_per_type = total_per_garment_type(2014)
 
     order_garments = Order.joins(:garments)   
     @garments_per_order = order_garments.select("to_char(due_date, 'YYYY') as order_year, count(*) as count").group("order_year").limit(4)

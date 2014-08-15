@@ -7,7 +7,9 @@ gem 'rails', '4.1.1'
 #gem 'sqlite3'
 gem 'pg'
 # Use SCSS for stylesheets
+gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '~> 4.0.3'
+gem 'autoprefixer-rails'
 
 gem 'less', '~> 2.2.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -33,7 +35,6 @@ gem 'spring',        group: :development
 
 gem 'railroady'
 
-gem 'bootstrap-sass', '~> 3.1.1.1'
 #gem 'bootswatch-rails'
 
 gem 'heroku', '~> 3.7.3'

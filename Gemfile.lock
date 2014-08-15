@@ -32,7 +32,9 @@ GEM
       collection_of (>= 1.0.3)
       rails (> 3.0.0)
     arel (5.0.1.20140414130214)
-    bootstrap-sass (3.1.1.1)
+    autoprefixer-rails (2.2.0.20140804)
+      execjs
+    bootstrap-sass (3.2.0.1)
       sass (~> 3.2)
     breadcrumbs_on_rails (2.3.0)
     builder (3.2.2)
@@ -169,7 +171,8 @@ PLATFORMS
 
 DEPENDENCIES
   amcharts.rb (~> 3.4.8.0)
-  bootstrap-sass (~> 3.1.1.1)
+  autoprefixer-rails
+  bootstrap-sass (~> 3.2.0)
   breadcrumbs_on_rails
   coffee-rails (~> 4.0.0)
   heroku (~> 3.7.3)

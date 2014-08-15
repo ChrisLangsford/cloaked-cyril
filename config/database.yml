@@ -29,8 +29,6 @@ development:
   encoding: unicode
   database: project_database
   pool: 5
-  username: chris
-  password: 
 
 test:
   adapter: postgresql
