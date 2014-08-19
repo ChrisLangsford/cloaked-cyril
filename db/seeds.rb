@@ -98,7 +98,7 @@ Costing.create!([
 Customer.create!([
   {first_name: "Chris", last_name: "Langsford", contact_no: "0833841037", email: "langz020@gmail.com"},
   {first_name: "Fallon", last_name: "Amadori", contact_no: "0833841037", email: "langz020@gmail.com"},
-  {first_name: "Missy", last_name: "Victorson", contact_no: "0833841037", email: "langz020@gmail.com"},
+  {first_name: "Mahlatse", last_name: "Masimene", contact_no: "0833841037", email: "m.masimene@gmail.com"},
   {first_name: "Leila", last_name: "Marmo", contact_no: "0833841037", email: "langz020@gmail.com"},
   {first_name: "Lilian", last_name: "Hill", contact_no: "0833841037", email: "langz020@gmail.com"},
   {first_name: "Sharon", last_name: "Christinsen", contact_no: "0833841037", email: "langz020@gmail.com"},
