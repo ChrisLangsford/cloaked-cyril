@@ -33,7 +33,9 @@ class ReportsController < ApplicationController
       customer_value_scores = []
 
       c.orders.each do|o|
+        if o.closed 
         customer_value_scores.push(o.customer_value_index)
+      end
       end
 
       individual_score = customer_value_scores.inject{ |sum, el| sum + el }.to_f / customer_value_scores.size
