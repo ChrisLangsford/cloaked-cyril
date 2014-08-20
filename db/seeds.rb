@@ -162,8 +162,8 @@ Order.create!([
   {order_description: "Onesie", due_date: "2014-04-11", customer_value_index: "8.0", closed: true, customer_id: 1},
   {order_description: "Onesie", due_date: "2014-05-11", customer_value_index: "6.0", closed: true, customer_id: 5},
   {order_description: "Onesie", due_date: "2014-05-11", customer_value_index: "7.5", closed: true, customer_id: 1},
-  {order_description: "Onesie", due_date: "2014-08-18", customer_value_index: "7.5", closed: false, customer_id: 2},
-  {order_description: "Onesie", due_date: "2014-08-20", customer_value_index: "6", closed: true, customer_id: 3},
-  {order_description: "Onesie", due_date: "2014-08-21", customer_value_index: "6.5", closed: false, customer_id: 4},
-  {order_description: "Onesie", due_date: "2014-08-22", customer_value_index: "7.0", closed: false, customer_id: 5}
+  {order_description: "Matric Farewell", due_date: "2014-08-18", customer_value_index: "7.5", closed: false, customer_id: 2},
+  {order_description: "Debutant Gown", due_date: "2014-08-20", customer_value_index: "6", closed: true, customer_id: 3},
+  {order_description: "Matric Farewell", due_date: "2014-08-21", customer_value_index: "6.5", closed: false, customer_id: 4},
+  {order_description: "Wedding Dress", due_date: "2014-08-22", customer_value_index: "7.0", closed: false, customer_id: 5}
 ])
