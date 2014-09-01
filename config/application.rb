@@ -22,6 +22,7 @@ module Is3
     # config.i18n.default_locale = :de
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.assets.precompile += ['bootstrap-slider.js']
     config.serve_static_assets = true
   end
 end
