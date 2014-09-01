@@ -10,7 +10,7 @@
 	</thead>
 	<tbody>
 	<% @bottom5.each do |c|%>
-			<tr>
+			<tr class="danger">
 				<td><%= c["name"]%></td>
 				<td><%= a = c["sub_score"].round(1)%></td>
 				<td><%= b =c["obj_score"].round(1)%></td>
