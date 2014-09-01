@@ -1,19 +1,2 @@
 //@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
 @import url('//fonts.googleapis.com/css?family=Kaushan+Script');
-
-.minute{
-	@extend .form-control;
-}
-
-.hour{
-	@extend .form-control;
-}
-
-
-.month{
-	@extend .form-control, col-md-6;	
-}
-
-.year{
-	@extend .form-control, col-md-4;	
-}
