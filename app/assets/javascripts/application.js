@@ -16,3 +16,5 @@
 //= require_tree .//amcharts
 //= require garments
 //= require bootstrap-slider
+//= require moment
+//= require bootstrap-datetimepicker

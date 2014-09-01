@@ -9,9 +9,6 @@
 	@extend .form-control;
 }
 
-.day{
-	@extend .form-control, .col-md-2;	
-}
 
 .month{
 	@extend .form-control, col-md-6;	
