@@ -27,7 +27,7 @@
     <%= f.label :due_date, :class => "col-lg-4 control-label" %>
     <div class = "col-lg-8">
       <div class="input-group date" id="dt1">
-      <%= f.text_field :due_date, :class => "form-control" %>
+      <%= f.text_field :due_date, {:class => "form-control", data: { :date_format => "YYYY/MM/DD"}} %>
       <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>  
         <script type="text/javascript">
             $(function () {
