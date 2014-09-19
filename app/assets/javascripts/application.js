@@ -18,3 +18,4 @@
 //= require bootstrap-slider
 //= require moment
 //= require bootstrap-datetimepicker
+//= require bootstrap

@@ -21,7 +21,17 @@
           <li><%= link_to 'Customers', customers_path, "data-no-turbolink" => true%></li>            
           <li><%= link_to 'Appointments', appointments_path, "data-no-turbolink" => true%></li>
           <li><%= link_to 'Expenses', expenses_path, "data-no-turbolink" => true%></li>
-          <li><%= link_to 'Reports', reports_index_path, "data-no-turbolink" => true%></li>                 
+          <li><%= link_to 'Reports', reports_index_path, "data-no-turbolink" => true%></li>
+          <li class="dropdown">
+          <%= link_to root_path, :'data-toggle' => "dropdown", :class =>"dropdown-toggle" do%>Help <span class="caret"></span><%end%>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
         </ul>                     
     </div><!--/.nav-collapse -->
   </div><!-- /.container container-fluid  -->  
