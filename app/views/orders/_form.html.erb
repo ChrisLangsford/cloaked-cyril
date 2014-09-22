@@ -27,7 +27,7 @@
     <%= f.label :due_date, :class => "col-lg-4 control-label" %>
     <div class = "col-lg-8">
       <div class="input-group date" id="dt1">
-      <%= f.text_field :due_date, {:class => "form-control", data: { :date_format => "YYYY/MM/DD"}, readonly: true} %>
+      <%= f.text_field :due_date, {:class => "form-control", data: { :date_format => "YYYY/MM/DD"}, readonly: true, :'data-toggle' => "tooltip", :'data-placement' => "bottom", title: "Click calendar icon" } %>
       <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>  
         <script type="text/javascript">
             $(function () {
@@ -44,7 +44,7 @@
   <div class="form-group">
     <%= f.label "Close Order", :class => "col-lg-4 control-label" %>
     <div class = "col-lg-8">
-      <%= f.check_box :closed, :id =>"close-option"%>    
+      <%= f.check_box :closed, :id =>"close-option", :'data-toggle' => "tooltip", :'data-placement' => "bottom", title: "Check once order has been paid for" %>    
     </div>
   </div>
   <div class="form-group" id="close-order" style="display:none">

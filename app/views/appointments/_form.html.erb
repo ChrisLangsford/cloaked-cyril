@@ -20,7 +20,7 @@
     <%= f.label :date, :class =>"col-lg-3 control-label" %>
     <div class="col-lg-9">
       <div class="input-group date" id="dt1">
-        <%= f.text_field :date, {:class => "form-control", data: { :date_format => "YYYY/MM/DD"}, readonly: true} %>
+        <%= f.text_field :date, {:class => "form-control", data: { :date_format => "YYYY/MM/DD"}, readonly: true, :'data-toggle' => "tooltip", :'data-placement' => "bottom", title: "Click calendar icon"} %>
         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>  
         <script type="text/javascript">
             $(function () {
@@ -36,7 +36,7 @@
     <%= f.label :time, :class =>"col-lg-3 control-label" %>
     <div class="col-lg-9">
       <div class="input-group date" id="dt2">
-        <%= f.text_field :time, :class => "form-control", readonly: true%>
+        <%= f.text_field :time, :class => "form-control", readonly: true, :'data-toggle' => "tooltip", :'data-placement' => "bottom", title: "Click clock icon" %>
         <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span> 
         <script type="text/javascript">
             $(function () {
@@ -57,7 +57,7 @@
   <div class="form-group">
     <%= f.label :follow_up, :class =>"col-lg-3 control-label" %>
     <div class="col-lg-9">
-      <%= f.check_box :follow_up%>
+      <%= f.check_box :follow_up, :'data-toggle' => "tooltip", :'data-placement' => "bottom", title: "Check to create a follow up"%>
     </div>
   </div>
   
