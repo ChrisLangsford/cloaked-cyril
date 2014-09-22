@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'reports/expense'
   get 'reports/busySeason'
   get 'reports/garmentPopularity'
+  get 'help/index'
 
   get 'quotes/show'
 
