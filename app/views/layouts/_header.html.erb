@@ -23,13 +23,36 @@
           <li><%= link_to 'Expenses', expenses_path, "data-no-turbolink" => true%></li>
           <li><%= link_to 'Reports', reports_index_path, "data-no-turbolink" => true%></li>
           <li class="dropdown">
-          <%= link_to root_path,"data-no-turbolink" => true, :'data-toggle' => "dropdown", :class =>"" do%>Help <span class="caret"></span><%end%>
+          <%= link_to root_path,"data-no-turbolink" => true, :'data-toggle' => "dropdown", :class =>"" do%><span class="glyphicon glyphicon-question-sign"></span> Help<%end%>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
+            <li class="dropdown-header">Customer</li>
+            <li><a href="#">Adding customers</a></li>
+            <li><a href="#">Editing customers</a></li>
+            <li><a href="#">Viewing customer details</a></li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li class="dropdown-header">Appointments</li>
+            <li><a href="#">Creating appointments</a></li>
+            <li><a href="#">Editing appointments</a></li>
+            <li><a href="#">Deleting appointments</a></li>
             <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li class="dropdown-header">Orders</li>
+            <li><a href="#">Creating Orders</a></li>
+            <li><a href="#">Viewing Orders</a></li>
+            <li><a href="#">Editing/closing orders</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Generating Quotes</a></li>
+            <li><a href="#">Generating Invoices</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Garments</li>
+            <li><a href="#">Creating garments</a></li>
+            <li><a href="#">Viewing garments</a></li>
+            <li><a href="#">Editing garment details</a></li>
+            <li><a href="#">Deleting garments</a></li>
+            <li><a href="#">Costing garments</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Expenses</li>
+            <li><a href="#">Adding Expenses</a></li>
+            <li class="divider"></li>            
           </ul>
         </li>
         </ul>                     
