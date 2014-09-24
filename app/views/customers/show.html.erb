@@ -48,18 +48,48 @@
 		</thead>
 		<tbody>
 			<% @orders.each do |order| %>
-			<tr class="link-row">
-				<td><%=order.order_description%></td>
-				<td><%=order.due_date %></td>
-				<td><%=order.closed ? "Closed" : "Open"%></td>
-				<td><%= order.closed ? order.customer_value_index.to_s : "Pending" %></td>
-				<td align="right" class="col-sm-2">
-					<%= link_to order_path(order),:class => "btn btn-xs btn-primary" do %>
-						<span class="glyphicon glyphicon-search"></span>
-						<span class="show-tag">Show</span> 
+				<%if order.closed%>
+					<%if order.customer_value_index > 5%>
+						<tr class="link-row success">
+							<td><%=order.order_description%></td>
+							<td><%=order.due_date %></td>
+							<td><%=order.closed ? "Closed" : "Open"%></td>
+							<td><%= order.closed ? order.customer_value_index.to_s : "Pending" %></td>
+							<td align="right" class="col-sm-2">
+								<%= link_to order_path(order),:class => "btn btn-xs btn-primary" do %>
+									<span class="glyphicon glyphicon-search"></span>
+									<span class="show-tag">Show</span> 
+								<%end%>
+							</td>
+						</tr>
+					<%else%>
+						<tr class="link-row danger">
+							<td><%=order.order_description%></td>
+							<td><%=order.due_date %></td>
+							<td><%=order.closed ? "Closed" : "Open"%></td>
+							<td><%= order.closed ? order.customer_value_index.to_s : "Pending" %></td>
+							<td align="right" class="col-sm-2">
+								<%= link_to order_path(order),:class => "btn btn-xs btn-primary" do %>
+									<span class="glyphicon glyphicon-search"></span>
+									<span class="show-tag">Show</span> 
+								<%end%>
+							</td>
+						</tr>
 					<%end%>
-				</td>
-			</tr>
+				<%else%>
+					<tr class="link-row warning">
+						<td><%=order.order_description%></td>
+						<td><%=order.due_date %></td>
+						<td><%=order.closed ? "Closed" : "Open"%></td>
+						<td><%= order.closed ? order.customer_value_index.to_s : "Pending" %></td>
+						<td align="right" class="col-sm-2">
+							<%= link_to order_path(order),:class => "btn btn-xs btn-primary" do %>
+								<span class="glyphicon glyphicon-search"></span>
+								<span class="show-tag">Show</span> 
+							<%end%>
+						</td>
+					</tr>
+				<%end%>
 			<% end %>
 		</tbody>
 	</table>
