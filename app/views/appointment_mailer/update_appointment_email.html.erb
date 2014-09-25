@@ -6,12 +6,12 @@
 <body>	
 	<h1> Updated appointment with Ivy's Dresses</h1>
 	<p>Hi <%=@customer.first_name%>,</p>
-	<p>Your Appointment with Ivy's Dresses has been changed to: </p>
+	<p>Your appointment with Ivy's Dresses has been changed to: </p>
 	<p><strong><%= @appointment.date.strftime("%A %d-%B-%Y")%></strong></p>
 	<p>at:</p>
 	<p><strong><%= @appointment.time.strftime("%H:%M")%></strong></p>
 
-	<p>Please contact us at least 1 working day prior to cancel or amend this appointment</p>
+	<p>Please contact us at least 1 working day prior to cancel or amend this appointment.</p>
 	<p>Thanks</p>
 	<p>Ivy</p>
 	<p>Cell: 0832930492</p>	

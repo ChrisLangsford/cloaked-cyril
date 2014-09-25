@@ -22,7 +22,7 @@
           <li><%= link_to 'Appointments', appointments_path, "data-no-turbolink" => true%></li>
           <li><%= link_to 'Expenses', expenses_path, "data-no-turbolink" => true%></li>
           <li><%= link_to 'Reports', reports_index_path, "data-no-turbolink" => true%></li>
-          <li><%= link_to help_index_path, "data-no-turbolink" => true, :'data-toggle' => "tooltip", :'data-placement' => "top", title: "Help" do %><span class="glyphicon glyphicon-question-sign" style ="font-size: 1.2em;"></span><%end%></li>          
+          <li><%= link_to help_index_path, "data-no-turbolink" => true, :'data-toggle' => "tooltip", :'data-placement' => "top", title: "Help", target: "_blank" do %><span class="glyphicon glyphicon-question-sign" style ="font-size: 1.2em;"></span><%end%></li>          
         </ul>                     
     </div><!--/.nav-collapse -->
   </div><!-- /.container container-fluid  -->  

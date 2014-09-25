@@ -26,9 +26,9 @@ Appointment.create!([
   {date: "2014-08-21", time: "2000-01-01 09:00:00", comments: "Meeting", follow_up: true, customer_id: 10}, 
   {date: "2014-08-21", time: "2000-01-01 10:00:00", comments: "Meeting", follow_up: false, customer_id: 9}, 
   {date: "2014-08-21", time: "2000-01-01 11:00:00", comments: "Meeting", follow_up: false, customer_id: 8}, 
-  {date: "2014-08-22", time: "2000-01-01 12:00:00", comments: "Meeting", follow_up: true, customer_id: 7}, 
-  {date: "2014-08-22", time: "2000-01-01 13:00:00", comments: "Meeting", follow_up: false, customer_id: 6}, 
-  {date: "2014-08-22", time: "2000-01-01 14:00:00", comments: "Meeting", follow_up: false, customer_id: 10} 
+  {date: "2014-09-30", time: "2000-01-01 12:00:00", comments: "Meeting", follow_up: true, customer_id: 7}, 
+  {date: "2014-09-30", time: "2000-01-01 13:00:00", comments: "Meeting", follow_up: false, customer_id: 6}, 
+  {date: "2014-09-30", time: "2000-01-01 14:00:00", comments: "Meeting", follow_up: false, customer_id: 10} 
 ])
 Costing.create!([
   {labour_cost: "1800.0", fabric_cost: "800.0", acc_cost: "400.0", misc_cost: "0.0", garment_id: 1},  
@@ -162,8 +162,8 @@ Order.create!([
   {order_description: "Onesie", due_date: "2014-04-11", customer_value_index: "8.0", closed: true, customer_id: 1},
   {order_description: "Onesie", due_date: "2014-05-11", customer_value_index: "6.0", closed: true, customer_id: 5},
   {order_description: "Onesie", due_date: "2014-05-11", customer_value_index: "7.5", closed: true, customer_id: 1},
-  {order_description: "Matric Farewell", due_date: "2014-08-18", customer_value_index: "7.5", closed: false, customer_id: 2},
-  {order_description: "Debutant Gown", due_date: "2014-08-20", customer_value_index: "6", closed: true, customer_id: 3},
-  {order_description: "Matric Farewell", due_date: "2014-08-21", customer_value_index: "6.5", closed: false, customer_id: 4},
-  {order_description: "Wedding Dress", due_date: "2014-08-22", customer_value_index: "7.0", closed: false, customer_id: 5}
+  {order_description: "Matric Farewell", due_date: "2014-09-28", customer_value_index: "7.5", closed: false, customer_id: 2},
+  {order_description: "Debutant Gown", due_date: "2014-09-30", customer_value_index: "6", closed: true, customer_id: 3},
+  {order_description: "Matric Farewell", due_date: "2014-10-01", customer_value_index: "6.5", closed: false, customer_id: 4},
+  {order_description: "Wedding Dress", due_date: "2014-10-03", customer_value_index: "7.0", closed: false, customer_id: 5}
 ])
