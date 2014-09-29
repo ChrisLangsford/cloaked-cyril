@@ -30,25 +30,37 @@ class ReportsController < ApplicationController
 
     customers.each do |c|
       customer_with_scores = Hash.new
-      customer_value_scores = []
+      customer_value_scores = [] 
 
+      if c.orders.count == 0
+      customer_value_scores.push(0)
+      end     
+
+      
       c.orders.each do|o|
         if o.closed 
         customer_value_scores.push(o.customer_value_index)
       end
       end
 
-      individual_score = customer_value_scores.inject{ |sum, el| sum + el }.to_f / customer_value_scores.size
+
       customer_with_scores["name"] = c.first_name + " " + c.last_name
+      individual_score = customer_value_scores.inject{ |sum, el| sum + el }.to_f / customer_value_scores.size
       customer_with_scores["sub_score"] = individual_score
       customer_with_scores["obj_score"] = calculate_objective_index(c)
 
+      #above stores the customers name, their subjective score and objective score and stores it in a hash which is pushed to the following array
+
+      if individual_score != 0
       all_customers_with_scores.push(customer_with_scores)
+      end
+      all_customers_with_scores.sort_by! {|hash| hash["sub_score"]}   
     end
 
 
-    @top5 = all_customers_with_scores.sort_by { |hsh| hsh[:sub_score]}[0..4]
-    @bottom5 = all_customers_with_scores.sort_by { |hsh| hsh[:sub_score]}.reverse[0..4]
+    @top5 = all_customers_with_scores.reverse[0..4]
+    @bottom5 = all_customers_with_scores[0..4]
+
 
 
     add_breadcrumb "Reports", reports_index_path

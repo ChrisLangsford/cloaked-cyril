@@ -17,6 +17,10 @@ class WelcomeController < ApplicationController
       customer_with_scores = Hash.new
       customer_value_scores = []
 
+      if c.orders.count == 0
+      customer_value_scores.push(0)
+      end
+
       c.orders.each do|o|
         if o.closed
         customer_value_scores.push(o.customer_value_index)
@@ -28,12 +32,15 @@ class WelcomeController < ApplicationController
       customer_with_scores["sub_score"] = individual_score
       customer_with_scores["obj_score"] = calculate_objective_index(c)
 
+      if individual_score != 0
       all_customers_with_scores.push(customer_with_scores)
+      end
+      all_customers_with_scores.sort_by! {|hash| hash["sub_score"]}
     end
 
 
-    @top5 = all_customers_with_scores.sort_by { |hsh| hsh[:sub_score]}[0..4]
-    @bottom5 = all_customers_with_scores.sort_by { |hsh| hsh[:sub_score]}.reverse[0..4]
+    @top5 = all_customers_with_scores.reverse[0..4]
+    @bottom5 = all_customers_with_scores[0..4]
     #end customer ranking code
   end
 

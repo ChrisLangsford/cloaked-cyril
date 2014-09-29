@@ -1,4 +1,5 @@
 class HelpController < ApplicationController
+	layout "corres"	
 	add_breadcrumb "Home", :root_path
 
 	def index
