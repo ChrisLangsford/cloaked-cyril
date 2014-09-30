@@ -1,0 +1,22 @@
+<div>
+	<table class="table table striped table-bordered">
+		<thead>
+			<th class="col-md-3">Name</th>
+			<th class="col-md-3">Follow ups</th>
+			<th class="col-md-3">Regular Appts</th>
+		</thead>
+		<% @c.each do |c|%>			
+				<tr>
+					<td>
+						<%=c.first_name + ' ' + c.last_name%>										
+					</td>
+					<td>
+						<%= c.appointments.where('follow_up = true').count%>
+					</td>
+					<td>
+						<%= c.appointments.where('follow_up = false').count%>
+					</td>
+				</tr>		
+		<%end%>		
+	</table>
+</div>
