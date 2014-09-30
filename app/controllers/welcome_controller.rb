@@ -17,7 +17,7 @@ class WelcomeController < ApplicationController
       customer_with_scores = Hash.new
       customer_value_scores = []
 
-      if c.orders.count == 0
+      if c.orders.where('closed = true').count == 0
       customer_value_scores.push(0)
       end
 
