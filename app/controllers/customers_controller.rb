@@ -19,7 +19,9 @@ class CustomersController < ApplicationController
 
     full_name = @customer.first_name + " " + @customer.last_name
 
+    add_breadcrumb "Customers", customers_path
     add_breadcrumb full_name.to_s, customer_path(@customer)
+
   end
 
   # GET /customers/new

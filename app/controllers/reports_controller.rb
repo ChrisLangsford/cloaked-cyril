@@ -44,8 +44,8 @@ class ReportsController < ApplicationController
       end
 
 
-      customer_with_scores["name"] = c.first_name + " " + c.last_name
       individual_score = customer_value_scores.inject{ |sum, el| sum + el }.to_f / customer_value_scores.size
+      customer_with_scores["name"] = c.first_name + " " + c.last_name
       customer_with_scores["sub_score"] = individual_score
       customer_with_scores["obj_score"] = calculate_objective_index(c)
 
@@ -60,6 +60,7 @@ class ReportsController < ApplicationController
 
     @top5 = all_customers_with_scores.reverse[0..4]
     @bottom5 = all_customers_with_scores[0..4]
+    @full = all_customers_with_scores.reverse
 
 
 

@@ -41,6 +41,7 @@ class WelcomeController < ApplicationController
 
     @top5 = all_customers_with_scores.reverse[0..4]
     @bottom5 = all_customers_with_scores[0..4]
+    @full = all_customers_with_scores.reverse
     #end customer ranking code
   end
 

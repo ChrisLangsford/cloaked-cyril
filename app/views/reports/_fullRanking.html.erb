@@ -1,32 +1,34 @@
-<h1 class="page-header">Welcome 
-<span><h5><%=Time.now.strftime("%A %d-%B-%Y %H:%M")%></h5></span></h1>
-
-<br/>
-
-<div class="row">
-	<div class="col-lg-5">
-		<%= render 'reports/dailySchedule'%>
-		<%= render 'reports/weeklyDeadlines'%>
-	</div>
-	<!--CR Report-->
-	<div class="col-lg-6 col-lg-offset-1">
-	<ul class="nav nav-pills">
-		<li class="active"><a href="#top" data-toggle="pill">Top 5</a></li>
-		<li><a href="#bottom" data-toggle="pill">Bottom 5</a></li>
-		<li><a href="#full" data-toggle="pill">Full Ranking</a></li>	
-	</ul>
-		<div class="tab-content">
-		<div class="tab-pane active" id="top">			
-			<%= render "reports/top5"%>		
-		</div>		
-		<div class="tab-pane" id="bottom">			
-			<%= render "reports/bottom5"%>			
+<div class="table-repsonsive">
+	<table class="table table-bordered table-striped order-table">
+		<div class="col-lg-4">
+		<h4>All Customers</h4>
+		<h6><i>Scores out of 10</i></h4>			
 		</div>
-		<div class="tab-pane" id="full">
-			<%= render 'reports/fullRanking'%>
+		<div class="col-lg-4 col-lg-offset-8  input-group">
+		    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>   
+		    <input type="search" class="light-table-filter form-control" data-table="order-table" placeholder="Search"> 
 		</div>
-	</div>
-	</div>	
+	<thead>
+		<th>Rank</th>
+		<th>Customer</th>
+		<th>Subjective Score</th>
+		<th>Objective Score</th>
+		<th>Combined Score</th>
+	</thead>
+	<tbody>
+		<%i=1%>
+		<% @full.each do |c|%>
+			<tr>
+				<td><b><%=i%></b></td>
+				<td><%= c["name"]%></td>
+				<td><%= a = c["sub_score"].round(1)%></td>
+				<td><%= b = c["obj_score"].round(1)%></td>
+				<td><%= ((a.to_f + b.to_f)/2).round(1)%></td>
+			</tr>
+			<%i+=1%>
+		<%end%>
+	</tbody>		
+	</table>
 </div>
 
 <script type="text/javascript">
