@@ -109,7 +109,6 @@ class ReportsController < ApplicationController
     @full = all_customers_with_scores.reverse
 
 
-
     add_breadcrumb "Reports", reports_index_path
     add_breadcrumb "Customer Ranking", reports_customerRanking_path
     
