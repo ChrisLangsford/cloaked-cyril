@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-	helper_method :group_due_dates, :calculate_objective_index, :is_potential_customer
+	helper_method :group_due_dates, :calculate_objective_index, :is_potential_customer, :is_missed_potential_customer
 
   add_breadcrumb "Home", :root_path
   def index
@@ -10,13 +10,39 @@ class ReportsController < ApplicationController
   def test
 
   @a = Appointment.all
-  @c = Customer.all  
+  @c = Customer.all 
+
+  @potential_customers = []
+  @missed_pot_customers = []
+
+  Customer.all.each do |c|
+    if is_potential_customer(c)
+      @potential_customers.push(c.first_name + ' ' + c.last_name)
+    end
+  end
+
+  Customer.all.each do |c|
+    if is_missed_potential_customer(c)
+      @missed_pot_customers.push(c.first_name + ' ' + c.last_name)
+    end
+  end 
   
  end
 
  def is_potential_customer(c)  
   
-   if c.orders.last.closed && c.appointments.last.follow_up && c.appointments.last.date <= Date.today
+   if (c.orders.count == 0 || c.orders.last.closed) && (c.appointments.last.present? && c.appointments.last.follow_up && c.appointments.last.date > Date.today)
+    p = true
+  else
+    p = false
+   end
+   return p
+   
+ end
+
+ def is_missed_potential_customer(c)  
+  
+   if (c.orders.count == 0 || c.orders.last.closed) && (c.appointments.last.present? && c.appointments.last.follow_up && c.appointments.last.date < Date.today)
     p = true
   else
     p = false
