@@ -1,9 +1,11 @@
 <div>
 	<table class="table table striped table-bordered">
 		<thead>
-			<th class="col-md-3">Name</th>
-			<th class="col-md-3">Follow ups</th>
-			<th class="col-md-3">Regular Appts</th>
+			<th class="col-md-2">Name</th>
+			<th class="col-md-2">Follow ups</th>
+			<th class="col-md-2">Regular Appts</th>
+			<th class="col-md-2">No. of orders</th>
+			<th class="col-md-2">potential order</th>
 		</thead>
 		<% @c.each do |c|%>			
 				<tr>
@@ -15,6 +17,13 @@
 					</td>
 					<td>
 						<%= c.appointments.where('follow_up = false').count%>
+					</td>
+					<td>
+						<%= c.orders.count%>
+					</td>
+					<td>
+						<%p = is_potential_customer(c)%>
+						<%=p%>
 					</td>
 				</tr>		
 		<%end%>		

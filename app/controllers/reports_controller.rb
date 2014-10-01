@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-	helper_method :group_due_dates, :calculate_objective_index 
+	helper_method :group_due_dates, :calculate_objective_index, :is_potential_customer
 
   add_breadcrumb "Home", :root_path
   def index
@@ -10,9 +10,22 @@ class ReportsController < ApplicationController
   def test
 
   @a = Appointment.all
-  @c = Customer.all
-    
-  end
+  @c = Customer.all  
+  
+ end
+
+ def is_potential_customer(c)  
+  
+   if c.orders.last.closed && c.appointments.last.follow_up && c.appointments.last.date <= Date.today
+    p = true
+  else
+    p = false
+   end
+   return p
+   
+ end
+
+  
 
   def dailySchedule
 
