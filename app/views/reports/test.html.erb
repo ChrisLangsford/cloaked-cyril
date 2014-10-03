@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
 	<table class="table table striped table-bordered">
 		<thead>
 			<th class="col-md-2">Name</th>
@@ -38,3 +38,93 @@
 		<%= "missed"%>
 		<%= @missed_pot_customers%>	
 </div>
+ -->
+
+<script type="text/javascript">
+	var chart;
+	var arrowPot;
+	var arrowMissed;
+	var axis;
+	var valuePot = <%= @potential_customers.size %>;
+	var valueMiss = <%= @missed_pot_customers.size %>;
+
+	AmCharts.ready(function () {
+
+				chart = new AmCharts.AmAngularGauge();
+				chart.radius = "45%";
+
+				// Customer Axis
+				axis = new AmCharts.GaugeAxis();
+				axis.startValue = 0;
+				axis.endValue = 50;
+				axis.radius = "100%";
+				axis.inside = false;
+				axis.gridInside = true;
+				axis.axisColor = "#94dca0";
+				axis.tickColor = "#94dca0";
+				axis.axisThickness = 3;
+				axis.valueInterval = 5;
+				chart.addAxis(axis);
+				
+
+				// arrowPot
+				arrowPot = new AmCharts.GaugeArrow();
+				arrowPot.radius = "85%";
+				arrowPot.color = "#8ec487";
+				arrowPot.innerRadius = 50;
+				arrowPot.nailRadius = 0;
+				chart.addArrow(arrowPot);
+				arrowPot.setValue(valuePot);				
+
+				chart.write("potChart");
+			});
+
+
+	
+	AmCharts.ready(function () {
+				
+				chart = new AmCharts.AmAngularGauge();
+				chart.radius = "45%";
+
+				// Customer Axis
+				axis = new AmCharts.GaugeAxis();
+				axis.startValue = 0;
+				axis.endValue = 50;
+				axis.radius = "100%";
+				axis.inside = false;
+				axis.gridInside = true;
+				axis.axisColor = "#94dca0";
+				axis.tickColor = "#94dca0";
+				axis.axisThickness = 3;
+				axis.valueInterval = 5;
+				chart.addAxis(axis);				
+
+				// arrowMiss
+				arrowMissed = new AmCharts.GaugeArrow();
+				arrowMissed.radius = "85%";
+				arrowMissed.color = "#8ec487";
+				arrowMissed.innerRadius = 50;
+				arrowMissed.nailRadius = 0;
+				chart.addArrow(arrowMissed);
+				arrowPot.setValue(valueMiss);
+
+				chart.write("missedChart");
+			});
+
+</script>
+
+<div class="row">
+<div id="potChart" style="width:400px; height:400px;" class="col-md-6"></div>
+<div id="missedChart" style="width:400px; height:400px;" class="col-md-6 col-md-push-1"></div>
+</div>
+
+<%= "potential"%>
+		<%= @potential_customers.size%>	<br>
+		<%= "missed"%>
+		<%= @missed_pot_customers.size%> <br>
+
+		<%= "potential"%>
+		<%= @potential_customers%>	<br>
+		<%= "missed"%>
+		<%= @missed_pot_customers%>	
+
