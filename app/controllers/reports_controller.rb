@@ -17,13 +17,13 @@ class ReportsController < ApplicationController
 
   Customer.all.each do |c|
     if is_potential_customer(c)
-      @potential_customers.push(c.first_name + ' ' + c.last_name)
+      @potential_customers.push(c)
     end
   end
 
   Customer.all.each do |c|
     if is_missed_potential_customer(c)
-      @missed_pot_customers.push(c.first_name + ' ' + c.last_name)
+      @missed_pot_customers.push(c)
     end
   end 
   
