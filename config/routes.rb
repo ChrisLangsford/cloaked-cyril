@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'reports/busySeason'
   get 'reports/garmentPopularity'
   get 'reports/test'
+  get 'reports/potential'
   get 'help/index'
 
   get 'quotes/show'

@@ -51,6 +51,28 @@ class ReportsController < ApplicationController
    
  end
 
+ def potential
+
+  @potential_customers = []
+  @missed_pot_customers = []
+
+  Customer.all.each do |c|
+    if is_potential_customer(c)
+      @potential_customers.push(c)
+    end
+  end
+
+  Customer.all.each do |c|
+    if is_missed_potential_customer(c)
+      @missed_pot_customers.push(c)
+    end
+  end 
+
+
+  add_breadcrumb "Reports", reports_index_path
+  add_breadcrumb "Potential Customers", reports_potential_path 
+ end
+
   
 
   def dailySchedule
