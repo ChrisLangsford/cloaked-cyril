@@ -7,7 +7,7 @@ class ReportsController < ApplicationController
     add_breadcrumb "Reports", reports_index_path  
   end
 
-  def test
+ def test
 
   @a = Appointment.all
   @c = Customer.all 
